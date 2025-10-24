@@ -1,0 +1,455 @@
+<!-- core/templates/core/login.html -->
+{% extends "base.html" %}
+{% block title %}VIP Access - Nalala House{% endblock %}
+
+{% block content %}
+<section class="luxury-login-section py-6">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-5 col-lg-6 col-md-8">
+                <!-- Luxury Login Header -->
+                <div class="luxury-login-header text-center mb-6" data-aos="fade-down">
+                    <div class="luxury-header-icon mb-4">
+                        <i class="fas fa-shield-alt fa-3x text-gold"></i>
+                    </div>
+                    <h1 class="display-4 fw-bold text-charcoal mb-3">Access Portal</h1>
+                    <p class="lead text-silver">Secure access to Nalala House management system</p>
+                    <div class="luxury-divider mx-auto my-4"></div>
+                </div>
+
+                <!-- Luxury Login Card -->
+                <div class="luxury-login-card rounded-4 shadow-2xl overflow-hidden" data-aos="zoom-in">
+                    <div class="luxury-card-header bg-charcoal text-white p-5 text-center">
+                        <h3 class="mb-2">
+                            <i class="fas fa-crown me-3 text-gold"></i>
+                            Administrator Login
+                        </h3>
+                        <p class="text-silver mb-0">Enter your credentials to access the luxury management system</p>
+                    </div>
+
+                    <div class="luxury-card-body bg-white p-5">
+                        <!-- Messages Display -->
+                        {% if messages %}
+                        <div class="luxury-messages mb-4">
+                            {% for message in messages %}
+                            <div class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-success{% endif %} luxury-alert rounded-3">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas {% if message.tags == 'error' %}fa-exclamation-triangle{% else %}fa-check-circle{% endif %} me-3"></i>
+                                    <span>{{ message }}</span>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+
+                        <form method="post" class="luxury-login-form">
+                            {% csrf_token %}
+                            
+                            <!-- Username Field -->
+                            <div class="luxury-form-group mb-4">
+                                <label class="luxury-form-label">
+                                    <i class="fas fa-user me-2 text-gold"></i>
+                                    Username
+                                </label>
+                                <div class="luxury-input-group">
+                                    <input type="text" 
+                                           name="username" 
+                                           class="form-control luxury-input"
+                                           placeholder="Enter your username"
+                                           required
+                                           autofocus>
+                                    <i class="fas fa-user-circle luxury-input-icon"></i>
+                                </div>
+                                {% if form.username.errors %}
+                                <div class="luxury-error-message">
+                                    <i class="fas fa-exclamation-circle me-2"></i>
+                                    {{ form.username.errors }}
+                                </div>
+                                {% endif %}
+                            </div>
+
+                            <!-- Password Field -->
+                            <div class="luxury-form-group mb-4">
+                                <label class="luxury-form-label">
+                                    <i class="fas fa-lock me-2 text-gold"></i>
+                                    Password
+                                </label>
+                                <div class="luxury-input-group">
+                                    <input type="password" 
+                                           name="password" 
+                                           class="form-control luxury-input"
+                                           placeholder="Enter your password"
+                                           required>
+                                    <i class="fas fa-key luxury-input-icon"></i>
+                                </div>
+                                {% if form.password.errors %}
+                                <div class="luxury-error-message">
+                                    <i class="fas fa-exclamation-circle me-2"></i>
+                                    {{ form.password.errors }}
+                                </div>
+                                {% endif %}
+                            </div>
+
+                            <!-- Remember Me & Forgot Password -->
+                            <div class="luxury-form-options d-flex justify-content-between align-items-center mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input luxury-checkbox" type="checkbox" id="rememberMe">
+                                    <label class="form-check-label text-silver small" for="rememberMe">
+                                        Remember me
+                                    </label>
+                                </div>
+                                <a href="#" class="text-gold small text-decoration-none">
+                                    <i class="fas fa-question-circle me-1"></i>
+                                </a>
+                            </div>
+
+                            <!-- Login Button -->
+                            <div class="luxury-login-actions mb-4">
+                                <button type="submit" class="btn btn-luxury btn-xl w-100">
+                                    <i class="fas fa-sign-in-alt me-3"></i>
+                                    Access Luxury Portal
+                                </button>
+                            </div>
+
+                            <!-- Security Features -->
+                            <div class="luxury-security-features text-center">
+                                <small class="text-silver">
+                                    <i class="fas fa-shield-alt me-2"></i>
+                                    Protected by 256-bit SSL encryption
+                                </small>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Luxury Card Footer -->
+                    <div class="luxury-card-footer bg-light-ivory border-top p-4 text-center">
+                        <div class="luxury-features">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="luxury-feature">
+                                        <i class="fas fa-clock text-gold fs-5 mb-2"></i>
+                                        <h6 class="text-charcoal mb-1">24/7</h6>
+                                        <small class="text-silver">Access</small>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="luxury-feature">
+                                        <i class="fas fa-user-shield text-gold fs-5 mb-2"></i>
+                                        <h6 class="text-charcoal mb-1">Secure</h6>
+                                        <small class="text-silver">Login</small>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="luxury-feature">
+                                        <i class="fas fa-history text-gold fs-5 mb-2"></i>
+                                        <h6 class="text-charcoal mb-1">Real-time</h6>
+                                        <small class="text-silver">Updates</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Support Info -->
+                <div class="luxury-support-info text-center mt-4">
+                    <p class="text-silver small mb-2">
+                        Need assistance? Contact our support team
+                    </p>
+                    <a href="mailto:support@nalalahouse.com" class="text-gold text-decoration-none">
+                        <i class="fas fa-envelope me-2"></i>
+                        support@nalalahouse.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Luxury Custom Styles -->
+<style>
+    :root {
+        --gold: #D4AF37;
+        --dark-gold: #B8860B;
+        --charcoal: #1a1a1a;
+        --light-ivory: #F8F5F0;
+        --deep-green: #2F4F4F;
+    }
+
+    .luxury-login-section {
+        background: linear-gradient(135deg, var(--light-ivory) 0%, #ffffff 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+    }
+
+    .py-6 {
+        padding: 6rem 0;
+    }
+
+    /* Luxury Login Card */
+    .luxury-login-card {
+        background: white;
+        border: 2px solid rgba(212, 175, 55, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    .luxury-login-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 30px 60px rgba(0,0,0,0.15) !important;
+    }
+
+    .luxury-card-header {
+        background: linear-gradient(135deg, var(--charcoal) 0%, #2a2a2a 100%);
+        border-bottom: 3px solid var(--gold);
+    }
+
+    .luxury-card-body {
+        background: white;
+    }
+
+    .luxury-card-footer {
+        background: var(--light-ivory);
+        border-top: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    /* Luxury Form Elements */
+    .luxury-form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .luxury-form-label {
+        font-weight: 600;
+        color: var(--charcoal);
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    .luxury-input-group {
+        position: relative;
+    }
+
+    .luxury-input {
+        width: 100%;
+        padding: 12px 45px 12px 15px;
+        border: 2px solid #e2e8f0;
+        border-radius: 10px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: white;
+    }
+
+    .luxury-input:focus {
+        outline: none;
+        border-color: var(--gold);
+        box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        transform: translateY(-2px);
+    }
+
+    .luxury-input-icon {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--gold);
+        font-size: 1.1rem;
+    }
+
+    /* Luxury Checkbox */
+    .luxury-checkbox {
+        width: 18px;
+        height: 18px;
+        border: 2px solid #e2e8f0;
+        border-radius: 4px;
+        margin-right: 8px;
+    }
+
+    .luxury-checkbox:checked {
+        background-color: var(--gold);
+        border-color: var(--gold);
+    }
+
+    .luxury-checkbox:focus {
+        box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+    }
+
+    /* Luxury Error Messages */
+    .luxury-error-message {
+        color: #dc2626;
+        font-size: 0.875rem;
+        margin-top: 0.5rem;
+        padding: 0.75rem;
+        background: #fef2f2;
+        border: 1px solid #fecaca;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Luxury Alert Messages */
+    .luxury-alert {
+        border: none;
+        padding: 1rem 1.5rem;
+        font-weight: 500;
+    }
+
+    .alert-success {
+        background: rgba(34, 197, 94, 0.1);
+        color: #16a34a;
+        border-left: 4px solid #16a34a;
+    }
+
+    .alert-danger {
+        background: rgba(239, 68, 68, 0.1);
+        color: #dc2626;
+        border-left: 4px solid #dc2626;
+    }
+
+    /* Luxury Buttons */
+    .btn-luxury {
+        background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+        border: none;
+        color: white;
+        font-weight: 600;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-luxury:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
+        color: white;
+    }
+
+    .btn-xl {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+    }
+
+    /* Luxury Features */
+    .luxury-feature {
+        padding: 0.5rem;
+    }
+
+    .luxury-feature h6 {
+        font-size: 0.875rem;
+    }
+
+    /* Luxury Elements */
+    .luxury-divider {
+        height: 3px;
+        background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        width: 100px;
+        border: none;
+    }
+
+    .shadow-2xl {
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+    }
+
+    .text-charcoal {
+        color: var(--charcoal);
+    }
+
+    .text-silver {
+        color: #6b7280;
+    }
+
+    .text-gold {
+        color: var(--gold);
+    }
+
+    .bg-charcoal {
+        background: var(--charcoal);
+    }
+
+    .bg-gold {
+        background: linear-gradient(135deg, var(--gold), var(--dark-gold)) !important;
+    }
+
+    .bg-light-ivory {
+        background: var(--light-ivory);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .luxury-login-header h1 {
+            font-size: 2.5rem;
+        }
+        
+        .luxury-card-body {
+            padding: 2rem !important;
+        }
+        
+        .luxury-card-header {
+            padding: 2rem !important;
+        }
+        
+        .btn-xl {
+            padding: 12px 25px;
+            font-size: 1rem;
+        }
+        
+        .luxury-login-section {
+            padding: 2rem 0;
+        }
+    }
+
+    /* Form Input Enhancements */
+    input, button {
+        font-family: 'Inter', sans-serif;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Form submission loading state
+        const form = document.querySelector('.luxury-login-form');
+        const submitBtn = form.querySelector('button[type="submit"]');
+        
+        form.addEventListener('submit', function() {
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Authenticating...';
+            submitBtn.disabled = true;
+        });
+
+        // Add input focus effects
+        const inputs = document.querySelectorAll('.luxury-input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'translateY(-2px)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Password visibility toggle (optional enhancement)
+        const passwordInput = document.querySelector('input[type="password"]');
+        if (passwordInput) {
+            const toggleBtn = document.createElement('button');
+            toggleBtn.type = 'button';
+            toggleBtn.className = 'btn btn-link text-gold p-0';
+            toggleBtn.style.position = 'absolute';
+            toggleBtn.style.right = '40px';
+            toggleBtn.style.top = '50%';
+            toggleBtn.style.transform = 'translateY(-50%)';
+            toggleBtn.style.border = 'none';
+            toggleBtn.style.background = 'none';
+            toggleBtn.innerHTML = '<i class="fas fa-eye"></i>';
+            
+            passwordInput.parentElement.appendChild(toggleBtn);
+            
+            toggleBtn.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                this.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+            });
+        }
+    });
+</script>
+
+{% endblock %}

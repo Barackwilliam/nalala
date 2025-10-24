@@ -1,0 +1,1 @@
+web: gunicorn lg.wsgi

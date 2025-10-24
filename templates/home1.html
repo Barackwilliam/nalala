@@ -1,0 +1,222 @@
+<!-- core/templates/core/home.html -->
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Nalala House - VVIP Safari Luxury in Mateves, Arusha{% endblock %}
+
+{% block content %}
+
+<!-- Immersive Hero: Full-Screen Safari Image with Overlay CTA -->
+<section class="hero-section d-flex align-items-center text-white text-center" style="background-image: url('https://images.ctfassets.net/p03x4m3svbfn/5ZoQdDsGnt3zyzAHnU7i5Z/048c9f21d81e1977e77b48802a90c6c4/ADFCA3BB-E952-4B99-86FC-D16EC0858BB7.jpeg'); background-size: cover; background-position: center; height: 100vh; position: relative;">
+    <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100" style="background: rgba(44, 85, 48, 0.7);"></div>
+    <div class="container position-relative z-2">
+        <h1 class="display-3 fw-bold mb-3 animate-fade-in">Welcome to Nalala House</h1>
+        <p class="lead mb-4">Experience Unparalleled VVIP Luxury in Mateves, Arusha, Surrounded by Majestic Wildlife & Kilimanjaro Views. Your Dream Safari Awaits.</p>
+        <a href="{% url 'book_room' %}" class="btn btn-warning btn-lg px-5 py-3 fs-5">Book Your VVIP Escape <i class="fas fa-arrow-right ms-2"></i></a>
+    </div>
+</section>
+
+<!-- About Mateves Section: Highlighting Local Allure -->
+<section id="about" class="py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img src="https://www.climbkilimanjaroguide.com/wp-content/uploads/2021/07/Four-Seasons-Serengeti-Safari-Lodge.jpg" alt="Mateves Safari View" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-md-6">
+                <h2 class="display-5 fw-bold text-success mb-4">Discover Mateves, Arusha's Hidden Gem</h2>
+                <p class="fs-5">Located in the serene Mateves area of Arusha, Nalala House is your gateway to world-class adventures. From the iconic Ngorongoro Crater to the vibrant Cultural Heritage Museum, immerse yourself in unforgettable experiences. Relax in luxurious suites with private plunge pools, designed for international travelers seeking adventure and tranquility.</p>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-check text-warning me-2"></i> Big 5 Wildlife Safaris</li>
+                    <li class="mb-2"><i class="fas fa-check text-warning me-2"></i> Gourmet African Fusion Dining</li>
+                    <li class="mb-2"><i class="fas fa-check text-warning me-2"></i> Spa & Authentic Cultural Experiences</li>
+                    <li class="mb-2"><i class="fas fa-check text-warning me-2"></i> Exclusive Coffee Tours</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Premier Rooms Gallery: Interactive Cards -->
+<section id="rooms" class="py-5 safari-bg" style="background: linear-gradient(180deg, rgba(44, 85, 48, 1) 0%, rgba(0, 0, 0, 0.8) 100%);">
+    <div class="container">
+        <h2 class="text-center display-4 fw-bold mb-5 text-white">Our Safari Suites</h2>
+        <div class="row g-4">
+            {% for room in rooms %}
+            <div class="col-lg-4 col-md-6">
+                <div class="room-card position-relative overflow-hidden rounded shadow-lg">
+                    <img src="https://yellowzebrasafaris.com/media/44250/arusha-coffee-lodge-exterior-tanzania-yellow-zebra-safaris.jpg?width=2048&height=1024&format=jpg&v=1da5e168af626d0" class="card-img-top w-100" alt="{{ room.name }}" style="height: 250px; object-fit: cover;">
+                    <div class="card-overlay position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-75 text-white p-4">
+                        <h3 class="card-title mb-2">{{ room.name }} Suite</h3>
+                        <p class="mb-2">Premier Double | ${{ room.price_per_night }}/night</p>
+                        <p class="mb-3">Status: <span class="badge bg-warning text-dark">{{ room.status }}</span></p>
+                        {% if room.status == 'Available' %}
+                        <a href="{% url 'book_room' %}" class="btn btn-warning">Reserve Now <i class="fas fa-bolt ms-2"></i></a>
+                        {% else %}
+                        <button class="btn btn-secondary" disabled>Exclusive Booking</button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+<section id="attractions" class="py-5 bg-dark text-white">
+  <div class="container">
+    <h2 class="text-center display-4 fw-bold mb-5">Explore Mateves' Premier Attractions</h2>
+    <p class="text-center lead mb-5">
+      Nalala House in Mateves, Arusha, is your perfect base for exploring Tanzania’s iconic attractions.
+      After thrilling adventures, return to our VVIP suites for unmatched luxury, gourmet African fusion dining, 
+      and serene relaxation with private plunge pools. We partner with trusted local tour operators to ensure 
+      seamless, unforgettable experiences, allowing you to focus on enjoying your safari getaway.
+    </p>
+
+    <div class="row g-4">
+      <!-- Arusha National Park -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card bg-dark text-white border-0 overflow-hidden">
+          <img src="https://www.serengetiparktanzania.com/wp-content/uploads/2022/03/Barranco-Tours-Arusha-national-park1.jpg" class="card-img" alt="Arusha National Park" style="height: 250px; object-fit: cover;">
+          <div class="card-img-overlay d-flex flex-column justify-content-end p-4" style="background: rgba(0,0,0,0.6);">
+            <h5 class="card-title text-warning">Arusha National Park</h5>
+            <p class="card-text">Just a short drive from Nalala House, explore diverse wildlife, stunning landscapes, and Mount Meru. Return to our luxurious lodge to unwind in style after your adventure.</p>
+            <a href="{% url 'book_room' %}" class="btn btn-warning btn-sm">Book Your Stay</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kikuletwa Hotsprings -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card bg-dark text-white border-0 overflow-hidden">
+          <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=395x10000:format=jpg/path/s4f4dce6430c23411/image/i4a87038294854e9f/version/1499953314/image.jpg" class="card-img" alt="Kikuletwa Hotsprings" style="height: 250px; object-fit: cover;">
+          <div class="card-img-overlay d-flex flex-column justify-content-end p-4" style="background: rgba(0,0,0,0.6);">
+            <h5 class="card-title text-warning">Kikuletwa Hotsprings</h5>
+            <p class="card-text">Relax in crystal-clear, warm waters surrounded by lush greenery, easily accessible from our lodge. Enjoy a soothing spa session at Nalala House afterward.</p>
+            <a href="{% url 'book_room' %}" class="btn btn-warning btn-sm">Book Your Stay</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarangire National Park -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card bg-dark text-white border-0 overflow-hidden">
+          <img src="https://www.safaris-uganda.com/wp-content/uploads/2020/03/tarangire-national-park-1.jpg" class="card-img" alt="Tarangire National Park" style="height: 250px; object-fit: cover;">
+          <div class="card-img-overlay d-flex flex-column justify-content-end p-4" style="background: rgba(0,0,0,0.6);">
+            <h5 class="card-title text-warning">Tarangire National Park</h5>
+            <p class="card-text">Witness vast elephant herds and iconic baobab trees, just a scenic drive from Nalala House. Return to gourmet dining and VVIP comfort.</p>
+            <a href="{% url 'book_room' %}" class="btn btn-warning btn-sm">Book Your Stay</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lake Manyara National Park -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card bg-dark text-white border-0 overflow-hidden">
+          <img src="https://kidunguuexpeditions.com/wp-content/uploads/2025/08/Lake-Manyara-National-Park.jpg" class="card-img" alt="Lake Manyara National Park" style="height: 250px; object-fit: cover;">
+          <div class="card-img-overlay d-flex flex-column justify-content-end p-4" style="background: rgba(0,0,0,0.6);">
+            <h5 class="card-title text-warning">Lake Manyara National Park</h5>
+            <p class="card-text">Spot tree-climbing lions and flamingo-filled lakes, conveniently located near our lodge. Unwind in luxury with Kilimanjaro views at Nalala House.</p>
+            <a href="{% url 'book_room' %}" class="btn btn-warning btn-sm">Book Your Stay</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coffee Tour -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card bg-dark text-white border-0 overflow-hidden">
+          <img src="https://www.lightsonafrica.com/wp-content/uploads/2024/07/Coffee-Plantation-tour-in-Arusha.jpg" class="card-img" alt="Coffee Tour" style="height: 250px; object-fit: cover;">
+          <div class="card-img-overlay d-flex flex-column justify-content-end p-4" style="background: rgba(0,0,0,0.6);">
+            <h5 class="card-title text-warning">Coffee Tour</h5>
+            <p class="card-text">Discover Arusha’s famous coffee production, a short trip from Nalala House. Savor a fresh brew at our lodge’s gourmet restaurant afterward.</p>
+            <a href="{% url 'book_room' %}" class="btn btn-warning btn-sm">Book Your Stay</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ngorongoro Crater -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card bg-dark text-white border-0 overflow-hidden">
+          <img src="https://www.ncaa.go.tz/wp-content/uploads/2023/04/empakaai-slider-1024x517.jpeg" class="card-img" alt="Ngorongoro Crater" style="height: 250px; object-fit: cover;">
+          <div class="card-img-overlay d-flex flex-column justify-content-end p-4" style="background: rgba(0,0,0,0.6);">
+            <h5 class="card-title text-warning">Ngorongoro Crater</h5>
+            <p class="card-text">Explore this UNESCO World Heritage Site with ease from Nalala House. Relax in our VVIP suites after a day of wildlife wonders.</p>
+            <a href="{% url 'book_room' %}" class="btn btn-warning btn-sm">Book Your Stay</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cultural Heritage Museum -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card bg-dark text-white border-0 overflow-hidden">
+          <img src="https://media1.thrillophilia.com/filestore/gmst2z7pj34o26jatphlbzlod2m6_download%20-%202024-10-25T162240.970.png?w=400&dpr=2" class="card-img" alt="Cultural Heritage Museum" style="height: 250px; object-fit: cover;">
+          <div class="card-img-overlay d-flex flex-column justify-content-end p-4" style="background: rgba(0,0,0,0.6);">
+            <h5 class="card-title text-warning">Cultural Heritage Museum</h5>
+            <p class="card-text">Dive into Tanzania’s rich cultural history, just minutes from our lodge. Enjoy curated cultural experiences at Nalala House.</p>
+            <a href="{% url 'book_room' %}" class="btn btn-warning btn-sm">Book Your Stay</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Testimonials Carousel: Build Trust & Excitement -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <h2 class="text-center display-5 fw-bold mb-5">What Our International Guests Say</h2>
+        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active text-center">
+                    <blockquote class="blockquote fs-4">"A VVIP dream! Elephants at our doorstep, luxury beyond words. Nalala House redefined our safari." <cite>- Sarah L., USA</cite></blockquote>
+                </div>
+                <div class="carousel-item text-center">
+                    <blockquote class="blockquote fs-4">"Kikuletwa Hotsprings and Ngorongoro Crater were unforgettable. Premier service made our stay magical." <cite>- Raj P., India</cite></blockquote>
+                </div>
+                <div class="carousel-item text-center">
+                    <blockquote class="blockquote fs-4">"The coffee tour and cultural museum visits were highlights. Nalala House is pure luxury." <cite>- Elena M., UK</cite></blockquote>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Booking Teaser: Drive Conversions -->
+<section class="py-5 bg-success text-white text-center">
+    <div class="container">
+        <h2 class="display-5 fw-bold mb-4">Ready for Your Premier Safari Adventure?</h2>
+        <p class="lead mb-4">Secure your spot in Mateves' paradise. Limited VVIP availability.</p>
+        <a href="{% url 'book_room' %}" class="btn btn-warning btn-lg px-5 py-3 fs-5">Book Now & Save 10% <i class="fas fa-star ms-2"></i></a>
+    </div>
+</section>
+
+<!-- Custom CSS for Enhanced Styling -->
+<style>
+    .animate-fade-in {
+        animation: fadeIn 2s ease-in-out;
+    }
+    @keyframes fadeIn {
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+    .safari-bg {
+        background: linear-gradient(180deg, rgba(44, 85, 48, 1) 0%, rgba(0, 0, 0, 0.8) 100%);
+    }
+    .attraction-card:hover img, .room-card:hover img {
+        transform: scale(1.05);
+        transition: transform 0.3s ease-in-out;
+    }
+    .attraction-card img, .room-card img {
+        transition: transform 0.3s ease-in-out;
+    }
+</style>
+
+{% endblock %}

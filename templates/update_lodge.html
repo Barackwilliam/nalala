@@ -1,0 +1,547 @@
+<!-- core/templates/core/update_lodge.html -->
+{% extends "base.html" %}
+{% block title %}Enhance Lodge Excellence - Nalala House{% endblock %}
+
+{% block content %}
+<section class="luxury-update-section py-6">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-10">
+                <!-- Luxury Update Header -->
+                <div class="luxury-update-header text-center mb-6" data-aos="fade-down">
+                    <div class="luxury-header-icon mb-4">
+                        <i class="fas fa-crown fa-3x text-gold"></i>
+                    </div>
+                    <h1 class="display-4 fw-bold text-charcoal mb-3">Enhance Lodge Excellence</h1>
+                    <p class="lead text-silver">Elevate Nalala House's prestige with premium updates and enhancements</p>
+                    <div class="luxury-divider mx-auto my-4"></div>
+                </div>
+
+                <!-- Luxury Update Card -->
+                <div class="luxury-update-card rounded-4 shadow-2xl overflow-hidden" data-aos="zoom-in">
+                    <div class="luxury-card-header bg-charcoal text-white p-5">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <h3 class="mb-2">
+                                    <i class="fas fa-star me-3 text-gold"></i>
+                                    Lodge Prestige Settings
+                                </h3>
+                                <p class="text-silver mb-0">Update your luxury lodge details and elevate the guest experience</p>
+                            </div>
+                            <div class="col-md-4 text-md-end">
+                                <span class="badge bg-gold text-dark px-3 py-2 fs-6">
+                                    <i class="fas fa-shield-alt me-2"></i>Admin Secure
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="luxury-card-body bg-white p-5">
+                        <form method="post" enctype="multipart/form-data" class="luxury-update-form">
+                            {% csrf_token %}
+                            
+                            <!-- Lodge Information Section -->
+                            <div class="luxury-form-section mb-5">
+                                <div class="section-header d-flex align-items-center mb-4">
+                                    <i class="fas fa-info-circle text-gold fs-2 me-3"></i>
+                                    <h4 class="text-charcoal mb-0">Lodge Information</h4>
+                                </div>
+                                <div class="row g-4">
+                                    {% for field in form %}
+                                        {% if field.name != 'logo' and field.name != 'description' %}
+                                        <div class="col-md-6">
+                                            <label class="luxury-form-label">{{ field.label }}</label>
+                                            <div class="luxury-input-group">
+                                                {{ field }}
+                                                {% if field.name == 'name' %}
+                                                <i class="fas fa-hotel luxury-input-icon"></i>
+                                                {% elif field.name == 'location' %}
+                                                <i class="fas fa-map-marker-alt luxury-input-icon"></i>
+                                                {% elif field.name == 'phone' %}
+                                                <i class="fas fa-phone luxury-input-icon"></i>
+                                                {% elif field.name == 'email' %}
+                                                <i class="fas fa-envelope luxury-input-icon"></i>
+                                                {% endif %}
+                                            </div>
+                                            {% if field.errors %}
+                                            <div class="luxury-error-message">
+                                                <i class="fas fa-exclamation-circle me-2"></i>
+                                                {{ field.errors }}
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                            <!-- Logo Upload Section -->
+                            <div class="luxury-form-section mb-5">
+                                <div class="section-header d-flex align-items-center mb-4">
+                                    <i class="fas fa-image text-gold fs-2 me-3"></i>
+                                    <h4 class="text-charcoal mb-0">Brand Identity</h4>
+                                </div>
+                                <div class="row align-items-center">
+                                    <div class="col-md-8">
+                                        <label class="luxury-form-label">Lodge Logo</label>
+                                        <div class="luxury-file-upload">
+                                            {{ form.logo }}
+                                            <div class="luxury-upload-area">
+                                                <i class="fas fa-cloud-upload-alt fa-2x text-gold mb-3"></i>
+                                                <p class="mb-2">Upload your lodge logo</p>
+                                                <small class="text-silver">PNG, JPG up to 5MB</small>
+                                            </div>
+                                        </div>
+                                        {% if form.logo.errors %}
+                                        <div class="luxury-error-message">
+                                            <i class="fas fa-exclamation-circle me-2"></i>
+                                            {{ form.logo.errors }}
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                        {% if lodge.logo %}
+                                        <div class="current-logo-preview">
+                                            <p class="text-silver small mb-2">Current Logo:</p>
+                                            <img src="{{ lodge.logo.url }}" alt="Current Logo" class="logo-preview-img rounded-3">
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Description Section -->
+                            <div class="luxury-form-section mb-5">
+                                <div class="section-header d-flex align-items-center mb-4">
+                                    <i class="fas fa-file-alt text-gold fs-2 me-3"></i>
+                                    <h4 class="text-charcoal mb-0">Lodge Description</h4>
+                                </div>
+                                <div class="luxury-textarea-group">
+                                    {{ form.description }}
+                                    <div class="luxury-textarea-footer">
+                                        <small class="text-silver">
+                                            <i class="fas fa-info-circle me-1"></i>
+                                            Describe your lodge's unique luxury features and safari experiences
+                                        </small>
+                                    </div>
+                                </div>
+                                {% if form.description.errors %}
+                                <div class="luxury-error-message">
+                                    <i class="fas fa-exclamation-circle me-2"></i>
+                                    {{ form.description.errors }}
+                                </div>
+                                {% endif %}
+                            </div>
+
+                            <!-- Luxury Action Buttons -->
+                            <div class="luxury-form-actions pt-4">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="luxury-features-list">
+                                            <div class="row">
+                                                <div class="col-6 mb-2">
+                                                    <small class="text-silver">
+                                                        <i class="fas fa-check text-gold me-2"></i>
+                                                        Instant Updates
+                                                    </small>
+                                                </div>
+                                                <div class="col-6 mb-2">
+                                                    <small class="text-silver">
+                                                        <i class="fas fa-check text-gold me-2"></i>
+                                                        Secure Processing
+                                                    </small>
+                                                </div>
+                                                <div class="col-6 mb-2">
+                                                    <small class="text-silver">
+                                                        <i class="fas fa-check text-gold me-2"></i>
+                                                        Real-time Changes
+                                                    </small>
+                                                </div>
+                                                <div class="col-6 mb-2">
+                                                    <small class="text-silver">
+                                                        <i class="fas fa-check text-gold me-2"></i>
+                                                        Backup Created
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 text-end">
+                                        <button type="submit" class="btn btn-luxury btn-xl w-100">
+                                            <i class="fas fa-gem me-2"></i>
+                                            Update Prestige
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Luxury Card Footer -->
+                    <div class="luxury-card-footer bg-light-ivory border-top p-4">
+                        <div class="row text-center">
+                            <div class="col-md-4 mb-3 mb-md-0">
+                                <div class="luxury-feature">
+                                    <i class="fas fa-sync-alt text-gold fs-4 mb-2"></i>
+                                    <h6 class="text-charcoal mb-1">Instant Update</h6>
+                                    <small class="text-silver">Changes apply immediately</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3 mb-md-0">
+                                <div class="luxury-feature">
+                                    <i class="fas fa-history text-gold fs-4 mb-2"></i>
+                                    <h6 class="text-charcoal mb-1">Version Control</h6>
+                                    <small class="text-silver">Automatic backups</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="luxury-feature">
+                                    <i class="fas fa-chart-line text-gold fs-4 mb-2"></i>
+                                    <h6 class="text-charcoal mb-1">Performance</h6>
+                                    <small class="text-silver">Optimized delivery</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Luxury Custom Styles -->
+<style>
+    :root {
+        --gold: #D4AF37;
+        --dark-gold: #B8860B;
+        --charcoal: #1a1a1a;
+        --light-ivory: #F8F5F0;
+        --deep-green: #2F4F4F;
+    }
+
+    .luxury-update-section {
+        background: linear-gradient(135deg, var(--light-ivory) 0%, #ffffff 100%);
+        min-height: 100vh;
+    }
+
+    .py-6 {
+        padding: 6rem 0;
+    }
+
+    .mb-6 {
+        margin-bottom: 4rem;
+    }
+
+    /* Luxury Update Card */
+    .luxury-update-card {
+        background: white;
+        border: 2px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .luxury-card-header {
+        background: linear-gradient(135deg, var(--charcoal) 0%, #2a2a2a 100%);
+        border-bottom: 3px solid var(--gold);
+    }
+
+    .luxury-card-body {
+        background: white;
+    }
+
+    .luxury-card-footer {
+        background: var(--light-ivory);
+        border-top: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    /* Luxury Form Sections */
+    .luxury-form-section {
+        border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        padding-bottom: 2rem;
+    }
+
+    .luxury-form-section:last-of-type {
+        border-bottom: none;
+    }
+
+    .section-header {
+        padding-bottom: 1rem;
+        border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+    }
+
+    /* Luxury Form Elements */
+    .luxury-form-label {
+        font-weight: 600;
+        color: var(--charcoal);
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    .luxury-input-group {
+        position: relative;
+    }
+
+    .luxury-input-group input,
+    .luxury-input-group select {
+        width: 100%;
+        padding: 12px 45px 12px 15px;
+        border: 2px solid #e2e8f0;
+        border-radius: 10px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: white;
+    }
+
+    .luxury-input-group input:focus,
+    .luxury-input-group select:focus {
+        outline: none;
+        border-color: var(--gold);
+        box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        transform: translateY(-2px);
+    }
+
+    .luxury-input-icon {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--gold);
+        font-size: 1.1rem;
+    }
+
+    /* Luxury File Upload */
+    .luxury-file-upload {
+        position: relative;
+    }
+
+    .luxury-file-upload input[type="file"] {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .luxury-upload-area {
+        border: 2px dashed rgba(212, 175, 55, 0.5);
+        border-radius: 10px;
+        padding: 2rem;
+        text-align: center;
+        background: rgba(212, 175, 55, 0.05);
+        transition: all 0.3s ease;
+    }
+
+    .luxury-upload-area:hover {
+        border-color: var(--gold);
+        background: rgba(212, 175, 55, 0.1);
+    }
+
+    .logo-preview-img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border: 2px solid var(--gold);
+        padding: 5px;
+    }
+
+    /* Luxury Textarea */
+    .luxury-textarea-group {
+        position: relative;
+    }
+
+    .luxury-textarea-group textarea {
+        width: 100%;
+        padding: 15px;
+        border: 2px solid #e2e8f0;
+        border-radius: 10px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: white;
+        min-height: 120px;
+        resize: vertical;
+    }
+
+    .luxury-textarea-group textarea:focus {
+        outline: none;
+        border-color: var(--gold);
+        box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+    }
+
+    .luxury-textarea-footer {
+        margin-top: 0.5rem;
+    }
+
+    /* Luxury Error Messages */
+    .luxury-error-message {
+        color: #dc2626;
+        font-size: 0.875rem;
+        margin-top: 0.5rem;
+        padding: 0.75rem;
+        background: #fef2f2;
+        border: 1px solid #fecaca;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Luxury Buttons */
+    .btn-luxury {
+        background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+        border: none;
+        color: white;
+        font-weight: 600;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-luxury:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
+        color: white;
+    }
+
+    .btn-xl {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+    }
+
+    /* Luxury Features */
+    .luxury-features-list {
+        padding: 1rem 0;
+    }
+
+    .luxury-feature {
+        padding: 1rem;
+    }
+
+    /* Luxury Elements */
+    .luxury-divider {
+        height: 3px;
+        background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        width: 100px;
+        border: none;
+    }
+
+    .shadow-2xl {
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+    }
+
+    .text-charcoal {
+        color: var(--charcoal);
+    }
+
+    .text-silver {
+        color: #6b7280;
+    }
+
+    .text-gold {
+        color: var(--gold);
+    }
+
+    .bg-charcoal {
+        background: var(--charcoal);
+    }
+
+    .bg-gold {
+        background: linear-gradient(135deg, var(--gold), var(--dark-gold)) !important;
+    }
+
+    .bg-light-ivory {
+        background: var(--light-ivory);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .luxury-update-header h1 {
+            font-size: 2.5rem;
+        }
+        
+        .luxury-card-body {
+            padding: 2rem !important;
+        }
+        
+        .luxury-form-actions .row {
+            text-align: center;
+        }
+        
+        .luxury-form-actions .col-md-8 {
+            margin-bottom: 2rem;
+        }
+        
+        .btn-xl {
+            padding: 12px 25px;
+            font-size: 1rem;
+        }
+    }
+
+    /* Form Input Enhancements */
+    input, select, textarea {
+        font-family: 'Inter', sans-serif;
+    }
+
+    select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23D4AF37' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+        background-position: right 15px center;
+        background-repeat: no-repeat;
+        background-size: 16px;
+    }
+</style>
+
+<script>
+    // Initialize AOS animations
+    document.addEventListener('DOMContentLoaded', function() {
+        // File upload preview
+        const fileInput = document.querySelector('input[type="file"]');
+        if (fileInput) {
+            fileInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const previewArea = document.querySelector('.luxury-upload-area');
+                        previewArea.innerHTML = `
+                            <i class="fas fa-check-circle fa-2x text-gold mb-3"></i>
+                            <p class="mb-2">${file.name}</p>
+                            <small class="text-silver">Ready to upload</small>
+                        `;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        }
+
+        // Form submission loading state
+        const form = document.querySelector('.luxury-update-form');
+        const submitBtn = form.querySelector('button[type="submit"]');
+        
+        form.addEventListener('submit', function() {
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Updating Prestige...';
+            submitBtn.disabled = true;
+        });
+
+        // Add character counter for description
+        const textarea = document.querySelector('textarea');
+        if (textarea) {
+            const counter = document.createElement('div');
+            counter.className = 'text-silver small mt-1 text-end';
+            counter.innerHTML = `<span class="char-count">0</span> characters`;
+            textarea.parentNode.appendChild(counter);
+
+            textarea.addEventListener('input', function() {
+                const count = this.value.length;
+                counter.querySelector('.char-count').textContent = count;
+                
+                if (count > 500) {
+                    counter.classList.add('text-danger');
+                } else {
+                    counter.classList.remove('text-danger');
+                }
+            });
+        }
+    });
+</script>
+
+{% endblock %}

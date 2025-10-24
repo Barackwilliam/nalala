@@ -1,0 +1,442 @@
+<!-- core/templates/core/check_out.html -->
+{% extends "base.html" %}
+{% block title %}Luxury Check-Out - Nalala House{% endblock %}
+
+{% block content %}
+<section class="luxury-checkout-section py-6">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-10">
+                <!-- Luxury Checkout Header -->
+                <div class="luxury-checkout-header text-center mb-6" data-aos="fade-down">
+                    <div class="luxury-header-icon mb-4">
+                        <i class="fas fa-door-open fa-3x text-gold"></i>
+                    </div>
+                    <h1 class="display-4 fw-bold text-charcoal mb-3">Luxury Check-Out</h1>
+                    <p class="lead text-silver">Finalizing {{ guest.name }}'s premium safari experience</p>
+                    <div class="luxury-divider mx-auto my-4"></div>
+                </div>
+
+                <!-- Luxury Checkout Card -->
+                <div class="luxury-checkout-card rounded-4 shadow-2xl overflow-hidden" data-aos="zoom-in">
+                    <!-- Guest Information Header -->
+                    <div class="luxury-guest-header bg-charcoal text-white p-5">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <div class="d-flex align-items-center">
+                                    <div class="luxury-guest-avatar me-4">
+                                        <i class="fas fa-user-circle fa-3x text-gold"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="mb-1">{{ guest.name }}</h3>
+                                        <p class="text-silver mb-0">
+                                            <i class="fas fa-bed me-2"></i>{{ guest.room.name }} Suite • 
+                                            <i class="fas fa-calendar me-2"></i>{{ guest.check_in }} to {{ guest.check_out }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-md-end">
+                                <span class="badge bg-gold text-dark px-3 py-2 fs-6">
+                                    <i class="fas fa-star me-2"></i>VIP Guest
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Checkout Form -->
+                    <div class="luxury-checkout-body bg-white p-5">
+                        <form method="post" class="luxury-checkout-form">
+                            {% csrf_token %}
+                            
+                            <!-- Payment Details Section -->
+                            <div class="luxury-form-section mb-5">
+                                <div class="section-header d-flex align-items-center mb-4">
+                                    <i class="fas fa-credit-card text-gold fs-2 me-3"></i>
+                                    <h4 class="text-charcoal mb-0">Payment Settlement</h4>
+                                </div>
+                                <div class="row g-4">
+                                    {% for field in form %}
+                                    <div class="col-12">
+                                        <label class="luxury-form-label">{{ field.label }}</label>
+                                        <div class="luxury-input-group">
+                                            {{ field }}
+                                            {% if field.name == 'total_amount' %}
+                                            <i class="fas fa-dollar-sign luxury-input-icon"></i>
+                                            {% elif field.name == 'payment_method' %}
+                                            <i class="fas fa-wallet luxury-input-icon"></i>
+                                            {% elif field.name == 'notes' %}
+                                            <i class="fas fa-sticky-note luxury-input-icon"></i>
+                                            {% endif %}
+                                        </div>
+                                        {% if field.errors %}
+                                        <div class="luxury-error-message">
+                                            <i class="fas fa-exclamation-circle me-2"></i>
+                                            {{ field.errors }}
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                            <!-- Luxury Action Buttons -->
+                            <div class="luxury-checkout-actions pt-4">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3 mb-md-0">
+                                        <a href="{% url 'dashboard' %}" class="btn btn-luxury-outline btn-xl w-100">
+                                            <i class="fas fa-arrow-left me-2"></i>
+                                            Back to Dashboard
+                                        </a>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button type="submit" class="btn btn-luxury btn-xl w-100">
+                                            <i class="fas fa-check-circle me-2"></i>
+                                            Process Premium Payment
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Luxury Farewell Message -->
+                    <div class="luxury-farewell bg-light-ivory border-top p-5 text-center">
+                        <div class="farewell-content">
+                            <i class="fas fa-heart fa-2x text-gold mb-3"></i>
+                            <h4 class="text-charcoal mb-3">Thank You for Choosing Nalala House</h4>
+                            <p class="text-silver mb-4">
+                                We hope your safari experience was unforgettable. Our team looks forward to welcoming you back for another luxury adventure in the wild.
+                            </p>
+                            <div class="farewell-features">
+                                <div class="row justify-content-center">
+                                    <div class="col-auto">
+                                        <small class="text-silver">
+                                            <i class="fas fa-concierge-bell me-2"></i>24/7 VIP Support
+                                        </small>
+                                    </div>
+                                    <div class="col-auto">
+                                        <small class="text-silver">
+                                            <i class="fas fa-gift me-2"></i>Loyalty Rewards
+                                        </small>
+                                    </div>
+                                    <div class="col-auto">
+                                        <small class="text-silver">
+                                            <i class="fas fa-star me-2"></i>Premium Experience
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Luxury Custom Styles -->
+<style>
+    :root {
+        --gold: #D4AF37;
+        --dark-gold: #B8860B;
+        --charcoal: #1a1a1a;
+        --light-ivory: #F8F5F0;
+        --deep-green: #2F4F4F;
+    }
+
+    .luxury-checkout-section {
+        background: linear-gradient(135deg, var(--light-ivory) 0%, #ffffff 100%);
+        min-height: 100vh;
+    }
+
+    .py-6 {
+        padding: 6rem 0;
+    }
+
+    .mb-6 {
+        margin-bottom: 4rem;
+    }
+
+    /* Luxury Checkout Card */
+    .luxury-checkout-card {
+        background: white;
+        border: 2px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .luxury-guest-header {
+        background: linear-gradient(135deg, var(--charcoal) 0%, #2a2a2a 100%);
+        border-bottom: 3px solid var(--gold);
+    }
+
+    .luxury-guest-avatar {
+        opacity: 0.9;
+    }
+
+    .luxury-checkout-body {
+        background: white;
+    }
+
+    /* Luxury Form Sections */
+    .luxury-form-section {
+        border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        padding-bottom: 2rem;
+    }
+
+    .luxury-form-section:last-of-type {
+        border-bottom: none;
+    }
+
+    .section-header {
+        padding-bottom: 1rem;
+        border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+    }
+
+    /* Luxury Form Elements */
+    .luxury-form-label {
+        font-weight: 600;
+        color: var(--charcoal);
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    .luxury-input-group {
+        position: relative;
+    }
+
+    .luxury-input-group input,
+    .luxury-input-group select,
+    .luxury-input-group textarea {
+        width: 100%;
+        padding: 12px 45px 12px 15px;
+        border: 2px solid #e2e8f0;
+        border-radius: 10px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: white;
+    }
+
+    .luxury-input-group textarea {
+        min-height: 100px;
+        resize: vertical;
+    }
+
+    .luxury-input-group input:focus,
+    .luxury-input-group select:focus,
+    .luxury-input-group textarea:focus {
+        outline: none;
+        border-color: var(--gold);
+        box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        transform: translateY(-2px);
+    }
+
+    .luxury-input-icon {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--gold);
+        font-size: 1.1rem;
+    }
+
+    /* Stay Summary */
+    .luxury-summary-card {
+        border: 2px solid rgba(212, 175, 55, 0.1);
+    }
+
+    .summary-item {
+        padding: 1rem 0.5rem;
+    }
+
+    /* Luxury Error Messages */
+    .luxury-error-message {
+        color: #dc2626;
+        font-size: 0.875rem;
+        margin-top: 0.5rem;
+        padding: 0.75rem;
+        background: #fef2f2;
+        border: 1px solid #fecaca;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Luxury Buttons */
+    .btn-luxury {
+        background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+        border: none;
+        color: white;
+        font-weight: 600;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-luxury:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
+        color: white;
+    }
+
+    .btn-luxury-outline {
+        background: transparent;
+        border: 2px solid var(--gold);
+        color: var(--gold);
+        font-weight: 600;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-luxury-outline:hover {
+        background: var(--gold);
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    .btn-xl {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+    }
+
+    /* Luxury Farewell */
+    .luxury-farewell {
+        background: var(--light-ivory);
+        border-top: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .farewell-content {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .farewell-features .row {
+        gap: 2rem;
+    }
+
+    /* Luxury Elements */
+    .luxury-divider {
+        height: 3px;
+        background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        width: 100px;
+        border: none;
+    }
+
+    .shadow-2xl {
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+    }
+
+    .text-charcoal {
+        color: var(--charcoal);
+    }
+
+    .text-silver {
+        color: #6b7280;
+    }
+
+    .text-gold {
+        color: var(--gold);
+    }
+
+    .bg-charcoal {
+        background: var(--charcoal);
+    }
+
+    .bg-gold {
+        background: linear-gradient(135deg, var(--gold), var(--dark-gold)) !important;
+    }
+
+    .bg-light-ivory {
+        background: var(--light-ivory);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .luxury-checkout-header h1 {
+            font-size: 2.5rem;
+        }
+        
+        .luxury-guest-header {
+            padding: 2rem !important;
+        }
+        
+        .luxury-checkout-body {
+            padding: 2rem !important;
+        }
+        
+        .luxury-farewell {
+            padding: 2rem !important;
+        }
+        
+        .btn-xl {
+            padding: 12px 25px;
+            font-size: 1rem;
+        }
+        
+        .luxury-guest-header .row {
+            text-align: center;
+        }
+        
+        .luxury-guest-avatar {
+            margin-bottom: 1rem;
+        }
+    }
+
+    /* Form Input Enhancements */
+    input, select, textarea {
+        font-family: 'Inter', sans-serif;
+    }
+
+    select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23D4AF37' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+        background-position: right 15px center;
+        background-repeat: no-repeat;
+        background-size: 16px;
+    }
+</style>
+
+<script>
+    // Initialize AOS animations
+    document.addEventListener('DOMContentLoaded', function() {
+        // Form submission loading state
+        const form = document.querySelector('.luxury-checkout-form');
+        const submitBtn = form.querySelector('button[type="submit"]');
+        
+        form.addEventListener('submit', function() {
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Processing Payment...';
+            submitBtn.disabled = true;
+            
+            // Simulate payment processing
+            setTimeout(() => {
+                submitBtn.innerHTML = '<i class="fas fa-check-circle me-2"></i>Payment Processed';
+            }, 2000);
+        });
+
+        // Auto-calculate total amount based on stay duration
+        const totalAmountField = document.querySelector('input[name="total_amount"]');
+        if (totalAmountField) {
+            // Calculate based on room price and stay duration (you can implement actual calculation)
+            const roomPrice = {{ guest.room.price_per_night }};
+            const nightsStayed = 3; // This should be calculated based on check-in/check-out dates
+            const totalAmount = roomPrice * nightsStayed;
+            
+            totalAmountField.value = totalAmount.toFixed(2);
+        }
+
+        // Add input formatting for currency
+        const amountInputs = document.querySelectorAll('input[type="number"]');
+        amountInputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.value) {
+                    this.value = parseFloat(this.value).toFixed(2);
+                }
+            });
+        });
+    });
+</script>
+
+{% endblock %}

@@ -1,0 +1,508 @@
+<!-- core/templates/core/dashboard.html -->
+{% extends "base.html" %}
+{% block title %}Luxury Management Dashboard - Nalala House{% endblock %}
+
+{% block content %}
+<div class="luxury-dashboard-container py-5">
+    <div class="container">
+        <!-- Luxury Dashboard Header -->
+        <div class="luxury-dashboard-header text-center mb-6" data-aos="fade-down">
+            <div class="luxury-header-icon mb-4">
+                <i class="fas fa-crown fa-3x text-gold"></i>
+            </div>
+            <h1 class="display-4 fw-bold text-charcoal mb-3">Luxury Management Dashboard</h1>
+            <p class="lead text-silver">Premier oversight for Nalala House's exclusive operations</p>
+            <div class="luxury-divider mx-auto my-4"></div>
+        </div>
+
+        <!-- Luxury Stats Cards -->
+        <div class="row mb-6" data-aos="fade-up">
+            <div class="col-xl-4 col-md-6 mb-4">
+                <div class="luxury-stat-card bg-white rounded-4 shadow-2xl h-100">
+                    <div class="card-body p-4 text-center">
+                        <div class="luxury-stat-icon mb-3">
+                            <i class="fas fa-bed fa-3x text-gold"></i>
+                        </div>
+                        <h5 class="text-charcoal mb-2">Total Luxury Suites</h5>
+                        <p class="display-4 fw-bold text-charcoal mb-0">{{ rooms.count }}</p>
+                        <small class="text-silver">Available & Reserved</small>
+                    </div>
+                    <div class="luxury-card-footer bg-light-ivory rounded-bottom-4 p-3 text-center">
+                        <small class="text-gold">
+                            <i class="fas fa-trending-up me-1"></i>
+                            Premium Inventory
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6 mb-4">
+                <div class="luxury-stat-card bg-white rounded-4 shadow-2xl h-100">
+                    <div class="card-body p-4 text-center">
+                        <div class="luxury-stat-icon mb-3">
+                            <i class="fas fa-users fa-3x text-gold"></i>
+                        </div>
+                        <h5 class="text-charcoal mb-2">Elite Guests</h5>
+                        <p class="display-4 fw-bold text-charcoal mb-0">{{ guests.count }}</p>
+                        <small class="text-silver">Current VIP Residents</small>
+                    </div>
+                    <div class="luxury-card-footer bg-light-ivory rounded-bottom-4 p-3 text-center">
+                        <small class="text-gold">
+                            <i class="fas fa-user-shield me-1"></i>
+                            Exclusive Clientele
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6 mb-4">
+                <div class="luxury-stat-card bg-white rounded-4 shadow-2xl h-100">
+                    <div class="card-body p-4 text-center">
+                        <div class="luxury-stat-icon mb-3">
+                            <i class="fas fa-chart-line fa-3x text-gold"></i>
+                        </div>
+                        <h5 class="text-charcoal mb-2">Premium Revenue</h5>
+                        <p class="display-4 fw-bold text-charcoal mb-0">${{ total_revenue }}</p>
+                        <small class="text-silver">Total Revenue Generated</small>
+                    </div>
+                    <div class="luxury-card-footer bg-light-ivory rounded-bottom-4 p-3 text-center">
+                        <small class="text-gold">
+                            <i class="fas fa-gem me-1"></i>
+                            Luxury Performance
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Luxury Suite Status -->
+        <div class="row mb-6">
+            <div class="col-12">
+                <div class="luxury-section-card rounded-4 shadow-2xl" data-aos="fade-right">
+                    <div class="luxury-section-header bg-charcoal text-white rounded-top-4 p-4">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-bed fa-2x text-gold me-3"></i>
+                            <div>
+                                <h3 class="mb-1">Luxury Suite Status</h3>
+                                <small class="text-silver">Complete overview of suite availability and pricing</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="luxury-section-body p-0">
+                        <div class="table-responsive">
+                            <table class="table luxury-table mb-0">
+                                <thead class="luxury-table-header">
+                                    <tr>
+                                        <th class="ps-4">
+                                            <i class="fas fa-hotel me-2"></i>Suite Name
+                                        </th>
+                                        <th>
+                                            <i class="fas fa-tags me-2"></i>Type
+                                        </th>
+                                        <th>
+                                            <i class="fas fa-dollar-sign me-2"></i>Price/Night
+                                        </th>
+                                        <th>
+                                            <i class="fas fa-circle me-2"></i>Status
+                                        </th>
+                                        <th class="pe-4">
+                                            <i class="fas fa-cog me-2"></i>Actions
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for room in rooms %}
+                                    <tr class="luxury-table-row">
+                                        <td class="ps-4">
+                                            <div class="d-flex align-items-center">
+                                                <i class="fas fa-star text-gold me-2"></i>
+                                                <strong>{{ room.name }}</strong>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-light-ivory text-charcoal">{{ room.room_type }}</span>
+                                        </td>
+                                        <td>
+                                            <span class="text-gold fw-bold">${{ room.price_per_night }}</span>
+                                        </td>
+                                        <td>
+                                            <span class="luxury-status-badge {% if room.status == 'Available' %}status-available{% else %}status-reserved{% endif %}">
+                                                <i class="fas {% if room.status == 'Available' %}fa-check-circle{% else %}fa-clock{% endif %} me-1"></i>
+                                                {{ room.status }}
+                                            </span>
+                                        </td>
+                                        <td class="pe-4">
+                                            <div class="btn-group luxury-btn-group">
+                                                <button class="btn btn-luxury-outline btn-sm">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-luxury-outline btn-sm">
+                                                    <i class="fas fa-chart-bar"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Guest Reservations -->
+        <div class="row mb-6">
+            <div class="col-12">
+                <div class="luxury-section-card rounded-4 shadow-2xl" data-aos="fade-left">
+                    <div class="luxury-section-header bg-charcoal text-white rounded-top-4 p-4">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-users fa-2x text-gold me-3"></i>
+                            <div>
+                                <h3 class="mb-1">Elite Guest Reservations</h3>
+                                <small class="text-silver">Current VIP guests and their stay details</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="luxury-section-body p-0">
+                        <div class="table-responsive">
+                            <table class="table luxury-table mb-0">
+                                <thead class="luxury-table-header">
+                                    <tr>
+                                        <th class="ps-4">
+                                            <i class="fas fa-user me-2"></i>Guest Name
+                                        </th>
+                                        <th>
+                                            <i class="fas fa-bed me-2"></i>Suite
+                                        </th>
+                                        <th>
+                                            <i class="fas fa-sign-in-alt me-2"></i>Arrival
+                                        </th>
+                                        <th>
+                                            <i class="fas fa-sign-out-alt me-2"></i>Departure
+                                        </th>
+                                        <th class="pe-4">
+                                            <i class="fas fa-bolt me-2"></i>Actions
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for guest in guests %}
+                                    <tr class="luxury-table-row">
+                                        <td class="ps-4">
+                                            <div class="d-flex align-items-center">
+                                                <i class="fas fa-user-circle text-gold me-2"></i>
+                                                <div>
+                                                    <strong>{{ guest.name }}</strong>
+                                                    <br>
+                                                    <small class="text-silver">{{ guest.phone }}</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-gold text-dark">{{ guest.room.name }}</span>
+                                        </td>
+                                        <td>
+                                            <span class="text-charcoal fw-bold">{{ guest.check_in }}</span>
+                                        </td>
+                                        <td>
+                                            <span class="text-charcoal fw-bold">{{ guest.check_out }}</span>
+                                        </td>
+                                        <td class="pe-4">
+                                            <a href="{% url 'check_out' guest.id %}" class="btn btn-luxury btn-sm">
+                                                <i class="fas fa-door-open me-1"></i>Check Out
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Luxury Action Center -->
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="luxury-action-card rounded-4 p-5" data-aos="zoom-in">
+                    <h3 class="text-charcoal mb-4">Lodge Management Center</h3>
+                    <div class="luxury-action-buttons">
+                        <a href="{% url 'update_lodge' %}" class="btn btn-luxury btn-xl me-3">
+                            <i class="fas fa-crown me-2"></i>Update Lodge Prestige
+                        </a>
+                        
+                    </div>
+                    <p class="text-silver mt-4 mb-0">
+                        <i class="fas fa-shield-alt me-2"></i>
+                        Secure management portal for Nalala House operations
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Luxury Custom Styles -->
+<style>
+    :root {
+        --gold: #D4AF37;
+        --dark-gold: #B8860B;
+        --charcoal: #1a1a1a;
+        --light-ivory: #F8F5F0;
+        --deep-green: #2F4F4F;
+    }
+
+    .luxury-dashboard-container {
+        background: linear-gradient(135deg, var(--light-ivory) 0%, #ffffff 100%);
+        min-height: 100vh;
+    }
+
+    .mb-6 {
+        margin-bottom: 4rem;
+    }
+
+    /* Luxury Stat Cards */
+    .luxury-stat-card {
+        border: 2px solid rgba(212, 175, 55, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .luxury-stat-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--gold);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important;
+    }
+
+    .luxury-stat-icon {
+        opacity: 0.9;
+    }
+
+    .luxury-card-footer {
+        border-top: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    /* Luxury Section Cards */
+    .luxury-section-card {
+        background: white;
+        border: 2px solid rgba(212, 175, 55, 0.1);
+        overflow: hidden;
+    }
+
+    .luxury-section-header {
+        background: linear-gradient(135deg, var(--charcoal) 0%, #2a2a2a 100%);
+        border-bottom: 3px solid var(--gold);
+    }
+
+    /* Luxury Tables */
+    .luxury-table {
+        margin-bottom: 0;
+    }
+
+    .luxury-table-header {
+        background: var(--light-ivory);
+        border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+    }
+
+    .luxury-table-header th {
+        font-weight: 600;
+        color: var(--charcoal);
+        padding: 1rem;
+        border: none;
+    }
+
+    .luxury-table-row {
+        transition: all 0.3s ease;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .luxury-table-row:hover {
+        background: rgba(212, 175, 55, 0.05);
+        transform: translateX(5px);
+    }
+
+    .luxury-table-row td {
+        padding: 1.25rem 1rem;
+        vertical-align: middle;
+        border: none;
+    }
+
+    /* Luxury Status Badges */
+    .luxury-status-badge {
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .status-available {
+        background: rgba(34, 197, 94, 0.1);
+        color: #16a34a;
+        border: 1px solid rgba(34, 197, 94, 0.3);
+    }
+
+    .status-reserved {
+        background: rgba(239, 68, 68, 0.1);
+        color: #dc2626;
+        border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    /* Luxury Buttons */
+    .btn-luxury {
+        background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+        border: none;
+        color: white;
+        font-weight: 600;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-luxury:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        color: white;
+    }
+
+    .btn-luxury-outline {
+        background: transparent;
+        border: 2px solid var(--gold);
+        color: var(--gold);
+        font-weight: 600;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-luxury-outline:hover {
+        background: var(--gold);
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    .btn-xl {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+    }
+
+    .luxury-btn-group .btn {
+        margin: 0 2px;
+        padding: 0.375rem 0.75rem;
+    }
+
+    /* Luxury Action Center */
+    .luxury-action-card {
+        background: white;
+        border: 2px solid rgba(212, 175, 55, 0.2);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    /* Luxury Elements */
+    .luxury-divider {
+        height: 3px;
+        background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        width: 100px;
+        border: none;
+    }
+
+    .shadow-2xl {
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+    }
+
+    .text-charcoal {
+        color: var(--charcoal);
+    }
+
+    .text-silver {
+        color: #6b7280;
+    }
+
+    .text-gold {
+        color: var(--gold);
+    }
+
+    .bg-charcoal {
+        background: var(--charcoal);
+    }
+
+    .bg-gold {
+        background: linear-gradient(135deg, var(--gold), var(--dark-gold)) !important;
+    }
+
+    .bg-light-ivory {
+        background: var(--light-ivory);
+    }
+
+    .rounded-top-4 {
+        border-top-left-radius: 1rem !important;
+        border-top-right-radius: 1rem !important;
+    }
+
+    .rounded-bottom-4 {
+        border-bottom-left-radius: 1rem !important;
+        border-bottom-right-radius: 1rem !important;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .luxury-dashboard-header h1 {
+            font-size: 2.5rem;
+        }
+        
+        .luxury-action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .luxury-action-buttons .btn {
+            margin: 0 !important;
+        }
+        
+        .luxury-table-row td {
+            padding: 1rem 0.5rem;
+        }
+    }
+</style>
+
+<script>
+    // Initialize AOS animations
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add smooth scrolling
+        const links = document.querySelectorAll('a[href^="#"]');
+        links.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading states to buttons
+        const buttons = document.querySelectorAll('.btn-luxury, .btn-luxury-outline');
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Processing...';
+                this.disabled = true;
+                
+                // Reset after 2 seconds (for demo)
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.disabled = false;
+                }, 2000);
+            });
+        });
+    });
+</script>
+
+{% endblock %}

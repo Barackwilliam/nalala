@@ -1,0 +1,404 @@
+{% extends "base.html" %}
+{% block title %}Reserve Your Luxury Suite - Nalala House{% endblock %}
+
+{% block content %}
+<section class="luxury-booking-hero d-flex align-items-center justify-content-center min-vh-100 position-relative overflow-hidden">
+    <!-- Luxury Background -->
+    <div class="luxury-booking-bg" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=2070&q=80');"></div>
+    <div class="luxury-booking-overlay position-absolute top-0 start-0 w-100 h-100"></div>
+    
+    <div class="container py-5 position-relative z-2">
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-10">
+                <!-- Luxury Booking Card -->
+                <div class="luxury-booking-card rounded-4 shadow-2xl overflow-hidden" data-aos="zoom-in">
+                    <!-- Luxury Header -->
+                    <div class="luxury-booking-header position-relative p-5">
+                        <div class="luxury-header-content text-center text-white">
+                            <div class="luxury-icon mb-3">
+                                <i class="fas fa-crown fa-3x text-gold"></i>
+                            </div>
+                            <h1 class="display-5 fw-bold mb-2">Reserve Your Luxury Safari</h1>
+                            <p class="lead mb-0">Secure your exclusive VVIP experience in just a few steps</p>
+                        </div>
+                        <div class="luxury-badge position-absolute top-0 end-0 m-4">
+                            <span class="badge bg-gold text-dark px-3 py-2">
+                                <i class="fas fa-shield-alt me-2"></i>Secure Booking
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Luxury Form -->
+                    <div class="luxury-booking-form p-5">
+                        <form method="post" class="booking-form">
+                            {% csrf_token %}
+                            
+                            <!-- Personal Information -->
+                            <div class="luxury-form-section mb-5">
+                                <div class="section-header d-flex align-items-center mb-4">
+                                    <i class="fas fa-user-circle text-gold fs-2 me-3"></i>
+                                    <h3 class="text-charcoal mb-0">Personal Information</h3>
+                                </div>
+                                <div class="row g-4">
+                                    <div class="col-12">
+                                        <label class="form-label luxury-label">Full Name</label>
+                                        <div class="luxury-input-group">
+                                            {{ form.name }}
+                                            <i class="fas fa-user luxury-input-icon"></i>
+                                        </div>
+                                        {% if form.name.errors %}
+                                        <div class="luxury-error-message">{{ form.name.errors }}</div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label luxury-label">Phone Number</label>
+                                        <div class="luxury-input-group">
+                                            {{ form.phone }}
+                                            <i class="fas fa-phone luxury-input-icon"></i>
+                                        </div>
+                                        {% if form.phone.errors %}
+                                        <div class="luxury-error-message">{{ form.phone.errors }}</div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label luxury-label">ID / Passport Number</label>
+                                        <div class="luxury-input-group">
+                                            {{ form.id_number }}
+                                            <i class="fas fa-passport luxury-input-icon"></i>
+                                        </div>
+                                        {% if form.id_number.errors %}
+                                        <div class="luxury-error-message">{{ form.id_number.errors }}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Stay Details -->
+                            <div class="luxury-form-section mb-5">
+                                <div class="section-header d-flex align-items-center mb-4">
+                                    <i class="fas fa-calendar-day text-gold fs-2 me-3"></i>
+                                    <h3 class="text-charcoal mb-0">Stay Details</h3>
+                                </div>
+                                <div class="row g-4">
+                                    <div class="col-md-6">
+                                        <label class="form-label luxury-label">Check-in Date</label>
+                                        <div class="luxury-input-group">
+                                            {{ form.check_in }}
+                                            <i class="fas fa-sign-in-alt luxury-input-icon"></i>
+                                        </div>
+                                        {% if form.check_in.errors %}
+                                        <div class="luxury-error-message">{{ form.check_in.errors }}</div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label luxury-label">Check-out Date</label>
+                                        <div class="luxury-input-group">
+                                            {{ form.check_out }}
+                                            <i class="fas fa-sign-out-alt luxury-input-icon"></i>
+                                        </div>
+                                        {% if form.check_out.errors %}
+                                        <div class="luxury-error-message">{{ form.check_out.errors }}</div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label luxury-label">Select Your Suite</label>
+                                        <div class="luxury-input-group">
+                                            {{ form.room }}
+                                            <i class="fas fa-bed luxury-input-icon"></i>
+                                        </div>
+                                        {% if form.room.errors %}
+                                        <div class="luxury-error-message">{{ form.room.errors }}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Luxury CTA -->
+                            <div class="luxury-cta-section text-center pt-4">
+                                <button class="btn btn-luxury btn-xl px-5 py-3" type="submit">
+                                    <i class="fas fa-gem me-3"></i>
+                                    Confirm Luxury Reservation
+                                </button>
+                                <p class="text-silver small mt-3">
+                                    <i class="fas fa-lock me-2"></i>
+                                    Secure SSL Encryption • Instant Confirmation • 24/7 VIP Support
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Luxury Footer -->
+                    <div class="luxury-booking-footer bg-light-ivory border-top p-4">
+                        <div class="row text-center">
+                            <div class="col-md-4 mb-3 mb-md-0">
+                                <div class="luxury-feature">
+                                    <i class="fas fa-shield-alt text-gold fs-4 mb-2"></i>
+                                    <h6 class="text-charcoal mb-1">Secure Payment</h6>
+                                    <small class="text-silver">Bank-level security</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3 mb-md-0">
+                                <div class="luxury-feature">
+                                    <i class="fas fa-clock text-gold fs-4 mb-2"></i>
+                                    <h6 class="text-charcoal mb-1">Instant Confirmation</h6>
+                                    <small class="text-silver">Immediate booking</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="luxury-feature">
+                                    <i class="fas fa-concierge-bell text-gold fs-4 mb-2"></i>
+                                    <h6 class="text-charcoal mb-1">VIP Support</h6>
+                                    <small class="text-silver">24/7 assistance</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Luxury Custom Styles -->
+<style>
+    :root {
+        --gold: #D4AF37;
+        --dark-gold: #B8860B;
+        --charcoal: #1a1a1a;
+        --light-ivory: #F8F5F0;
+        --deep-green: #2F4F4F;
+    }
+
+    /* Luxury Booking Hero */
+    .luxury-booking-hero {
+        background: var(--charcoal);
+        padding: 100px 0 50px;
+    }
+
+    .luxury-booking-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        opacity: 0.3;
+    }
+
+    .luxury-booking-overlay {
+        background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(212, 175, 55, 0.2) 100%);
+    }
+
+    /* Luxury Booking Card */
+    .luxury-booking-card {
+        background: white;
+        border: 2px solid rgba(212, 175, 55, 0.2);
+        backdrop-filter: blur(10px);
+    }
+
+    .shadow-2xl {
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    /* Luxury Header */
+    .luxury-booking-header {
+        background: linear-gradient(135deg, var(--charcoal) 0%, #2a2a2a 100%);
+        border-bottom: 3px solid var(--gold);
+    }
+
+    .luxury-icon {
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+    }
+
+    /* Luxury Form */
+    .luxury-booking-form {
+        background: white;
+    }
+
+    .luxury-form-section {
+        border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        padding-bottom: 2rem;
+    }
+
+    .luxury-form-section:last-of-type {
+        border-bottom: none;
+    }
+
+    .section-header {
+        padding-bottom: 1rem;
+        border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+    }
+
+    /* Luxury Inputs */
+    .luxury-label {
+        font-weight: 600;
+        color: var(--charcoal);
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    .luxury-input-group {
+        position: relative;
+    }
+
+    .luxury-input-group input,
+    .luxury-input-group select {
+        width: 100%;
+        padding: 12px 45px 12px 15px;
+        border: 2px solid #e2e8f0;
+        border-radius: 10px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: white;
+    }
+
+    .luxury-input-group input:focus,
+    .luxury-input-group select:focus {
+        outline: none;
+        border-color: var(--gold);
+        box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        transform: translateY(-2px);
+    }
+
+    .luxury-input-icon {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--gold);
+        font-size: 1.1rem;
+    }
+
+    /* Luxury Button */
+    .btn-luxury {
+        background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+        border: none;
+        color: white;
+        font-weight: 600;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-luxury:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
+        color: white;
+    }
+
+    .btn-xl {
+        padding: 15px 40px;
+        font-size: 1.2rem;
+    }
+
+    /* Luxury Error Messages */
+    .luxury-error-message {
+        color: #dc2626;
+        font-size: 0.875rem;
+        margin-top: 0.5rem;
+        padding: 0.5rem;
+        background: #fef2f2;
+        border: 1px solid #fecaca;
+        border-radius: 5px;
+    }
+
+    /* Luxury Footer Features */
+    .luxury-booking-footer {
+        background: var(--light-ivory);
+    }
+
+    .luxury-feature {
+        padding: 1rem;
+    }
+
+    .text-charcoal {
+        color: var(--charcoal);
+    }
+
+    .text-silver {
+        color: #6b7280;
+    }
+
+    .bg-gold {
+        background: linear-gradient(135deg, var(--gold), var(--dark-gold)) !important;
+    }
+
+    .bg-light-ivory {
+        background: var(--light-ivory);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .luxury-booking-hero {
+            padding: 80px 0 30px;
+        }
+        
+        .luxury-booking-header {
+            padding: 3rem 2rem;
+        }
+        
+        .luxury-booking-form {
+            padding: 2rem;
+        }
+        
+        .btn-xl {
+            padding: 12px 30px;
+            font-size: 1.1rem;
+        }
+        
+        h1.display-5 {
+            font-size: 2rem;
+        }
+    }
+
+    /* Form Input Enhancements */
+    input, select {
+        font-family: 'Inter', sans-serif;
+    }
+
+    select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23D4AF37' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+        background-position: right 15px center;
+        background-repeat: no-repeat;
+        background-size: 16px;
+    }
+</style>
+
+<script>
+    // Initialize AOS animations
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add loading state to form submission
+        const form = document.querySelector('.booking-form');
+        const submitBtn = form.querySelector('button[type="submit"]');
+        
+        form.addEventListener('submit', function() {
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Processing Reservation...';
+            submitBtn.disabled = true;
+        });
+
+        // Add date validation
+        const checkIn = document.querySelector('input[name="check_in"]');
+        const checkOut = document.querySelector('input[name="check_out"]');
+        
+        if (checkIn && checkOut) {
+            const today = new Date().toISOString().split('T')[0];
+            checkIn.min = today;
+            
+            checkIn.addEventListener('change', function() {
+                checkOut.min = this.value;
+            });
+        }
+    });
+</script>
+
+{% endblock %}

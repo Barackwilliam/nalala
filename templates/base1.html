@@ -1,0 +1,147 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}Nalala House - Premier Safari Lodge{% endblock %}</title>
+   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Bootstrap & fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+  <!-- NAVBAR (desktop) -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top safari-nav">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+        {% if lodge.logo %}
+          <img src="{{ lodge.logo.url }}" alt="logo" class="logo me-2">
+        {% endif %}
+        <span class="brand-text">Nalala House</span>
+      </a>
+
+      <!-- Mobile sidebar toggle -->
+      <button class="btn btn-link d-lg-none text-white" id="sidebarToggle" aria-label="Open menu">
+        <i class="fas fa-bars fa-lg"></i>
+      </button>
+
+      <!-- Desktop menu -->
+      <div class="collapse navbar-collapse d-none d-lg-flex justify-content-end" id="desktopMenu">
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item"><a class="nav-link" href="{% url 'home' %}"><i class="fas fa-home me-1"></i>Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#rooms"><i class="fas fa-bed me-1"></i>Rooms</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about"><i class="fas fa-mountain me-1"></i>About</a></li>
+          <li class="nav-item"><a class="nav-link btn btn-outline-light btn-sm rounded-pill ms-3" href="{% url 'book_room' %}"><i class="fas fa-calendar-check me-1"></i>Book</a></li>
+          {% if user.is_authenticated %}
+            <li class="nav-item dropdown ms-3">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i class="fas fa-user-shield me-1"></i>Admin</a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="{% url 'dashboard' %}">Dashboard</a></li>
+                <li><a class="dropdown-item" href="{% url 'update_lodge' %}">Settings</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="{% url 'admin:logout' %}">Logout</a></li>
+              </ul>
+            </li>
+          {% else %}
+            <li class="nav-item ms-3"><a class="nav-link" href="{% url 'admin:index' %}"><i class="fas fa-lock me-1"></i>Admin</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE SIDEBAR -->
+  <aside id="mobileSidebar" class="mobile-sidebar" aria-hidden="true">
+    <div class="sidebar-top d-flex align-items-center justify-content-between px-3 py-3">
+      <div class="d-flex align-items-center">
+        {% if lodge.logo %}
+          <img src="{{ lodge.logo.url }}" class="logo-sm me-2" alt="logo">
+        {% endif %}
+        <strong class="text-white">Nalala House</strong>
+      </div>
+      <button class="btn btn-link text-white" id="closeSidebar" aria-label="Close menu"><i class="fas fa-times"></i></button>
+    </div>
+
+    <nav class="px-2 py-3">
+      <a class="sidebar-link d-flex align-items-center" href="{% url 'home' %}"><i class="fas fa-home me-3"></i>Home</a>
+      <a class="sidebar-link d-flex align-items-center" href="#rooms"><i class="fas fa-bed me-3"></i>Rooms</a>
+      <a class="sidebar-link d-flex align-items-center" href="#about"><i class="fas fa-mountain me-3"></i>About</a>
+      <a class="sidebar-link d-flex align-items-center" href="{% url 'book_room' %}"><i class="fas fa-calendar-check me-3"></i>Book Now</a>
+      <div class="sidebar-divider my-3"></div>
+      {% if user.is_authenticated %}
+        <a class="sidebar-link d-flex align-items-center" href="{% url 'dashboard' %}"><i class="fas fa-tachometer-alt me-3"></i>Dashboard</a>
+        <a class="sidebar-link d-flex align-items-center" href="{% url 'update_lodge' %}"><i class="fas fa-cog me-3"></i>Settings</a>
+        <a class="sidebar-link d-flex align-items-center" href="{% url 'admin:logout' %}"><i class="fas fa-sign-out-alt me-3"></i>Logout</a>
+      {% else %}
+        <a class="sidebar-link d-flex align-items-center" href="{% url 'admin:index' %}"><i class="fas fa-lock me-3"></i>Admin Login</a>
+      {% endif %}
+    </nav>
+
+    <div class="sidebar-footer px-3 py-4 mt-auto">
+      <small class="text-white-50">Follow us</small>
+      <div class="mt-2">
+        <a class="me-2 text-gold" href="#"><i class="fab fa-instagram fa-lg"></i></a>
+        <a class="me-2 text-gold" href="#"><i class="fab fa-facebook fa-lg"></i></a>
+        <a class="text-gold" href="#"><i class="fab fa-twitter fa-lg"></i></a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- sidebar overlay -->
+  <div id="sidebarBackdrop" class="sidebar-backdrop" tabindex="-1" aria-hidden="true"></div>
+
+  <!-- MAIN -->
+  <main class="main-content">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="safari-footer mt-5">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h5 class="text-white">Nalala House</h5>
+          <p class="text-white-50 small">Premier VVIP Safari Lodge near Kilimanjaro. Exclusive safaris & luxurious suites.</p>
+          <p class="text-white-50 small"><i class="fas fa-map-marker-alt me-2"></i>{{ lodge.location }}<br><i class="fas fa-phone me-2"></i>{{ lodge.phone }}</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h6 class="text-white">Explore</h6>
+          <ul class="list-unstyled">
+            <li><a class="text-white-50" href="#rooms">Luxury Rooms</a></li>
+            <li><a class="text-white-50" href="#about">Safari Adventures</a></li>
+            <li><a class="text-white-50" href="{% url 'book_room' %}">Book Experience</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h6 class="text-white">Connect</h6>
+          <div>
+            <a class="me-3 text-gold" href="#"><i class="fab fa-instagram fa-lg"></i></a>
+            <a class="me-3 text-gold" href="#"><i class="fab fa-facebook fa-lg"></i></a>
+            <a class="text-gold" href="#"><i class="fab fa-twitter fa-lg"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="border-secondary">
+      <div class="text-center text-white-50 small">&copy; 2025 Nalala House | All rights reserved</div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+  {% block extra_scripts %}{% endblock %}
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1200,
+    once: true,
+  });
+</script>
+
+</body>
+</html>
