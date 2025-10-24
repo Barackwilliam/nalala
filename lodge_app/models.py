@@ -30,7 +30,6 @@ class Lodge(models.Model):
 import logging
 
 logger = logging.getLogger(__name__)
-
 class Room(models.Model):
     lodge = models.ForeignKey('Lodge', on_delete=models.CASCADE, related_name='rooms')
     name = models.CharField(max_length=100)  # e.g., Nala, Simba
@@ -53,16 +52,14 @@ class Room(models.Model):
     def get_image_url(self):
         return f"https://ucarecdn.com/{self.image}/-/format/jpg/-/quality/smart/"
 
-
-
-
-class Meta:
-    verbose_name = "Room"
-    verbose_name_plural = "Rooms"
-    ordering = ['name']
-
     def __str__(self):
-        return f"{self.name} ({self.lodge.name})"
+        return f"{self.name} ({self.lodge.name})"   # Hii ndiyo muhimu iwe ndani ya class
+
+    class Meta:
+        verbose_name = "Room"
+        verbose_name_plural = "Rooms"
+        ordering = ['name']
+
 
 
 
