@@ -11,7 +11,7 @@ from .forms import GuestForm, PaymentForm, LodgeForm
 def home(request):
     lodge = Lodge.objects.first()
     rooms = Room.objects.all()
-    return render(request, 'home.html', {'lodge': lodge, 'rooms': rooms})
+    return render(request, 'index.html', {'lodge': lodge, 'rooms': rooms})
 
 def book_room(request):
     if request.method == 'POST':
@@ -23,7 +23,7 @@ def book_room(request):
             return redirect('home')
     else:
         form = GuestForm()
-    return render(request, 'book_room.html', {'form': form})
+    return render(request, 'booking.html', {'form': form})
 
 @login_required
 def dashboard(request):
