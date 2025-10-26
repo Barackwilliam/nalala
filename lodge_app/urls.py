@@ -9,6 +9,15 @@ urlpatterns = [
     path('dashboard/', dashboard, name='dashboard'),
     path('check_out/<int:guest_id>/', check_out, name='check_out'),
     path('update_lodge/', update_lodge, name='update_lodge'),
-    path('login/', views.custom_login_view, name='custom_login'),  # Add this line
+    path('Arusha_National_Park', views.Arusha_National_Park, name='Arusha_National_Park'),  # Add this line
+    path('Kikuletwa_Hotsprings', views.Kikuletwa_Hotsprings, name='Kikuletwa_Hotsprings'),  # Add this line
+    path('Tarangire_National', views.Tarangire_National, name='Tarangire_National'),  # Add this line
+    path('Lake_Manyara_National', views.Lake_Manyara_National, name='Lake_Manyara_National'),  # Add this line
+    path('condition', views.condition, name='condition'),  # Add this line
+    path('policy', views.policy, name='policy'),  # Add this line
+    path('Coffee_Tour', views.Coffee_Tour, name='Coffee_Tour'),  # Add this line
+    path('abaut', views.abaut, name='abaut'),  # Add this line
+    path('Ngorongoro_Crater', views.Ngorongoro_Crater, name='Ngorongoro_Crater'),  # Add this line
+    path('login/', views.custom_login_view, name='custom_login'),  
     path('logout/', views.logout_view, name='logout'),
 ]

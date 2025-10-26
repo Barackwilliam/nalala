@@ -1,0 +1,942 @@
+<!-- core/templates/core/itinerary.html -->
+{% extends "base.html" %}
+{% block title %}Full-Day Arusha National Park Itinerary - Nalala House{% endblock %}
+
+{% block content %}
+<div class="itinerary-full-page">
+    <!-- Header Section -->
+    <div class="itinerary-hero-section">
+        <div class="container">
+            <div class="itinerary-header-content text-center">
+                <div class="itinerary-main-icon">
+                    <i class="fas fa-safari fa-3x"></i>
+                </div>
+                <h1 class="itinerary-main-title">Arusha National Park Safari</h1>
+                <p class="itinerary-subtitle">Full-Day Wildlife Adventure Experience</p>
+                <div class="itinerary-header-divider"></div>
+                
+                <div class="itinerary-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">12+</div>
+                        <div class="stat-label">Wildlife Species</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Hours Adventure</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Unique Activities</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Itinerary Timeline -->
+    <div class="itinerary-timeline-section">
+        <div class="container">
+            <div class="itinerary-timeline">
+                <!-- Morning Section -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-icon morning">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="timeline-connector"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <span class="time-badge">8:00 AM</span>
+                            <h3 class="timeline-title">Morning Adventure Begins</h3>
+                        </div>
+                        <div class="timeline-body">
+                            <div class="activity-grid">
+                                <div class="activity-card">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-hotel"></i>
+                                    </div>
+                                    <div class="activity-details">
+                                        <h4>Hotel Pick-up</h4>
+                                        <p>Pick-up from your hotel in Arusha around 8:00 AM</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="activity-card">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-car"></i>
+                                    </div>
+                                    <div class="activity-details">
+                                        <h4>Scenic Drive</h4>
+                                        <p>45-minute drive to Arusha National Park</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="activity-card full-width">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-binoculars"></i>
+                                    </div>
+                                    <div class="activity-details">
+                                        <h4>Morning Game Drive</h4>
+                                        <p>Register at park gate and begin wildlife viewing. Spot giraffes, zebras, buffaloes, warthogs, colobus monkeys, and many bird species with stunning views of Mount Meru and Kilimanjaro.</p>
+                                        <div class="wildlife-tags">
+                                            <span class="wildlife-tag"><i class="fas fa-horse"></i> Giraffes</span>
+                                            <span class="wildlife-tag"><i class="fas fa-horse-head"></i> Zebras</span>
+                                            <span class="wildlife-tag"><i class="fas fa-paw"></i> Buffaloes</span>
+                                            <span class="wildlife-tag"><i class="fas fa-piggy-bank"></i> Warthogs</span>
+                                            <span class="wildlife-tag"><i class="fas fa-monkey"></i> Colobus Monkeys</span>
+                                            <span class="wildlife-tag"><i class="fas fa-dove"></i> Bird Species</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Walking Safari Section -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-icon walking">
+                            <i class="fas fa-hiking"></i>
+                        </div>
+                        <div class="timeline-connector"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <span class="time-badge">10:30 AM</span>
+                            <h3 class="timeline-title">Walking Safari Adventure</h3>
+                        </div>
+                        <div class="timeline-body">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>Guided Walking Safari</h4>
+                                    <p>Take a guided walking safari with an armed ranger. This offers a rare chance to explore the park on foot and get close to animals and nature — an unforgettable experience!</p>
+                                </div>
+                            </div>
+                            
+                            <div class="destination-cards">
+                                <div class="destination-card">
+                                    <div class="destination-icon">
+                                        <i class="fas fa-mountain"></i>
+                                    </div>
+                                    <div class="destination-info">
+                                        <h5>Ngurdoto Crater Rim</h5>
+                                        <p>Walk to scenic points with spectacular views</p>
+                                    </div>
+                                </div>
+                                <div class="destination-card">
+                                    <div class="destination-icon">
+                                        <i class="fas fa-water"></i>
+                                    </div>
+                                    <div class="destination-info">
+                                        <h5>Tululusia Waterfall</h5>
+                                        <p>Beautiful waterfall and natural surroundings</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="experience-note">
+                                <i class="fas fa-star"></i>
+                                <span>An unforgettable close-to-nature experience!</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Afternoon Section -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-icon afternoon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="timeline-connector"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <span class="time-badge">12:30 PM</span>
+                            <h3 class="timeline-title">Lunch & Leisure Time</h3>
+                        </div>
+                        <div class="timeline-body">
+                            <div class="activity-grid">
+                                <div class="activity-card">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-picnic-basket"></i>
+                                    </div>
+                                    <div class="activity-details">
+                                        <h4>Picnic Lunch</h4>
+                                        <p>Enjoy a picnic lunch at one of the park's designated picnic sites with great views of the lakes or Mount Meru.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="activity-card">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-ship"></i>
+                                    </div>
+                                    <div class="activity-details">
+                                        <h4>Canoe Safari</h4>
+                                        <p>Continue with optional canoe safari on the Momella Lakes (if available and weather permits).</p>
+                                        <div class="availability-note">
+                                            <i class="fas fa-info-circle"></i>
+                                            <small>Weather permitting & subject to availability</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Return Section -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-icon evening">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <span class="time-badge">3:30 PM</span>
+                            <h3 class="timeline-title">Return to Arusha</h3>
+                        </div>
+                        <div class="timeline-body">
+                            <div class="return-info">
+                                <div class="return-icon">
+                                    <i class="fas fa-car-side"></i>
+                                </div>
+                                <div class="return-details">
+                                    <h4>Journey Back</h4>
+                                    <p>Depart the park around 3:30–4:00 PM and arrive back at your Arusha hotel by early evening.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="itinerary-features-section">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Premium Safari Experience</h2>
+                <p>Everything you need for an unforgettable adventure</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h4>Expert Guides</h4>
+                    <p>Professional and experienced guides with extensive knowledge of local wildlife</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h4>Photo Opportunities</h4>
+                    <p>Stunning landscapes and wildlife photography moments throughout the day</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <h4>Luxury Service</h4>
+                    <p>Premium comfort, gourmet meals, and exceptional service standards</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="itinerary-cta-section">
+        <div class="container text-center">
+            <h2>Ready for Your Adventure?</h2>
+            <p>Book your premium Arusha National Park experience today</p>
+            <div class="cta-buttons">
+                <button class="cta-btn primary">
+                    <i class="fas fa-calendar-check"></i>
+                    Book This Safari
+                </button>
+                <button class="cta-btn secondary">
+                    <i class="fas fa-print"></i>
+                    Print Itinerary
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Complete CSS Styles -->
+<style>
+/* Base Styles */
+.itinerary-full-page {
+    background: #F5F5DC;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Hero Section */
+.itinerary-hero-section {
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.9), rgba(101, 67, 33, 0.9)),
+                url('https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.itinerary-header-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.itinerary-main-icon {
+    margin-bottom: 30px;
+}
+
+.itinerary-main-icon i {
+    color: #D4AF37;
+}
+
+.itinerary-main-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.itinerary-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    color: white;
+}
+
+.itinerary-header-divider {
+    width: 100px;
+    height: 3px;
+    background: #D4AF37;
+    margin: 30px auto;
+}
+
+.itinerary-stats {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 40px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #D4AF37;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+}
+
+/* Timeline Section */
+.itinerary-timeline-section {
+    padding: 80px 0;
+    background: #F5F5DC;
+}
+
+.itinerary-timeline {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.timeline-marker {
+    position: relative;
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.marker-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    z-index: 2;
+    position: relative;
+}
+
+.marker-icon.morning { background: linear-gradient(135deg, #FF9A9E, #FECFEF); }
+.marker-icon.walking { background: linear-gradient(135deg, #A8FF78, #78FFD6); }
+.marker-icon.afternoon { background: linear-gradient(135deg, #FFAFBD, #FFC3A0); }
+.marker-icon.evening { background: linear-gradient(135deg, #667eea, #764ba2); }
+
+.timeline-connector {
+    width: 3px;
+    background: linear-gradient(to bottom, #8B4513, #D4AF37);
+    flex: 1;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+.timeline-item:last-child .timeline-connector {
+    display: none;
+}
+
+.timeline-content {
+    flex: 1;
+    background: rgba(139, 69, 19, 0.8);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 2px solid #D4AF37;
+}
+
+.timeline-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.time-badge {
+    background: #D4AF37;
+    color: #8B4513;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.timeline-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: white;
+    margin: 0;
+    flex: 1;
+}
+
+/* Activity Grid */
+.activity-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.activity-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    transition: transform 0.3s ease;
+    border-left: 4px solid #D4AF37;
+}
+
+.activity-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.activity-card.full-width {
+    grid-column: 1 / -1;
+}
+
+.activity-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #D4AF37;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    border: 2px solid #D4AF37;
+}
+
+.activity-details h4 {
+    color: white;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.activity-details p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Wildlife Tags */
+.wildlife-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.wildlife-tag {
+    background: rgba(212, 175, 55, 0.2);
+    color: #D4AF37;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Feature Card */
+.feature-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    border-left: 4px solid #A8FF78;
+}
+
+.feature-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(168, 255, 120, 0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #A8FF78;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    border: 2px solid #A8FF78;
+}
+
+.feature-content h4 {
+    color: white;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.feature-content p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Destination Cards */
+.destination-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.destination-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.destination-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(212, 175, 55, 0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #D4AF37;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.destination-info h5 {
+    color: white;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.destination-info p {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Experience Note */
+.experience-note {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 215, 0, 0.2);
+    padding: 15px 20px;
+    border-radius: 10px;
+    color: #FFD700;
+    font-weight: 600;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+/* Availability Note */
+.availability-note {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.availability-note i {
+    color: #D4AF37;
+}
+
+/* Return Info */
+.return-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 15px;
+    border-left: 4px solid #667eea;
+}
+
+.return-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(102, 126, 234, 0.2);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #667eea;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    border: 2px solid #667eea;
+}
+
+.return-details h4 {
+    color: white;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.return-details p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Features Section */
+.itinerary-features-section {
+    padding: 80px 0;
+    background: rgba(139, 69, 19, 0.1);
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #8B4513;
+    margin-bottom: 15px;
+}
+
+.section-title p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 50px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.feature-item {
+    text-align: center;
+    padding: 40px 30px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-10px);
+}
+
+.feature-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #8B4513, #D4AF37);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    font-size: 2rem;
+    color: white;
+}
+
+.feature-item h4 {
+    color: #8B4513;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.feature-item p {
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* CTA Section */
+.itinerary-cta-section {
+    background: linear-gradient(135deg, #8B4513, #A0522D);
+    padding: 80px 0;
+    color: white;
+    text-align: center;
+}
+
+.itinerary-cta-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.itinerary-cta-section p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    color: white;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-btn {
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.cta-btn.primary {
+    background: #D4AF37;
+    color: #8B4513;
+}
+
+.cta-btn.primary:hover {
+    background: #FFD700;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+}
+
+.cta-btn.secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.cta-btn.secondary:hover {
+    background: white;
+    color: #8B4513;
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .itinerary-main-title {
+        font-size: 2.5rem;
+    }
+    
+    .itinerary-stats {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .timeline-item {
+        flex-direction: column;
+    }
+    
+    .timeline-marker {
+        margin-right: 0;
+        margin-bottom: 20px;
+        flex-direction: row;
+    }
+    
+    .timeline-connector {
+        width: 100%;
+        height: 3px;
+        margin-top: 0;
+        margin-left: 15px;
+    }
+    
+    .activity-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .destination-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature-card,
+    .return-info {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .timeline-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-btn {
+        width: 250px;
+        justify-content: center;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animation Styles */
+.timeline-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.feature-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.feature-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Animation on scroll
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const featureItems = document.querySelectorAll('.feature-item');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    timelineItems.forEach((item, index) => {
+        item.style.transitionDelay = `${index * 0.2}s`;
+        observer.observe(item);
+    });
+    
+    featureItems.forEach((item, index) => {
+        item.style.transitionDelay = `${index * 0.1}s`;
+        observer.observe(item);
+    });
+    
+    // Print functionality
+    document.querySelector('.cta-btn.secondary').addEventListener('click', function() {
+        window.print();
+    });
+    
+    // Smooth scrolling for any anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
+    // Add hover effects
+    document.querySelectorAll('.activity-card, .feature-item').forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+});
+</script>
+{% endblock %}

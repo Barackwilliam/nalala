@@ -1,0 +1,851 @@
+<!-- core/templates/core/cancellation_policy.html -->
+{% extends "base.html" %}
+{% block title %}Cancellation Policy - Nalala House{% endblock %}
+
+{% block content %}
+<div class="policy-full-page">
+    <!-- Hero Section -->
+    <div class="policy-hero-section">
+        <div class="container">
+            <div class="policy-header-content text-center">
+                <div class="policy-main-icon">
+                    <i class="fas fa-calendar-times fa-3x"></i>
+                </div>
+                <h1 class="policy-main-title">Cancellation Policy</h1>
+                <p class="policy-subtitle">Nalala House - Fair and Transparent Policies</p>
+                <div class="policy-header-divider"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Introduction Section -->
+    <div class="policy-intro-section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="policy-intro-card text-center">
+                        <h2 class="section-title">Understanding Our Policy</h2>
+                        <p class="policy-intro-text">
+                            We understand that travel plans can change. Our cancellation policy is designed to be fair for both our guests and the lodge, ensuring we can maintain our high standards of service while being flexible with your needs.
+                        </p>
+                        <div class="last-updated">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Last Updated: {{ current_date }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Policy Content -->
+    <div class="policy-content-section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <!-- Standard Bookings -->
+                    <div class="policy-card" data-aos="fade-up">
+                        <div class="policy-card-header">
+                            <div class="policy-number">1</div>
+                            <h3 class="policy-title">Standard Bookings</h3>
+                        </div>
+                        <div class="policy-card-body">
+                            <div class="cancellation-timeline">
+                                <div class="timeline-item free">
+                                    <div class="timeline-marker">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <h5>Free Cancellation</h5>
+                                        <p>Up to 7 days before arrival</p>
+                                        <span class="timeline-note">Full refund applicable</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-item partial">
+                                    <div class="timeline-marker">
+                                        <i class="fas fa-exclamation-circle"></i>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <h5>50% Charge</h5>
+                                        <p>Cancellations made 3–6 days before arrival</p>
+                                        <span class="timeline-note">50% of total amount charged</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-item full">
+                                    <div class="timeline-marker">
+                                        <i class="fas fa-times-circle"></i>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <h5>100% Charge (No Refund)</h5>
+                                        <p>Cancellations made less than 48 hours before arrival or in case of no-show</p>
+                                        <span class="timeline-note">Full amount non-refundable</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Group Bookings -->
+                    <div class="policy-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="policy-card-header">
+                            <div class="policy-number">2</div>
+                            <h3 class="policy-title">Group Bookings (3 rooms or more)</h3>
+                        </div>
+                        <div class="policy-card-body">
+                            <div class="group-booking-info">
+                                <div class="booking-note">
+                                    <i class="fas fa-users"></i>
+                                    <div>
+                                        <strong>Group Booking Requirement</strong>
+                                        <p>25% non-refundable deposit required to confirm the booking</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cancellation-timeline">
+                                <div class="timeline-item free">
+                                    <div class="timeline-marker">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <h5>Free Cancellation</h5>
+                                        <p>Up to 14 days before arrival</p>
+                                        <span class="timeline-note">Full refund (excluding deposit)</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-item partial">
+                                    <div class="timeline-marker">
+                                        <i class="fas fa-exclamation-circle"></i>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <h5>50% Charge</h5>
+                                        <p>Cancellations made 7–13 days before arrival</p>
+                                        <span class="timeline-note">50% of total amount charged</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-item full">
+                                    <div class="timeline-marker">
+                                        <i class="fas fa-times-circle"></i>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <h5>100% Charge</h5>
+                                        <p>Cancellations made less than 7 days before arrival or in case of no-show</p>
+                                        <span class="timeline-note">Full amount non-refundable</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Early Check-Out -->
+                    <div class="policy-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="policy-card-header">
+                            <div class="policy-number">3</div>
+                            <h3 class="policy-title">Early Check-Out</h3>
+                        </div>
+                        <div class="policy-card-body">
+                            <div class="policy-single">
+                                <div class="policy-icon">
+                                    <i class="fas fa-door-open"></i>
+                                </div>
+                                <div class="policy-content">
+                                    <p>Guests who check out earlier than the booked dates will be charged for the full length of the original reservation.</p>
+                                </div>
+                            </div>
+                            <div class="early-checkout-note">
+                                <i class="fas fa-info-circle"></i>
+                                <span>This policy helps us manage room availability and ensures fair treatment for all guests.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Refunds -->
+                    <div class="policy-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="policy-card-header">
+                            <div class="policy-number">4</div>
+                            <h3 class="policy-title">Refunds</h3>
+                        </div>
+                        <div class="policy-card-body">
+                            <div class="refund-process">
+                                <div class="refund-step">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h5>Processing Time</h5>
+                                        <p>Refunds (if applicable) will be processed within 7 working days after cancellation confirmation.</p>
+                                    </div>
+                                </div>
+                                <div class="refund-step">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h5>Bank Fees</h5>
+                                        <p>Bank or transfer fees may apply depending on your payment method.</p>
+                                    </div>
+                                </div>
+                                <div class="refund-step">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h5>Payment Method</h5>
+                                        <p>Refunds will be issued to the original payment method used during booking.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Important Note -->
+                    <div class="policy-note-card" data-aos="fade-up">
+                        <div class="note-header">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <h4>Important Note</h4>
+                        </div>
+                        <div class="note-content">
+                            <p>Special rates, promotions, or packages may have their own cancellation terms. Please refer to your booking confirmation for specific details related to your reservation.</p>
+                            <div class="note-tips">
+                                <div class="tip-item">
+                                    <i class="fas fa-file-invoice"></i>
+                                    <span>Always check your booking confirmation email</span>
+                                </div>
+                                <div class="tip-item">
+                                    <i class="fas fa-phone-alt"></i>
+                                    <span>Contact us directly for clarification</span>
+                                </div>
+                                <div class="tip-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Plan cancellations in advance when possible</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="contact-card" data-aos="fade-up">
+                        <div class="contact-content text-center">
+                            <div class="contact-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <h3 class="contact-title">Need Help with Cancellation?</h3>
+                            <p class="contact-text">Our team is here to assist you with any cancellation requests or questions about our policy.</p>
+                            <div class="contact-methods">
+                                <div class="contact-method">
+                                    <i class="fas fa-phone"></i>
+                                    <span>0757179698</span>
+                                </div>
+                                <div class="contact-method">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>info@nalalahouse.com</span>
+                                </div>
+                                <div class="contact-method">
+                                    <i class="fas fa-clock"></i>
+                                    <span>24/7 Support Available</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CSS Styles -->
+<style>
+/* Base Styles */
+.policy-full-page {
+    background: #F5F5DC;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Hero Section */
+.policy-hero-section {
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.9), rgba(101, 67, 33, 0.9)),
+                url('https://images.unsplash.com/photo-1564501049418-3c277b1f1a59?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.policy-header-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.policy-main-icon {
+    margin-bottom: 30px;
+}
+
+.policy-main-icon i {
+    color: #D4AF37;
+}
+
+.policy-main-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.policy-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    color: white;
+}
+
+.policy-header-divider {
+    width: 100px;
+    height: 3px;
+    background: #D4AF37;
+    margin: 30px auto;
+}
+
+/* Introduction Section */
+.policy-intro-section {
+    background: #F5F5DC;
+}
+
+.policy-intro-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(212, 175, 55, 0.2);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #8B4513;
+    margin-bottom: 20px;
+}
+
+.policy-intro-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.last-updated {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(212, 175, 55, 0.1);
+    padding: 10px 20px;
+    border-radius: 50px;
+    color: #8B4513;
+    font-weight: 500;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.last-updated i {
+    color: #D4AF37;
+}
+
+/* Policy Content Section */
+.policy-content-section {
+    background: #F5F5DC;
+}
+
+.policy-card {
+    background: white;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(212, 175, 55, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.policy-card:hover {
+    transform: translateY(-5px);
+}
+
+.policy-card-header {
+    background: linear-gradient(135deg, #8B4513, #A0522D);
+    padding: 25px 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: white;
+}
+
+.policy-number {
+    width: 50px;
+    height: 50px;
+    background: #D4AF37;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #8B4513;
+    flex-shrink: 0;
+}
+
+.policy-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0;
+    color: white;
+}
+
+.policy-card-body {
+    padding: 30px;
+}
+
+/* Cancellation Timeline */
+.cancellation-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 25px;
+    border-radius: 15px;
+    border-left: 4px solid;
+    transition: transform 0.3s ease;
+}
+
+.timeline-item:hover {
+    transform: translateX(5px);
+}
+
+.timeline-item.free {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: #10B981;
+}
+
+.timeline-item.partial {
+    background: rgba(245, 158, 11, 0.1);
+    border-color: #F59E0B;
+}
+
+.timeline-item.full {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: #EF4444;
+}
+
+.timeline-marker {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.timeline-item.free .timeline-marker {
+    background: #10B981;
+    color: white;
+}
+
+.timeline-item.partial .timeline-marker {
+    background: #F59E0B;
+    color: white;
+}
+
+.timeline-item.full .timeline-marker {
+    background: #EF4444;
+    color: white;
+}
+
+.timeline-content h5 {
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.timeline-item.free .timeline-content h5 {
+    color: #10B981;
+}
+
+.timeline-item.partial .timeline-content h5 {
+    color: #F59E0B;
+}
+
+.timeline-item.full .timeline-content h5 {
+    color: #EF4444;
+}
+
+.timeline-content p {
+    color: #666;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.timeline-note {
+    font-size: 0.85rem;
+    color: #8B4513;
+    font-weight: 600;
+    background: rgba(139, 69, 19, 0.1);
+    padding: 4px 10px;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+/* Group Booking Info */
+.group-booking-info {
+    margin-bottom: 25px;
+}
+
+.booking-note {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 10px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.booking-note i {
+    color: #D4AF37;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.booking-note strong {
+    color: #8B4513;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.booking-note p {
+    color: #666;
+    margin: 0;
+}
+
+/* Policy Single */
+.policy-single {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    background: rgba(248, 245, 240, 0.5);
+    border-radius: 15px;
+    border-left: 4px solid #D4AF37;
+    margin-bottom: 15px;
+}
+
+.policy-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #D4AF37;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    border: 2px solid #D4AF37;
+}
+
+.policy-content p {
+    color: #666;
+    margin: 0;
+    font-weight: 500;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.early-checkout-note {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(212, 175, 55, 0.1);
+    padding: 15px 20px;
+    border-radius: 10px;
+    color: #8B4513;
+    font-weight: 500;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.early-checkout-note i {
+    color: #D4AF37;
+}
+
+/* Refund Process */
+.refund-process {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.refund-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    background: rgba(248, 245, 240, 0.5);
+    border-radius: 12px;
+    border-left: 3px solid #D4AF37;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background: #D4AF37;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #8B4513;
+    flex-shrink: 0;
+}
+
+.step-content h5 {
+    color: #8B4513;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.step-content p {
+    color: #666;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Policy Note Card */
+.policy-note-card {
+    background: linear-gradient(135deg, #FEF3C7, #FDE68A);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 2px solid #F59E0B;
+}
+
+.note-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.note-header i {
+    color: #D97706;
+    font-size: 2rem;
+}
+
+.note-header h4 {
+    color: #92400E;
+    margin: 0;
+    font-weight: 700;
+}
+
+.note-content p {
+    color: #92400E;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.note-tips {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.tip-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    border-left: 3px solid #D97706;
+}
+
+.tip-item i {
+    color: #D97706;
+    font-size: 1.1rem;
+    width: 20px;
+}
+
+.tip-item span {
+    color: #92400E;
+    font-weight: 500;
+}
+
+/* Contact Card */
+.contact-card {
+    background: linear-gradient(135deg, #8B4513, #A0522D);
+    border-radius: 20px;
+    padding: 50px 30px;
+    text-align: center;
+    color: white;
+}
+
+.contact-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(212, 175, 55, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    font-size: 2.5rem;
+    color: #D4AF37;
+    border: 3px solid #D4AF37;
+}
+
+.contact-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.contact-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    color: white;
+}
+
+.contact-methods {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.contact-method {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.contact-method i {
+    color: #D4AF37;
+    font-size: 1.2rem;
+}
+
+.contact-method span {
+    color: white;
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .policy-main-title {
+        font-size: 2.5rem;
+    }
+    
+    .policy-card-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .timeline-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .policy-single {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .refund-step {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .contact-methods {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .contact-method {
+        justify-content: center;
+    }
+    
+    .note-tips {
+        gap: 8px;
+    }
+    
+    .tip-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+}
+
+/* Animation Styles */
+.policy-card, .policy-note-card, .contact-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.policy-card.visible, .policy-note-card.visible, .contact-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Animation on scroll
+    const policyCards = document.querySelectorAll('.policy-card, .policy-note-card, .contact-card');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    policyCards.forEach((card, index) => {
+        card.style.transitionDelay = `${index * 0.1}s`;
+        observer.observe(card);
+    });
+    
+    // Add current date
+    const currentDate = new Date().toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+    
+    const dateElement = document.querySelector('.last-updated span');
+    if (dateElement) {
+        dateElement.textContent = `Last Updated: ${currentDate}`;
+    }
+    
+    // Add hover effects to timeline items
+    document.querySelectorAll('.timeline-item').forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateX(5px)';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateX(0)';
+        });
+    });
+});
+</script>
+{% endblock %}

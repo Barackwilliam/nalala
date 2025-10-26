@@ -429,13 +429,11 @@
             </div>
         </div>
     </div>
-</section>
-
-<!-- Luxury Suites Section -->
-<section id="rooms" class="luxury-suites py-6" data-aos="fade-up">
+</section><!-- Luxury Suites Section -->
+<section id="rooms" class="luxury-suites py-6" data-aos="fade-up" style="background: linear-gradient(rgba(245, 245, 220, 0.9), rgba(248, 245, 240, 0.9)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;">
     <div class="container">
         <div class="text-center mb-6">
-            <h2 class="display-3 fw-bold text-white mb-3">Our Luxury Suites</h2>
+            <h2 class="display-3 fw-bold text-charcoal mb-3">Our Luxury Suites</h2>
             <p class="lead text-silver">Experience unparalleled comfort in our meticulously designed safari suites</p>
             <div class="luxury-divider mx-auto my-4"></div>
         </div>
@@ -443,7 +441,7 @@
         <div class="row g-5">
             {% for room in rooms %}
             <div class="col-xl-4 col-lg-6">
-                <div class="luxury-suite-card position-relative overflow-hidden rounded-4" data-aos="flip-left" data-aos-delay="{{ forloop.counter0|add:100 }}">
+                <div class="luxury-suite-card position-relative overflow-hidden rounded-4" data-aos="flip-left" data-aos-delay="{{ forloop.counter0|add:100 }}" style="background: white; border: 2px solid rgba(212, 175, 55, 0.2); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
                     <div class="suite-image position-relative overflow-hidden">
                         {% if room.image %}
                         <img src="{{room.image}}" 
@@ -451,7 +449,7 @@
                              alt="{{ room.name }}"
                              style="height: 300px; object-fit: cover;">
                              {% endif %}
-                        <div class="suite-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end">
+                        <div class="suite-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end" style="background: linear-gradient(transparent 0%, rgba(139, 69, 19, 0.9) 100%);">
                             <div class="suite-content w-100 text-white p-4">
                                 <div class="d-flex justify-content-between align-items-start mb-3">
                                     <h3 class="suite-title mb-0">{{ room.name }}</h3>
@@ -480,10 +478,10 @@
 </section>
 
 <!-- Luxury Attractions Section -->
-<section id="attractions" class="luxury-attractions py-6" data-aos="fade-up">
+<section id="attractions" class="luxury-attractions py-6" data-aos="fade-up" style="background: linear-gradient(135deg, rgba(139, 69, 19, 0.05) 0%, rgba(248, 245, 240, 0.8) 100%);">
     <div class="container">
         <div class="text-center mb-6">
-            <h2 class="display-3 fw-bold text-white mb-3">Premier Attractions</h2>
+            <h2 class="display-3 fw-bold text-charcoal mb-3">Premier Attractions</h2>
             <p class="lead text-silver">
                 Discover Tanzania's iconic wonders from our luxury base in Mateves, Arusha
             </p>
@@ -493,18 +491,18 @@
         <div class="row g-4">
             <!-- Arusha National Park -->
             <div class="col-lg-4 col-md-6">
-                <div class="luxury-attraction-card rounded-4 overflow-hidden position-relative" data-aos="zoom-in">
+                <div class="luxury-attraction-card rounded-4 overflow-hidden position-relative" data-aos="zoom-in" style="background: white; border: 2px solid rgba(212, 175, 55, 0.2); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
                     <img src="https://www.serengetiparktanzania.com/wp-content/uploads/2022/03/Barranco-Tours-Arusha-national-park1.jpg" 
                          class="attraction-img w-100" 
                          alt="Arusha National Park"
                          style="height: 280px; object-fit: cover;">
-                    <div class="attraction-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-end p-4">
+                    <div class="attraction-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-end p-4" style="background: linear-gradient(transparent 0%, rgba(139, 69, 19, 0.9) 100%);">
                         <div class="attraction-content">
                             <h5 class="text-gold mb-2">
                                 <i class="fas fa-mountain me-2"></i>Arusha National Park
                             </h5>
                             <p class="text-white small mb-3">Explore diverse wildlife and stunning landscapes, just a short drive from our luxury lodge.</p>
-                            <a href="{% url 'book_room' %}" class="btn btn-luxury btn-sm">
+                            <a href="{% url 'Arusha_National_Park' %}" class="btn btn-luxury btn-sm">
                                 <i class="fas fa-gem me-1"></i>Reserve Experience
                             </a>
                         </div>
@@ -514,18 +512,18 @@
 
             <!-- Kikuletwa Hotsprings -->
             <div class="col-lg-4 col-md-6">
-                <div class="luxury-attraction-card rounded-4 overflow-hidden position-relative" data-aos="zoom-in" data-aos-delay="100">
+                <div class="luxury-attraction-card rounded-4 overflow-hidden position-relative" data-aos="zoom-in" data-aos-delay="100" style="background: white; border: 2px solid rgba(212, 175, 55, 0.2); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
                     <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=395x10000:format=jpg/path/s4f4dce6430c23411/image/i4a87038294854e9f/version/1499953314/image.jpg" 
                          class="attraction-img w-100" 
                          alt="Kikuletwa Hotsprings"
                          style="height: 280px; object-fit: cover;">
-                    <div class="attraction-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-end p-4">
+                    <div class="attraction-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-end p-4" style="background: linear-gradient(transparent 0%, rgba(139, 69, 19, 0.9) 100%);">
                         <div class="attraction-content">
                             <h5 class="text-gold mb-2">
                                 <i class="fas fa-water me-2"></i>Kikuletwa Hotsprings
                             </h5>
                             <p class="text-white small mb-3">Relax in crystal-clear warm waters surrounded by lush greenery, easily accessible from our lodge.</p>
-                            <a href="{% url 'book_room' %}" class="btn btn-luxury btn-sm">
+                            <a href="{% url 'Kikuletwa_Hotsprings' %}" class="btn btn-luxury btn-sm">
                                 <i class="fas fa-gem me-1"></i>Reserve Experience
                             </a>
                         </div>
@@ -535,18 +533,18 @@
 
             <!-- Tarangire National Park -->
             <div class="col-lg-4 col-md-6">
-                <div class="luxury-attraction-card rounded-4 overflow-hidden position-relative" data-aos="zoom-in" data-aos-delay="200">
+                <div class="luxury-attraction-card rounded-4 overflow-hidden position-relative" data-aos="zoom-in" data-aos-delay="200" style="background: white; border: 2px solid rgba(212, 175, 55, 0.2); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
                     <img src="https://www.safaris-uganda.com/wp-content/uploads/2020/03/tarangire-national-park-1.jpg" 
                          class="attraction-img w-100" 
                          alt="Tarangire National Park"
                          style="height: 280px; object-fit: cover;">
-                    <div class="attraction-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-end p-4">
+                    <div class="attraction-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-end p-4" style="background: linear-gradient(transparent 0%, rgba(139, 69, 19, 0.9) 100%);">
                         <div class="attraction-content">
                             <h5 class="text-gold mb-2">
                                 <i class="fas fa-elephant me-2"></i>Tarangire National Park
                             </h5>
                             <p class="text-white small mb-3">Witness vast elephant herds and iconic baobab trees, just a scenic drive from Nalala House.</p>
-                            <a href="{% url 'book_room' %}" class="btn btn-luxury btn-sm">
+                            <a href="{% url 'Tarangire_National' %}" class="btn btn-luxury btn-sm">
                                 <i class="fas fa-gem me-1"></i>Reserve Experience
                             </a>
                         </div>
@@ -554,20 +552,20 @@
                 </div>
             </div>
 
-            <!-- Additional attractions with same luxury styling -->
+            <!-- Lake Manyara National Park -->
             <div class="col-lg-4 col-md-6">
-                <div class="luxury-attraction-card rounded-4 overflow-hidden position-relative" data-aos="zoom-in" data-aos-delay="300">
+                <div class="luxury-attraction-card rounded-4 overflow-hidden position-relative" data-aos="zoom-in" data-aos-delay="300" style="background: white; border: 2px solid rgba(212, 175, 55, 0.2); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
                     <img src="https://kidunguuexpeditions.com/wp-content/uploads/2025/08/Lake-Manyara-National-Park.jpg" 
                          class="attraction-img w-100" 
                          alt="Lake Manyara National Park"
                          style="height: 280px; object-fit: cover;">
-                    <div class="attraction-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-end p-4">
+                    <div class="attraction-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-end p-4" style="background: linear-gradient(transparent 0%, rgba(139, 69, 19, 0.9) 100%);">
                         <div class="attraction-content">
                             <h5 class="text-gold mb-2">
                                 <i class="fas fa-tree me-2"></i>Lake Manyara National Park
                             </h5>
                             <p class="text-white small mb-3">Spot tree-climbing lions and flamingo-filled lakes near our luxury lodge.</p>
-                            <a href="{% url 'book_room' %}" class="btn btn-luxury btn-sm">
+                            <a href="{% url 'Lake_Manyara_National' %}" class="btn btn-luxury btn-sm">
                                 <i class="fas fa-gem me-1"></i>Reserve Experience
                             </a>
                         </div>
@@ -575,19 +573,20 @@
                 </div>
             </div>
 
+            <!-- Coffee Tour -->
             <div class="col-lg-4 col-md-6">
-                <div class="luxury-attraction-card rounded-4 overflow-hidden position-relative" data-aos="zoom-in" data-aos-delay="400">
+                <div class="luxury-attraction-card rounded-4 overflow-hidden position-relative" data-aos="zoom-in" data-aos-delay="400" style="background: white; border: 2px solid rgba(212, 175, 55, 0.2); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
                     <img src="https://www.lightsonafrica.com/wp-content/uploads/2024/07/Coffee-Plantation-tour-in-Arusha.jpg" 
                          class="attraction-img w-100" 
                          alt="Coffee Tour"
                          style="height: 280px; object-fit: cover;">
-                    <div class="attraction-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-end p-4">
+                    <div class="attraction-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-end p-4" style="background: linear-gradient(transparent 0%, rgba(139, 69, 19, 0.9) 100%);">
                         <div class="attraction-content">
                             <h5 class="text-gold mb-2">
                                 <i class="fas fa-mug-hot me-2"></i>Coffee Tour
                             </h5>
                             <p class="text-white small mb-3">Discover Arusha's famous coffee production, a short trip from Nalala House.</p>
-                            <a href="{% url 'book_room' %}" class="btn btn-luxury btn-sm">
+                            <a href="{% url 'Coffee_Tour' %}" class="btn btn-luxury btn-sm">
                                 <i class="fas fa-gem me-1"></i>Reserve Experience
                             </a>
                         </div>
@@ -595,19 +594,20 @@
                 </div>
             </div>
 
+            <!-- Ngorongoro Crater -->
             <div class="col-lg-4 col-md-6">
-                <div class="luxury-attraction-card rounded-4 overflow-hidden position-relative" data-aos="zoom-in" data-aos-delay="500">
+                <div class="luxury-attraction-card rounded-4 overflow-hidden position-relative" data-aos="zoom-in" data-aos-delay="500" style="background: white; border: 2px solid rgba(212, 175, 55, 0.2); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
                     <img src="https://www.ncaa.go.tz/wp-content/uploads/2023/04/empakaai-slider-1024x517.jpeg" 
                          class="attraction-img w-100" 
                          alt="Ngorongoro Crater"
                          style="height: 280px; object-fit: cover;">
-                    <div class="attraction-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-end p-4">
+                    <div class="attraction-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-end p-4" style="background: linear-gradient(transparent 0%, rgba(139, 69, 19, 0.9) 100%);">
                         <div class="attraction-content">
                             <h5 class="text-gold mb-2">
                                 <i class="fas fa-globe-africa me-2"></i>Ngorongoro Crater
                             </h5>
                             <p class="text-white small mb-3">Explore this UNESCO World Heritage Site with ease from our luxury lodge.</p>
-                            <a href="{% url 'book_room' %}" class="btn btn-luxury btn-sm">
+                            <a href="{% url 'Ngorongoro_Crater' %}" class="btn btn-luxury btn-sm">
                                 <i class="fas fa-gem me-1"></i>Reserve Experience
                             </a>
                         </div>
@@ -667,9 +667,8 @@
         </div>
     </div>
 </section>
-
 <!-- Luxury CTA Section -->
-<section class="luxury-cta py-6" data-aos="fade-up">
+<section class="luxury-cta py-6" data-aos="fade-up" style="background: linear-gradient(rgba(139, 69, 19, 0.85), rgba(101, 67, 33, 0.9)), url('https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;">
     <div class="container">
         <div class="luxury-cta-content text-center text-white rounded-4 py-6 px-4">
             <h2 class="display-3 fw-bold mb-4">Ready for Your Luxury Safari?</h2>
@@ -690,7 +689,6 @@
         </div>
     </div>
 </section>
-
 <!-- Luxury Custom Styles -->
 <style>
     :root {

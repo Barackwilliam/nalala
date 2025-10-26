@@ -93,3 +93,36 @@ from django.contrib.auth import logout as auth_logout
 def logout_view(request):
     auth_logout(request)  # hii sasa ni ya Django halisi, siyo yako
     return redirect('/')
+
+
+
+def Arusha_National_Park(request):
+    return render(request,"Arusha_National.html")
+
+
+def Kikuletwa_Hotsprings(request):
+    return render(request,"Kikuletwa_Hotsprings.html")
+
+
+def Tarangire_National(request):
+    return render(request,"Tarangire_National.html")
+
+
+def Lake_Manyara_National(request):
+    return render(request,"Lake_Manyara_National.html")
+
+
+def Coffee_Tour(request):
+    return render(request,"Coffee_Tour.html")
+
+
+def Ngorongoro_Crater(request):
+    return render(request,"Ngorongoro_Crater.html")
+
+def condition(request):
+    return render(request,"condition.html")
+
+def policy(request):
+    return render(request,"policy.html")
+def abaut(request):
+    return render(request,"abaut.html")
