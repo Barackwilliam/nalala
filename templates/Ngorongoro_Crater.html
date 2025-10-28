@@ -1,5 +1,7 @@
 <!-- core/templates/core/classic_3day_safari.html -->
 {% extends "base.html" %}
+{% load static %}
+
 {% block title %}3-Day Classic Safari: Tarangire, Ngorongoro & Lake Manyara - Nalala House{% endblock %}
 
 {% block content %}
@@ -43,14 +45,17 @@
                         <p class="itinerary-intro-text">
                             Experience the best of Northern Tanzania's wildlife in this classic 3-day safari adventure. From Tarangire's elephant herds to Ngorongoro's Big Five and Lake Manyara's tree-climbing lions, this itinerary offers the perfect introduction to Tanzania's incredible wildlife diversity.
                         </p>
+                        <p class="itinerary-intro-text">
+                            This carefully crafted journey takes you through three distinct ecosystems, each offering unique wildlife viewing opportunities and breathtaking landscapes that showcase Tanzania's natural beauty.
+                        </p>
                         <div class="itinerary-features">
                             <div class="feature-item">
                                 <i class="fas fa-elephant"></i>
-                                <span>Tarangire's Elephant Herds</span>
+                                <span>Tarangire's Massive Elephant Herds</span>
                             </div>
                             <div class="feature-item">
                                 <i class="fas fa-gem"></i>
-                                <span>Ngorongoro's Big Five</span>
+                                <span>Ngorongoro's Complete Big Five</span>
                             </div>
                             <div class="feature-item">
                                 <i class="fas fa-lion"></i>
@@ -64,76 +69,163 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="itinerary-image-placeholder text-center p-5">
-                        <i class="fas fa-map-marked-alt fa-8x mb-4"></i>
-                        <h4 class="text-white mb-2">Classic Northern Circuit</h4>
-                        <p class="text-white">Premier safari route experience</p>
+                    <!-- Safari Experience Image Section -->
+                    <div class="safari-process-image">
+                        <img src="{% static 'img/ngorongoro.jpeg' %}" 
+                             alt="Classic 3-Day Safari - Tarangire, Ngorongoro & Lake Manyara wildlife experience" 
+                             class="safari-process-img">
+                        <div class="image-caption">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Northern Tanzania Safari Circuit</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Day 1 Timeline -->
+    <!-- Detailed Itinerary -->
     <div class="itinerary-timeline-section">
         <div class="container">
             <div class="section-header text-center mb-5">
+                <h2 class="section-title">Detailed Safari Itinerary</h2>
+                <p class="section-subtitle">Your 3-day wildlife adventure through Tanzania's premier parks</p>
+            </div>
+
+            <!-- Day 1 Section -->
+            <div class="day-section">
                 <div class="day-badge">Day 1</div>
-                <h2 class="section-title">Tarangire National Park</h2>
-                <p class="section-subtitle">Elephants, Baobabs & Wildlife Spectacle</p>
+                <h3 class="day-title">Tarangire National Park</h3>
+                <p class="day-subtitle">Elephants, Baobabs & Wildlife Spectacle</p>
             </div>
 
             <div class="itinerary-timeline">
                 <!-- Morning Section -->
                 <div class="timeline-item">
                     <div class="timeline-marker">
-                        <div class="marker-icon morning">
-                            <i class="fas fa-sun"></i>
+                        <div class="marker-icon pickup">
+                            <i class="fas fa-car"></i>
                         </div>
                         <div class="timeline-connector"></div>
                     </div>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <span class="time-badge">Morning</span>
-                            <h3 class="timeline-title">Arusha to Tarangire National Park</h3>
+                            <span class="time-badge">8:00 AM</span>
+                            <h3 class="timeline-title">Departure from Arusha to Tarangire</h3>
+                        </div>
+                        <div class="timeline-body">
+                            <div class="activity-card full-width">
+                                <div class="activity-icon">
+                                    <i class="fas fa-hotel"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <h4>Morning Pick-up & Scenic Journey</h4>
+                                    <p>Pick-up from your hotel in Arusha after breakfast and begin the scenic drive to Tarangire National Park, known for its massive elephant herds and ancient baobab trees.</p>
+                                    <div class="tour-info">
+                                        <div class="info-item">
+                                            <i class="fas fa-clock"></i>
+                                            <span>2.5 hours drive from Arusha</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <i class="fas fa-tree"></i>
+                                            <span>Enter park around 10:30 AM</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <i class="fas fa-elephant"></i>
+                                            <span>Begin elephant spotting immediately</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Late Morning Section -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-icon village">
+                            <i class="fas fa-elephant"></i>
+                        </div>
+                        <div class="timeline-connector"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <span class="time-badge">10:30 AM - 1:00 PM</span>
+                            <h3 class="timeline-title">Morning Game Drive in Tarangire</h3>
+                        </div>
+                        <div class="timeline-body">
+                            <div class="activity-card full-width">
+                                <div class="activity-icon">
+                                    <i class="fas fa-binoculars"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <h4>Wildlife Viewing Experience</h4>
+                                    <p>Enjoy an extensive morning game drive focusing on the Tarangire River area where wildlife congregates. Spot large herds of elephants, giraffes, zebras, and various antelope species.</p>
+                                    <div class="experience-tags">
+                                        <span class="experience-tag">
+                                            <i class="fas fa-elephant"></i>
+                                            Large Elephant Herds
+                                        </span>
+                                        <span class="experience-tag">
+                                            <i class="fas fa-tree"></i>
+                                            Ancient Baobab Trees
+                                        </span>
+                                        <span class="experience-tag">
+                                            <i class="fas fa-water"></i>
+                                            Tarangire River Wildlife
+                                        </span>
+                                        <span class="experience-tag">
+                                            <i class="fas fa-paw"></i>
+                                            Diverse Animal Species
+                                        </span>
+                                        <span class="experience-tag">
+                                            <i class="fas fa-camera"></i>
+                                            Photography Opportunities
+                                        </span>
+                                        <span class="experience-tag">
+                                            <i class="fas fa-dove"></i>
+                                            Bird Watching
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lunch Section -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-icon lunch">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="timeline-connector"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <span class="time-badge">1:00 PM</span>
+                            <h3 class="timeline-title">Lunch & Relaxation Break</h3>
                         </div>
                         <div class="timeline-body">
                             <div class="activity-grid">
                                 <div class="activity-card">
                                     <div class="activity-icon">
-                                        <i class="fas car fa-road"></i>
+                                        <i class="fas fa-picnic-basket"></i>
                                     </div>
                                     <div class="activity-details">
-                                        <h4>Scenic Drive</h4>
-                                        <p>Depart Arusha after breakfast for Tarangire National Park (about 2.5 hrs drive)</p>
+                                        <h4>Picnic Lunch</h4>
+                                        <p>Enjoy a delicious picnic lunch at a designated area inside the park with beautiful natural surroundings.</p>
                                     </div>
                                 </div>
                                 
-                                <div class="activity-card full-width">
+                                <div class="activity-card">
                                     <div class="activity-icon">
-                                        <i class="fas fa-elephant"></i>
+                                        <i class="fas fa-camera"></i>
                                     </div>
                                     <div class="activity-details">
-                                        <h4>Wildlife Exploration</h4>
-                                        <p>The park is famous for its large herds of elephants, ancient baobab trees, and diverse wildlife along the Tarangire River.</p>
-                                        <div class="wildlife-tags">
-                                            <span class="wildlife-tag">
-                                                <i class="fas fa-elephant"></i>
-                                                Elephant Herds
-                                            </span>
-                                            <span class="wildlife-tag">
-                                                <i class="fas fa-tree"></i>
-                                                Ancient Baobabs
-                                            </span>
-                                            <span class="wildlife-tag">
-                                                <i class="fas fa-water"></i>
-                                                Tarangire River
-                                            </span>
-                                            <span class="wildlife-tag">
-                                                <i class="fas fa-paw"></i>
-                                                Diverse Wildlife
-                                            </span>
-                                        </div>
+                                        <h4>Photography Break</h4>
+                                        <p>Take advantage of the lunch break for photography and enjoying the park's scenery.</p>
                                     </div>
                                 </div>
                             </div>
@@ -144,35 +236,52 @@
                 <!-- Afternoon Section -->
                 <div class="timeline-item">
                     <div class="timeline-marker">
-                        <div class="marker-icon afternoon">
-                            <i class="fas fa-utensils"></i>
+                        <div class="marker-icon processing">
+                            <i class="fas fa-safari"></i>
                         </div>
                         <div class="timeline-connector"></div>
                     </div>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <span class="time-badge">Afternoon</span>
-                            <h3 class="timeline-title">Lunch & Game Drive</h3>
+                            <span class="time-badge">2:00 PM - 5:00 PM</span>
+                            <h3 class="timeline-title">Afternoon Game Drive</h3>
                         </div>
                         <div class="timeline-body">
-                            <div class="activity-grid">
-                                <div class="activity-card">
-                                    <div class="activity-icon">
-                                        <i class="fas fa-picnic-basket"></i>
-                                    </div>
-                                    <div class="activity-details">
-                                        <h4>Picnic Lunch</h4>
-                                        <p>Enjoy a picnic lunch inside the park surrounded by nature</p>
-                                    </div>
+                            <div class="activity-card full-width">
+                                <div class="activity-icon">
+                                    <i class="fas fa-car-side"></i>
                                 </div>
-                                
-                                <div class="activity-card">
-                                    <div class="activity-icon">
-                                        <i class="fas fa-binoculars"></i>
-                                    </div>
-                                    <div class="activity-details">
-                                        <h4>Afternoon Game Drive</h4>
-                                        <p>Continue with game drive until late afternoon exploring different areas</p>
+                                <div class="activity-details">
+                                    <h4>Continued Exploration</h4>
+                                    <p>Continue with afternoon game viewing, exploring different habitats of the park including the swamp areas and open grasslands where predators may be active.</p>
+                                    <div class="process-steps">
+                                        <div class="process-step">
+                                            <div class="step-icon">
+                                                <i class="fas fa-search"></i>
+                                            </div>
+                                            <div class="step-details">
+                                                <h5>Predator Spotting</h5>
+                                                <p>Look for lions, leopards, and cheetahs in the open areas</p>
+                                            </div>
+                                        </div>
+                                        <div class="process-step">
+                                            <div class="step-icon">
+                                                <i class="fas fa-water"></i>
+                                            </div>
+                                            <div class="step-details">
+                                                <h5>Swamp Areas</h5>
+                                                <p>Explore swampy areas for different bird species and wildlife</p>
+                                            </div>
+                                        </div>
+                                        <div class="process-step">
+                                            <div class="step-icon">
+                                                <i class="fas fa-tree"></i>
+                                            </div>
+                                            <div class="step-details">
+                                                <h5>Baobab Landscapes</h5>
+                                                <p>Photograph the iconic baobab trees against sunset light</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -183,29 +292,44 @@
                 <!-- Evening Section -->
                 <div class="timeline-item">
                     <div class="timeline-marker">
-                        <div class="marker-icon evening">
-                            <i class="fas fa-moon"></i>
+                        <div class="marker-icon brewing">
+                            <i class="fas fa-bed"></i>
                         </div>
                     </div>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <span class="time-badge">Evening</span>
-                            <h3 class="timeline-title">Transfer to Karatu</h3>
+                            <span class="time-badge">6:00 PM</span>
+                            <h3 class="timeline-title">Transfer to Karatu Lodge</h3>
                         </div>
                         <div class="timeline-body">
                             <div class="activity-card full-width">
                                 <div class="activity-icon">
-                                    <i class="fas fa-bed"></i>
+                                    <i class="fas fa-hotel"></i>
                                 </div>
                                 <div class="activity-details">
-                                    <h4>Overnight in Karatu</h4>
-                                    <p>Drive to Karatu for dinner and overnight stay at your chosen lodge</p>
-                                    <div class="lodge-recommendations">
-                                        <h5 class="mt-3 mb-2">Recommended Lodges:</h5>
-                                        <div class="lodge-tags">
-                                            <span class="lodge-tag">Farm of Dreams Lodge</span>
-                                            <span class="lodge-tag">Marera Valley Lodge</span>
-                                            <span class="lodge-tag">Similar Standard Lodges</span>
+                                    <h4>Overnight Accommodation</h4>
+                                    <p>Depart Tarangire National Park and drive to your chosen lodge in Karatu for dinner and overnight stay.</p>
+                                    <div class="brewing-highlights">
+                                        <div class="highlight-item">
+                                            <i class="fas fa-star"></i>
+                                            <div>
+                                                <strong>Farm of Dreams Lodge</strong>
+                                                <p>Beautiful farm-style accommodation with stunning views</p>
+                                            </div>
+                                        </div>
+                                        <div class="highlight-item">
+                                            <i class="fas fa-star"></i>
+                                            <div>
+                                                <strong>Marera Valley Lodge</strong>
+                                                <p>Luxury lodge with beautiful valley scenery</p>
+                                            </div>
+                                        </div>
+                                        <div class="highlight-item">
+                                            <i class="fas fa-star"></i>
+                                            <div>
+                                                <strong>Similar Standard Lodges</strong>
+                                                <p>Comfortable accommodations with all amenities</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -214,62 +338,99 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <!-- Day 2 Timeline -->
-    <div class="itinerary-timeline-section">
-        <div class="container">
-            <div class="section-header text-center mb-5">
+            <!-- Day 2 Section -->
+            <div class="day-section mt-5">
                 <div class="day-badge">Day 2</div>
-                <h2 class="section-title">Ngorongoro Crater</h2>
-                <p class="section-subtitle">The Eighth Wonder & Big Five Experience</p>
+                <h3 class="day-title">Ngorongoro Crater</h3>
+                <p class="day-subtitle">The Eighth Wonder & Big Five Experience</p>
             </div>
 
             <div class="itinerary-timeline">
                 <!-- Morning Section -->
                 <div class="timeline-item">
                     <div class="timeline-marker">
-                        <div class="marker-icon morning">
-                            <i class="fas fa-sun"></i>
+                        <div class="marker-icon pickup">
+                            <i class="fas fa-mountain"></i>
                         </div>
                         <div class="timeline-connector"></div>
                     </div>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <span class="time-badge">Morning</span>
-                            <h3 class="timeline-title">Ngorongoro Crater Descent</h3>
+                            <span class="time-badge">6:30 AM</span>
+                            <h3 class="timeline-title">Early Departure to Ngorongoro</h3>
                         </div>
                         <div class="timeline-body">
                             <div class="activity-card full-width">
                                 <div class="activity-icon">
-                                    <i class="fas fa-mountain"></i>
+                                    <i class="fas fa-sun"></i>
                                 </div>
                                 <div class="activity-details">
-                                    <h4>Full-Day Crater Exploration</h4>
-                                    <p>Early breakfast, then descend into the Ngorongoro Crater for a full-day game drive. The crater floor offers a chance to see the Big Five (lion, elephant, buffalo, rhino, leopard) in one place.</p>
-                                    <div class="wildlife-tags">
-                                        <span class="wildlife-tag">
+                                    <h4>Crater Descent Preparation</h4>
+                                    <p>Early breakfast at your lodge before departing for Ngorongoro Conservation Area. Drive to the crater rim and prepare for the descent into this natural wonder.</p>
+                                    <div class="tour-info">
+                                        <div class="info-item">
+                                            <i class="fas fa-clock"></i>
+                                            <span>45 minutes drive to crater rim</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <i class="fas fa-gem"></i>
+                                            <span>Begin descent around 7:30 AM</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <i class="fas fa-binoculars"></i>
+                                            <span>Start Big Five search immediately</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Late Morning Section -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-icon village">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <div class="timeline-connector"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <span class="time-badge">7:30 AM - 12:30 PM</span>
+                            <h3 class="timeline-title">Morning Crater Exploration</h3>
+                        </div>
+                        <div class="timeline-body">
+                            <div class="activity-card full-width">
+                                <div class="activity-icon">
+                                    <i class="fas fa-lion"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <h4>Big Five Safari Experience</h4>
+                                    <p>Explore the Ngorongoro Crater floor, home to the highest density of predators in Africa. Search for the Big Five and witness the incredible concentration of wildlife in this UNESCO World Heritage Site.</p>
+                                    <div class="experience-tags">
+                                        <span class="experience-tag">
                                             <i class="fas fa-lion"></i>
-                                            Lions
+                                            Lion Prides
                                         </span>
-                                        <span class="wildlife-tag">
-                                            <i class="fas fa-elephant"></i>
-                                            Elephants
-                                        </span>
-                                        <span class="wildlife-tag">
-                                            <i class="fas fa-paw"></i>
-                                            Buffaloes
-                                        </span>
-                                        <span class="wildlife-tag">
+                                        <span class="experience-tag">
                                             <i class="fas fa-shield-alt"></i>
-                                            Rhinos
+                                            Black Rhinos
                                         </span>
-                                        <span class="wildlife-tag">
+                                        <span class="experience-tag">
+                                            <i class="fas fa-elephant"></i>
+                                            Elephant Families
+                                        </span>
+                                        <span class="experience-tag">
+                                            <i class="fas fa-paw"></i>
+                                            Buffalo Herds
+                                        </span>
+                                        <span class="experience-tag">
                                             <i class="fas fa-cat"></i>
-                                            Leopards
+                                            Leopard Sightings
                                         </span>
-                                        <span class="wildlife-tag">
+                                        <span class="experience-tag">
                                             <i class="fas fa-gem"></i>
                                             Big Five Complete
                                         </span>
@@ -280,18 +441,18 @@
                     </div>
                 </div>
 
-                <!-- Afternoon Section -->
+                <!-- Lunch Section -->
                 <div class="timeline-item">
                     <div class="timeline-marker">
-                        <div class="marker-icon afternoon">
+                        <div class="marker-icon lunch">
                             <i class="fas fa-utensils"></i>
                         </div>
                         <div class="timeline-connector"></div>
                     </div>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <span class="time-badge">Afternoon</span>
-                            <h3 class="timeline-title">Lunch & Continued Exploration</h3>
+                            <span class="time-badge">12:30 PM</span>
+                            <h3 class="timeline-title">Lunch at Hippo Pool</h3>
                         </div>
                         <div class="timeline-body">
                             <div class="activity-grid">
@@ -300,8 +461,8 @@
                                         <i class="fas fa-picnic-basket"></i>
                                     </div>
                                     <div class="activity-details">
-                                        <h4>Hippo Pool Lunch</h4>
-                                        <p>Picnic lunch by the hippo pool with amazing wildlife views</p>
+                                        <h4>Scenic Picnic Lunch</h4>
+                                        <p>Enjoy lunch by the hippo pool with amazing views of hippos and other wildlife.</p>
                                     </div>
                                 </div>
                                 
@@ -310,96 +471,8 @@
                                         <i class="fas fa-camera"></i>
                                     </div>
                                     <div class="activity-details">
-                                        <h4>Afternoon Game Drive</h4>
-                                        <p>Continue game drive till mid-afternoon exploring the crater floor</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Evening Section -->
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <div class="marker-icon evening">
-                            <i class="fas fa-moon"></i>
-                        </div>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <span class="time-badge">Evening</span>
-                            <h3 class="timeline-title">Return to Karatu</h3>
-                        </div>
-                        <div class="timeline-body">
-                            <div class="activity-card full-width">
-                                <div class="activity-icon">
-                                    <i class="fas fa-bed"></i>
-                                </div>
-                                <div class="activity-details">
-                                    <h4>Overnight in Karatu</h4>
-                                    <p>Return to Karatu for dinner and overnight stay, reflecting on the incredible Big Five sightings</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Day 3 Timeline -->
-    <div class="itinerary-timeline-section">
-        <div class="container">
-            <div class="section-header text-center mb-5">
-                <div class="day-badge">Day 3</div>
-                <h2 class="section-title">Lake Manyara National Park</h2>
-                <p class="section-subtitle">Tree-Climbing Lions & Scenic Beauty</p>
-            </div>
-
-            <div class="itinerary-timeline">
-                <!-- Morning Section -->
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <div class="marker-icon morning">
-                            <i class="fas fa-sun"></i>
-                        </div>
-                        <div class="timeline-connector"></div>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <span class="time-badge">Morning</span>
-                            <h3 class="timeline-title">Lake Manyara Exploration</h3>
-                        </div>
-                        <div class="timeline-body">
-                            <div class="activity-card full-width">
-                                <div class="activity-icon">
-                                    <i class="fas fa-lion"></i>
-                                </div>
-                                <div class="activity-details">
-                                    <h4>Half-Day Game Drive</h4>
-                                    <p>Drive to Lake Manyara National Park for a half-day game drive. The park is known for its tree-climbing lions, pink flamingos, and beautiful scenery with groundwater forests and lake views.</p>
-                                    <div class="wildlife-tags">
-                                        <span class="wildlife-tag">
-                                            <i class="fas fa-lion"></i>
-                                            Tree-Climbing Lions
-                                        </span>
-                                        <span class="wildlife-tag">
-                                            <i class="fas fa-dove"></i>
-                                            Pink Flamingos
-                                        </span>
-                                        <span class="wildlife-tag">
-                                            <i class="fas fa-tree"></i>
-                                            Groundwater Forests
-                                        </span>
-                                        <span class="wildlife-tag">
-                                            <i class="fas fa-water"></i>
-                                            Lake Views
-                                        </span>
-                                        <span class="wildlife-tag">
-                                            <i class="fas fa-camera"></i>
-                                            Scenic Photography
-                                        </span>
+                                        <h4>Wildlife Photography</h4>
+                                        <p>Capture photos of hippos, flamingos, and other crater wildlife during lunch.</p>
                                     </div>
                                 </div>
                             </div>
@@ -410,14 +483,172 @@
                 <!-- Afternoon Section -->
                 <div class="timeline-item">
                     <div class="timeline-marker">
-                        <div class="marker-icon afternoon">
+                        <div class="marker-icon processing">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <span class="time-badge">1:30 PM - 4:00 PM</span>
+                            <h3 class="timeline-title">Afternoon Crater Exploration</h3>
+                        </div>
+                        <div class="timeline-body">
+                            <div class="activity-card full-width">
+                                <div class="activity-icon">
+                                    <i class="fas fa-binoculars"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <h4>Final Wildlife Search</h4>
+                                    <p>Continue exploring different areas of the crater, searching for any remaining Big Five animals and enjoying the diverse landscapes.</p>
+                                    <div class="process-steps">
+                                        <div class="process-step">
+                                            <div class="step-icon">
+                                                <i class="fas fa-cat"></i>
+                                            </div>
+                                            <div class="step-details">
+                                                <h5>Leopard Search</h5>
+                                                <p>Look for the elusive leopards in the Lerai Forest</p>
+                                            </div>
+                                        </div>
+                                        <div class="process-step">
+                                            <div class="step-icon">
+                                                <i class="fas fa-water"></i>
+                                            </div>
+                                            <div class="step-details">
+                                                <h5>Lake Magadi</h5>
+                                                <p>Visit the soda lake with flamingos and water birds</p>
+                                            </div>
+                                        </div>
+                                        <div class="process-step">
+                                            <div class="step-icon">
+                                                <i class="fas fa-mountain"></i>
+                                            </div>
+                                            <div class="step-details">
+                                                <h5>Crater Views</h5>
+                                                <p>Enjoy panoramic views of the crater walls and floor</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 3 Section -->
+            <div class="day-section mt-5">
+                <div class="day-badge">Day 3</div>
+                <h3 class="day-title">Lake Manyara National Park</h3>
+                <p class="day-subtitle">Tree-Climbing Lions & Scenic Beauty</p>
+            </div>
+
+            <div class="itinerary-timeline">
+                <!-- Morning Section -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-icon pickup">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <div class="timeline-connector"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <span class="time-badge">7:30 AM</span>
+                            <h3 class="timeline-title">Breakfast & Transfer to Lake Manyara</h3>
+                        </div>
+                        <div class="timeline-body">
+                            <div class="activity-card full-width">
+                                <div class="activity-icon">
+                                    <i class="fas fa-coffee"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <h4>Morning Preparation</h4>
+                                    <p>Enjoy breakfast at your lodge before checking out and departing for Lake Manyara National Park, known for its tree-climbing lions and stunning Rift Valley scenery.</p>
+                                    <div class="tour-info">
+                                        <div class="info-item">
+                                            <i class="fas fa-clock"></i>
+                                            <span>30-45 minutes drive from Karatu</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <i class="fas fa-tree"></i>
+                                            <span>Enter park around 8:30 AM</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <i class="fas fa-lion"></i>
+                                            <span>Begin search for tree-climbing lions</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Late Morning Section -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-icon village">
+                            <i class="fas fa-lion"></i>
+                        </div>
+                        <div class="timeline-connector"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <span class="time-badge">8:30 AM - 12:00 PM</span>
+                            <h3 class="timeline-title">Lake Manyara Game Drive</h3>
+                        </div>
+                        <div class="timeline-body">
+                            <div class="activity-card full-width">
+                                <div class="activity-icon">
+                                    <i class="fas fa-water"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <h4>Comprehensive Park Exploration</h4>
+                                    <p>Explore the diverse habitats of Lake Manyara National Park, from the groundwater forest to the alkaline lake shores. The park is famous for its tree-climbing lions and incredible birdlife.</p>
+                                    <div class="experience-tags">
+                                        <span class="experience-tag">
+                                            <i class="fas fa-lion"></i>
+                                            Tree-Climbing Lions
+                                        </span>
+                                        <span class="experience-tag">
+                                            <i class="fas fa-dove"></i>
+                                            Pink Flamingos
+                                        </span>
+                                        <span class="experience-tag">
+                                            <i class="fas fa-tree"></i>
+                                            Groundwater Forests
+                                        </span>
+                                        <span class="experience-tag">
+                                            <i class="fas fa-water"></i>
+                                            Lake Views
+                                        </span>
+                                        <span class="experience-tag">
+                                            <i class="fas fa-camera"></i>
+                                            Scenic Photography
+                                        </span>
+                                        <span class="experience-tag">
+                                            <i class="fas fa-hippo"></i>
+                                            Hippo Pools
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Return Section -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-icon return">
                             <i class="fas fa-home"></i>
                         </div>
                     </div>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <span class="time-badge">Afternoon</span>
-                            <h3 class="timeline-title">Return to Arusha</h3>
+                            <span class="time-badge">1:00 PM</span>
+                            <h3 class="timeline-title">Return Journey to Arusha</h3>
                         </div>
                         <div class="timeline-body">
                             <div class="activity-grid">
@@ -426,8 +657,8 @@
                                         <i class="fas fa-utensils"></i>
                                     </div>
                                     <div class="activity-details">
-                                        <h4>Lunch</h4>
-                                        <p>Enjoy lunch before starting the journey back</p>
+                                        <h4>Lunch Stop</h4>
+                                        <p>Enjoy lunch before starting the journey back to Arusha.</p>
                                     </div>
                                 </div>
                                 
@@ -436,14 +667,19 @@
                                         <i class="fas fa-car-side"></i>
                                     </div>
                                     <div class="activity-details">
-                                        <h4>Return Journey</h4>
-                                        <p>Drive back to Arusha (about 2.5 hrs) with unforgettable safari memories</p>
+                                        <h4>Comfortable Return</h4>
+                                        <p>Relax during the scenic drive back through the Tanzanian countryside.</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="tour-end-note mt-4">
-                                <i class="fas fa-flag-checkered"></i>
-                                <span>End of tour with incredible wildlife experiences and memories to last a lifetime</span>
+                            <div class="return-info">
+                                <div class="return-icon">
+                                    <i class="fas fa-flag-checkered"></i>
+                                </div>
+                                <div class="return-details">
+                                    <h4>Safari Completion</h4>
+                                    <p>Arrive back in Arusha by late afternoon (around 4:00 PM) after an unforgettable 3-day classic safari adventure through three of Tanzania's most spectacular national parks. End of tour with memories to last a lifetime.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -452,7 +688,49 @@
         </div>
     </div>
 
-    <!-- Park Highlights Section -->
+    <!-- Inclusions Section -->
+    <div class="inclusions-section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="inclusion-card included">
+                        <div class="inclusion-header">
+                            <i class="fas fa-check-circle"></i>
+                            <h3 class="inclusion-title">Safari Inclusions</h3>
+                        </div>
+                        <div class="inclusion-list">
+                            <div class="inclusion-item">
+                                <i class="fas fa-user"></i>
+                                <span>Professional English-speaking safari guide</span>
+                            </div>
+                            <div class="inclusion-item">
+                                <i class="fas fa-car"></i>
+                                <span>4x4 safari vehicle with pop-up roof</span>
+                            </div>
+                            <div class="inclusion-item">
+                                <i class="fas fa-ticket-alt"></i>
+                                <span>All national park entrance fees</span>
+                            </div>
+                            <div class="inclusion-item">
+                                <i class="fas fa-utensils"></i>
+                                <span>All meals during the safari</span>
+                            </div>
+                            <div class="inclusion-item">
+                                <i class="fas fa-bed"></i>
+                                <span>2 nights accommodation in Karatu lodges</span>
+                            </div>
+                            <div class="inclusion-item">
+                                <i class="fas fa-water"></i>
+                                <span>Bottled drinking water throughout</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Experience Highlights -->
     <div class="itinerary-features-section">
         <div class="container">
             <div class="section-header text-center mb-5">
@@ -512,30 +790,31 @@
         </div>
     </div>
 
-   <!-- CTA Section -->
-<div class="itinerary-cta-section">
-    <div class="container text-center">
-        <h2>Ready for Your Classic Safari Adventure?</h2>
-        <p>Book your unforgettable 3-day Tarangire, Ngorongoro & Lake Manyara safari experience</p>
-        <div class="cta-buttons">
-            <a href="https://wa.me/255757179698?text=Hello!%20I%20would%20like%20to%20book%20the%203-day%20Tarangire%2C%20Ngorongoro%20%26%20Lake%20Manyara%20safari" 
-               class="cta-btn primary" 
-               target="_blank" 
-               rel="noopener noreferrer">
-                <i class="fab fa-whatsapp"></i>
-                Book This Safari
-            </a>
-            <button class="cta-btn secondary">
-                <i class="fas fa-print"></i>
-                Print Itinerary
-            </button>
+    <!-- CTA Section -->
+    <div class="itinerary-cta-section">
+        <div class="container text-center">
+            <h2>Ready for Your Classic Safari Adventure?</h2>
+            <p>Book your unforgettable 3-day Tarangire, Ngorongoro & Lake Manyara safari experience</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/255757179698?text=Hello!%20I%20would%20like%20to%20book%20the%203-day%20Tarangire%2C%20Ngorongoro%20%26%20Lake%20Manyara%20safari" 
+                   class="cta-btn primary" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp"></i>
+                    Book This Safari
+                </a>
+                <button class="cta-btn secondary">
+                    <i class="fas fa-print"></i>
+                    Print Itinerary
+                </button>
+            </div>
         </div>
     </div>
 </div>
-</div>
 
-<!-- CSS Styles -->
+<!-- Use the exact same CSS as Coffee Tour -->
 <style>
+/* All CSS styles from Coffee Tour template */
 /* Base Styles */
 .itinerary-full-page {
     background: #F5F5DC;
@@ -620,6 +899,17 @@
 .itinerary-intro-section {
     background: #F5F5DC;
     padding: 80px 0;
+    position: relative;
+}
+
+.itinerary-intro-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #8B4513, #D4AF37, #8B4513);
 }
 
 .section-title {
@@ -648,6 +938,15 @@
     font-size: 1.1rem;
     color: #8B4513;
     font-weight: 500;
+    padding: 10px 15px;
+    background: rgba(139, 69, 19, 0.1);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.itinerary-features .feature-item:hover {
+    background: rgba(139, 69, 19, 0.15);
+    transform: translateX(5px);
 }
 
 .itinerary-features .feature-item i {
@@ -655,34 +954,104 @@
     font-size: 1.2rem;
 }
 
-.itinerary-image-placeholder {
-    background: rgba(139, 69, 19, 0.8);
+/* Safari Process Image Section */
+.safari-process-image {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    margin-left: 20px;
+}
+
+.safari-process-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.safari-process-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.safari-process-image:hover .safari-process-img {
+    transform: scale(1.05);
+}
+
+.image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    padding: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.image-caption i {
+    color: #FFD700;
+}
+
+/* Day Section */
+.day-section {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 30px;
+    background: rgba(139, 69, 19, 0.1);
     border-radius: 20px;
     border: 2px solid #D4AF37;
 }
 
-.itinerary-image-placeholder i {
-    color: #D4AF37;
-}
-
-/* Day Badge */
 .day-badge {
-    background: #D4AF37;
+    background: linear-gradient(135deg, #D4AF37, #FFD700);
     color: #8B4513;
-    padding: 10px 30px;
+    padding: 12px 35px;
     border-radius: 50px;
     font-weight: 700;
     font-size: 1.1rem;
     display: inline-block;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    border: 2px solid white;
+}
+
+.day-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #8B4513;
+    margin-bottom: 10px;
+}
+
+.day-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin: 0;
 }
 
 /* Timeline Section */
 .itinerary-timeline-section {
     padding: 80px 0;
     background: #F5F5DC;
+    position: relative;
+}
+
+.itinerary-timeline-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #8B4513, #D4AF37, #8B4513);
 }
 
 .section-header {
@@ -725,18 +1094,47 @@
     color: white;
     z-index: 2;
     position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border: 3px solid white;
+    animation: marker-glow 2s ease-in-out infinite alternate;
 }
 
-.marker-icon.morning { background: linear-gradient(135deg, #FF9A9E, #FECFEF); }
-.marker-icon.afternoon { background: linear-gradient(135deg, #FFAFBD, #FFC3A0); }
-.marker-icon.evening { background: linear-gradient(135deg, #667eea, #764ba2); }
+.marker-icon.pickup { 
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.marker-icon.village { 
+    background: linear-gradient(135deg, #A8FF78, #78FFD6);
+}
+
+.marker-icon.processing { 
+    background: linear-gradient(135deg, #FF9A9E, #FECFEF);
+}
+
+.marker-icon.brewing { 
+    background: linear-gradient(135deg, #FFAFBD, #FFC3A0);
+}
+
+.marker-icon.lunch { 
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+}
+
+.marker-icon.return { 
+    background: linear-gradient(135deg, #8B4513, #A0522D);
+}
+
+@keyframes marker-glow {
+    from { box-shadow: 0 0 20px rgba(139, 69, 19, 0.5); }
+    to { box-shadow: 0 0 30px rgba(212, 175, 55, 0.8); }
+}
 
 .timeline-connector {
     width: 3px;
-    background: linear-gradient(to bottom, #8B4513, #D4AF37);
+    background: linear-gradient(to bottom, #8B4513, #D4AF37, #8B4513);
     flex: 1;
     margin-top: 15px;
     border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(139, 69, 19, 0.3);
 }
 
 .timeline-item:last-child .timeline-connector {
@@ -745,11 +1143,31 @@
 
 .timeline-content {
     flex: 1;
-    background: rgba(139, 69, 19, 0.8);
+    background: rgba(139, 69, 19, 0.9);
     border-radius: 20px;
     padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     border: 2px solid #D4AF37;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #D4AF37, #FFD700, #D4AF37);
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: #FFD700;
 }
 
 .timeline-header {
@@ -761,20 +1179,23 @@
 }
 
 .time-badge {
-    background: #D4AF37;
+    background: linear-gradient(135deg, #D4AF37, #FFD700);
     color: #8B4513;
-    padding: 8px 20px;
+    padding: 10px 25px;
     border-radius: 50px;
-    font-weight: 600;
-    font-size: 0.9rem;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    border: 2px solid white;
 }
 
 .timeline-title {
     font-size: 1.8rem;
-    font-weight: 600;
+    font-weight: 700;
     color: white;
     margin: 0;
     flex: 1;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* Activity Grid */
@@ -785,19 +1206,23 @@
 }
 
 .activity-card {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
     padding: 25px;
     border-radius: 15px;
     display: flex;
     align-items: flex-start;
     gap: 15px;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
     border-left: 4px solid #D4AF37;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .activity-card:hover {
     transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.2);
+    border-left-color: #FFD700;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .activity-card.full-width {
@@ -807,99 +1232,330 @@
 .activity-icon {
     width: 50px;
     height: 50px;
-    background: rgba(212, 175, 55, 0.2);
+    background: rgba(212, 175, 55, 0.3);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #D4AF37;
+    color: #FFD700;
     font-size: 1.2rem;
     flex-shrink: 0;
-    border: 2px solid #D4AF37;
+    border: 2px solid #FFD700;
+    transition: all 0.3s ease;
+}
+
+.activity-card:hover .activity-icon {
+    background: rgba(255, 215, 0, 0.4);
+    transform: scale(1.1);
 }
 
 .activity-details h4 {
     color: white;
     margin-bottom: 10px;
     font-weight: 600;
+    font-size: 1.1rem;
 }
 
 .activity-details p {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.95);
     margin: 0;
     line-height: 1.6;
+    font-size: 0.95rem;
 }
 
-/* Wildlife Tags */
-.wildlife-tags {
+/* Tour Info */
+.tour-info {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #FFD700;
+    font-weight: 500;
+}
+
+/* Experience Tags */
+.experience-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     margin-top: 15px;
 }
 
-.wildlife-tag {
-    background: rgba(212, 175, 55, 0.2);
-    color: #D4AF37;
-    padding: 6px 12px;
+.experience-tag {
+    background: rgba(212, 175, 55, 0.25);
+    color: #FFD700;
+    padding: 8px 15px;
     border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid rgba(212, 175, 55, 0.4);
     display: flex;
     align-items: center;
     gap: 5px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
 }
 
-/* Lodge Recommendations */
-.lodge-recommendations {
+.experience-tag:hover {
+    background: rgba(255, 215, 0, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+/* Process Steps */
+.process-steps {
     margin-top: 20px;
-    padding-top: 15px;
-    border-top: 1px solid rgba(212, 175, 55, 0.3);
-}
-
-.lodge-recommendations h5 {
-    color: #D4AF37;
-    font-weight: 600;
-}
-
-.lodge-tags {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.lodge-tag {
+.process-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    border-left: 3px solid #D4AF37;
+    transition: all 0.3s ease;
+}
+
+.process-step:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(5px);
+}
+
+.step-icon {
+    width: 40px;
+    height: 40px;
     background: rgba(212, 175, 55, 0.3);
-    color: white;
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    border: 1px solid #D4AF37;
-}
-
-/* Tour End Note */
-.tour-end-note {
+    border-radius: 10px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    background: rgba(255, 215, 0, 0.2);
-    padding: 15px 20px;
-    border-radius: 10px;
+    justify-content: center;
     color: #FFD700;
-    font-weight: 600;
-    border: 1px solid rgba(255, 215, 0, 0.3);
+    font-size: 1rem;
+    flex-shrink: 0;
+    border: 2px solid #FFD700;
+    transition: all 0.3s ease;
 }
 
-.tour-end-note i {
-    font-size: 1.2rem;
+.process-step:hover .step-icon {
+    background: rgba(255, 215, 0, 0.4);
+    transform: scale(1.1);
+}
+
+.step-details h5 {
+    color: white;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.step-details p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Brewing Highlights */
+.brewing-highlights {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(5px);
+}
+
+.highlight-item i {
+    color: #FFD700;
+    font-size: 1.5rem;
+    width: 40px;
+    text-align: center;
+}
+
+.highlight-item strong {
+    color: white;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.highlight-item p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Return Info */
+.return-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 15px;
+    margin-top: 20px;
+    border-left: 4px solid #667eea;
+}
+
+.return-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(102, 126, 234, 0.2);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #667eea;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    border: 2px solid #667eea;
+}
+
+.return-details h4 {
+    color: white;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.return-details p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Inclusions Section */
+.inclusions-section {
+    background: #F5F5DC;
+    position: relative;
+}
+
+.inclusions-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #8B4513, #D4AF37, #8B4513);
+}
+
+.inclusion-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.inclusion-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #10B981, #34D399);
+}
+
+.inclusion-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.inclusion-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.inclusion-header i {
+    font-size: 2.5rem;
+    color: #10B981;
+}
+
+.inclusion-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #8B4513;
+    margin: 0;
+}
+
+.inclusion-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.inclusion-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #E5E7EB;
+    transition: all 0.3s ease;
+}
+
+.inclusion-item:last-child {
+    border-bottom: none;
+}
+
+.inclusion-item:hover {
+    transform: translateX(5px);
+}
+
+.inclusion-item i {
+    color: #D4AF37;
+    font-size: 1.3rem;
+    width: 25px;
+    text-align: center;
+}
+
+.inclusion-item span {
+    color: #666;
+    font-weight: 500;
+    font-size: 1.1rem;
 }
 
 /* Features Section */
 .itinerary-features-section {
     padding: 80px 0;
     background: rgba(139, 69, 19, 0.1);
+    position: relative;
+}
+
+.itinerary-features-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #8B4513, #D4AF37, #8B4513);
 }
 
 .features-grid {
@@ -915,12 +1571,25 @@
     padding: 40px 30px;
     background: white;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #8B4513, #D4AF37);
 }
 
 .feature-item:hover {
     transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .feature-icon-wrapper {
@@ -934,18 +1603,27 @@
     margin: 0 auto 25px;
     font-size: 2rem;
     color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+}
+
+.feature-item:hover .feature-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.4);
 }
 
 .feature-item h4 {
     color: #8B4513;
     margin-bottom: 15px;
     font-weight: 600;
+    font-size: 1.3rem;
 }
 
 .feature-item p {
     color: #666;
     line-height: 1.6;
     margin: 0;
+    font-size: 0.95rem;
 }
 
 /* CTA Section */
@@ -954,6 +1632,17 @@
     padding: 80px 0;
     color: white;
     text-align: center;
+    position: relative;
+}
+
+.itinerary-cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #D4AF37, #FFD700, #D4AF37);
 }
 
 .itinerary-cta-section h2 {
@@ -961,12 +1650,13 @@
     font-weight: 700;
     margin-bottom: 15px;
     color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .itinerary-cta-section p {
     font-size: 1.2rem;
     margin-bottom: 40px;
-    opacity: 0.9;
+    opacity: 0.95;
     color: white;
 }
 
@@ -978,46 +1668,76 @@
 }
 
 .cta-btn {
-    padding: 15px 35px;
+    padding: 18px 40px;
     border-radius: 50px;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1.1rem;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.cta-btn:hover::before {
+    left: 100%;
 }
 
 .cta-btn.primary {
-    background: #D4AF37;
+    background: linear-gradient(135deg, #D4AF37, #FFD700);
     color: #8B4513;
+    border: 2px solid #FFD700;
 }
 
 .cta-btn.primary:hover {
-    background: #FFD700;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+    background: linear-gradient(135deg, #FFD700, #FFEC8B);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
 }
 
 .cta-btn.secondary {
     background: transparent;
     color: white;
     border: 2px solid white;
+    backdrop-filter: blur(10px);
 }
 
 .cta-btn.secondary:hover {
     background: white;
     color: #8B4513;
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(255, 255, 255, 0.3);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .itinerary-main-title {
         font-size: 2.5rem;
+    }
+    
+    .safari-process-image {
+        margin-left: 0;
+        margin-top: 30px;
+    }
+    
+    .safari-process-img {
+        height: 300px;
     }
     
     .itinerary-stats {
@@ -1046,12 +1766,19 @@
         grid-template-columns: 1fr;
     }
     
-    .wildlife-tags {
-        justify-content: center;
+    .process-step {
+        flex-direction: column;
+        text-align: center;
     }
     
-    .lodge-tags {
-        justify-content: center;
+    .highlight-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .return-info {
+        flex-direction: column;
+        text-align: center;
     }
     
     .cta-buttons {
@@ -1066,6 +1793,22 @@
     
     .features-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .experience-tags {
+        grid-template-columns: 1fr;
+    }
+    
+    .experience-tag {
+        justify-content: center;
+    }
+    
+    .day-section {
+        padding: 20px;
+    }
+    
+    .day-title {
+        font-size: 1.8rem;
     }
 }
 
@@ -1091,6 +1834,28 @@
     opacity: 1;
     transform: translateY(0);
 }
+
+.inclusion-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.inclusion-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.safari-process-image {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.6s ease;
+}
+
+.safari-process-image.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
 </style>
 
 <script>
@@ -1098,6 +1863,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Animation on scroll
     const timelineItems = document.querySelectorAll('.timeline-item');
     const featureItems = document.querySelectorAll('.feature-item');
+    const inclusionCards = document.querySelectorAll('.inclusion-card');
+    const safariImage = document.querySelector('.safari-process-image');
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -1110,6 +1877,11 @@ document.addEventListener('DOMContentLoaded', function() {
         rootMargin: '0px 0px -50px 0px'
     });
     
+    // Observe safari image
+    if (safariImage) {
+        observer.observe(safariImage);
+    }
+    
     timelineItems.forEach((item, index) => {
         item.style.transitionDelay = `${index * 0.2}s`;
         observer.observe(item);
@@ -1118,6 +1890,11 @@ document.addEventListener('DOMContentLoaded', function() {
     featureItems.forEach((item, index) => {
         item.style.transitionDelay = `${index * 0.1}s`;
         observer.observe(item);
+    });
+    
+    inclusionCards.forEach((card, index) => {
+        card.style.transitionDelay = `${index * 0.1}s`;
+        observer.observe(card);
     });
     
     // Print functionality
@@ -1139,8 +1916,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add hover effects
-    document.querySelectorAll('.activity-card, .feature-item').forEach(item => {
+    // Enhanced hover effects
+    document.querySelectorAll('.activity-card, .feature-item, .inclusion-card').forEach(item => {
         item.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-5px)';
         });
@@ -1148,6 +1925,16 @@ document.addEventListener('DOMContentLoaded', function() {
         item.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0)';
         });
+    });
+    
+    // Add loading animation for images
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        img.addEventListener('load', function() {
+            this.style.opacity = '1';
+        });
+        img.style.opacity = '0';
+        img.style.transition = 'opacity 0.5s ease';
     });
 });
 </script>

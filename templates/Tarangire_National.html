@@ -1,5 +1,7 @@
 <!-- core/templates/core/tarangire_day_itinerary.html -->
 {% extends "base.html" %}
+{% load static %}
+
 {% block title %}Full-Day Tarangire National Park Safari - Nalala House{% endblock %}
 
 {% block content %}
@@ -37,7 +39,7 @@
     <div class="itinerary-intro-section py-5">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6">
+                <div class="col-lg-6 order-2 order-lg-1">
                     <div class="itinerary-intro-content">
                         <h2 class="section-title">Elephant Paradise Adventure</h2>
                         <p class="itinerary-intro-text">
@@ -63,11 +65,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="itinerary-image-placeholder text-center p-5">
-                        <i class="fas fa-safari fa-8x mb-4"></i>
-                        <h4 class="text-white mb-2">Premium Day Safari</h4>
-                        <p class="text-white">All-inclusive wildlife experience</p>
+                <div class="col-lg-6 order-1 order-lg-2 mb-4 mb-lg-0">
+                    <div class="itinerary-real-image text-center">
+                        <img src="{% static 'img/Tarangire.jpeg' %}" 
+                             alt="Tarangire National Park - Elephant Herds" 
+                             class="img-fluid rounded-3 shadow-lg">
+                        <div class="image-caption mt-3">
+                            <p class="text-muted mb-0"><small>Elephant herds in Tarangire National Park</small></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -343,26 +348,27 @@
             </div>
         </div>
     </div>
-<!-- CTA Section -->
-<div class="itinerary-cta-section">
-    <div class="container text-center">
-        <h2>Ready for Your Elephant Adventure?</h2>
-        <p>Book your unforgettable full-day Tarangire National Park safari</p>
-        <div class="cta-buttons">
-            <a href="https://wa.me/255757179698?text=Hello!%20I%20would%20like%20to%20book%20the%20full-day%20Tarangire%20National%20Park%20safari" 
-               class="cta-btn primary" 
-               target="_blank" 
-               rel="noopener noreferrer">
-                <i class="fab fa-whatsapp"></i>
-                Book This Safari
-            </a>
-            <button class="cta-btn secondary">
-                <i class="fas fa-print"></i>
-                Print Itinerary
-            </button>
+
+    <!-- CTA Section -->
+    <div class="itinerary-cta-section">
+        <div class="container text-center">
+            <h2>Ready for Your Elephant Adventure?</h2>
+            <p>Book your unforgettable full-day Tarangire National Park safari</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/255757179698?text=Hello!%20I%20would%20like%20to%20book%20the%20full-day%20Tarangire%20National%20Park%20safari" 
+                   class="cta-btn primary" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp"></i>
+                    Book This Safari
+                </a>
+                <button class="cta-btn secondary">
+                    <i class="fas fa-print"></i>
+                    Print Itinerary
+                </button>
+            </div>
         </div>
     </div>
-</div>
 </div>
 
 <!-- CSS Styles -->
@@ -486,14 +492,18 @@
     font-size: 1.2rem;
 }
 
-.itinerary-image-placeholder {
-    background: rgba(139, 69, 19, 0.8);
-    border-radius: 20px;
-    border: 2px solid #D4AF37;
+.itinerary-real-image img {
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
 }
 
-.itinerary-image-placeholder i {
-    color: #D4AF37;
+.itinerary-real-image img:hover {
+    transform: scale(1.02);
+}
+
+.image-caption {
+    font-style: italic;
 }
 
 /* Timeline Section */
@@ -928,6 +938,10 @@
     
     .features-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .itinerary-real-image {
+        margin-bottom: 30px;
     }
 }
 

@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NyumbaFasta — Transforming Housing in Tanzania</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, rgba(139, 69, 19, 0.85), rgba(101, 67, 33, 0.9)),
+                  url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      position: relative;
+    }
+
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      padding: 20px;
+    }
+
+    .logo-section {
+      margin-bottom: 30px;
+    }
+
+    .logo {
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-weight: 700;
+      color: #D4AF37;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      margin-bottom: 8px;
+      letter-spacing: 2px;
+    }
+
+    .tagline {
+      font-size: clamp(1rem, 3vw, 1.3rem);
+      color: #F5F5DC;
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+
+    .main-content {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: clamp(25px, 5vw, 50px) clamp(20px, 4vw, 40px);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      margin-bottom: 30px;
+    }
+
+    .highlight {
+      font-size: clamp(1.5rem, 5vw, 2.2rem);
+      font-weight: 600;
+      color: #D4AF37;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    .description {
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      line-height: 1.6;
+      color: #F5F5DC;
+      margin-bottom: 30px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .property-types {
+      margin: 30px 0;
+    }
+
+    .property-title {
+      font-size: clamp(1.2rem, 4vw, 1.5rem);
+      color: #D4AF37;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .property-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+      margin: 0 auto;
+      max-width: 800px;
+    }
+
+    .property-item {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px 15px;
+      border-radius: 12px;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .property-item:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.15);
+      border-color: #D4AF37;
+    }
+
+    .property-icon {
+      font-size: clamp(1.8rem, 4vw, 2.2rem);
+      color: #D4AF37;
+      margin-bottom: 10px;
+    }
+
+    .property-name {
+      font-size: clamp(0.85rem, 2.5vw, 1rem);
+      font-weight: 500;
+      color: white;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin: 30px 0;
+    }
+
+    .feature-item {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px 15px;
+      border-radius: 12px;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .feature-icon {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      color: #D4AF37;
+      margin-bottom: 12px;
+    }
+
+    .feature-title {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-weight: 600;
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    .feature-desc {
+      font-size: clamp(0.8rem, 2vw, 0.9rem);
+      color: #E0E0E0;
+      line-height: 1.4;
+    }
+
+    .countdown-section {
+      margin: 40px 0;
+    }
+
+    .countdown-title {
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      color: #D4AF37;
+      margin-bottom: 25px;
+      font-weight: 500;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 25px auto;
+      max-width: 500px;
+    }
+
+    .countdown-item {
+      background: rgba(212, 175, 55, 0.2);
+      padding: clamp(15px, 3vw, 20px) clamp(10px, 2vw, 15px);
+      border-radius: 12px;
+      border: 2px solid #D4AF37;
+      backdrop-filter: blur(5px);
+    }
+
+    .countdown-number {
+      display: block;
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      font-weight: 700;
+      color: #D4AF37;
+      margin-bottom: 5px;
+    }
+
+    .countdown-label {
+      font-size: clamp(0.7rem, 2vw, 0.9rem);
+      color: #F5F5DC;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .newsletter-section {
+      background: rgba(139, 69, 19, 0.8);
+      border-radius: 15px;
+      padding: clamp(25px, 4vw, 40px);
+      margin: 30px 0;
+      border: 2px solid #D4AF37;
+    }
+
+    .newsletter-title {
+      font-size: clamp(1.3rem, 4vw, 1.8rem);
+      color: #D4AF37;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .newsletter-input {
+      padding: 14px 20px;
+      border: none;
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.9);
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .newsletter-input:focus {
+      background: white;
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.5);
+    }
+
+    .newsletter-btn {
+      background: #D4AF37;
+      color: #8B4513;
+      border: none;
+      padding: 14px 25px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .newsletter-btn:hover {
+      background: #FFD700;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 15px rgba(212, 175, 55, 0.3);
+    }
+
+    .contact-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin: 25px 0;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      transition: all 0.3s ease;
+      width: fit-content;
+    }
+
+    .contact-item:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .contact-icon {
+      color: #D4AF37;
+      font-size: 1.1rem;
+    }
+
+    .contact-text {
+      color: #F5F5DC;
+      font-weight: 500;
+      font-size: clamp(0.9rem, 2.5vw, 1rem);
+    }
+
+    footer {
+      margin-top: 30px;
+      padding: 15px;
+      color: #D4AF37;
+      font-size: clamp(0.8rem, 2vw, 0.9rem);
+      border-top: 1px solid rgba(212, 175, 55, 0.3);
+      width: 100%;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: rgba(212, 175, 55, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #D4AF37;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .social-link:hover {
+      background: #D4AF37;
+      color: #8B4513;
+      transform: translateY(-3px);
+    }
+
+    /* Ultra Mobile Responsive */
+    @media (max-width: 480px) {
+      .container {
+        padding: 10px;
+      }
+      
+      .main-content {
+        padding: 20px 15px;
+        border-radius: 15px;
+      }
+      
+      .property-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+      
+      .property-item {
+        padding: 15px 10px;
+      }
+      
+      .property-icon {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+      }
+      
+      .property-name {
+        font-size: 0.8rem;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      
+      .feature-item {
+        padding: 15px 12px;
+      }
+      
+      .countdown {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        max-width: 300px;
+      }
+      
+      .countdown-item {
+        padding: 15px 10px;
+      }
+      
+      .countdown-number {
+        font-size: 1.5rem;
+      }
+      
+      .newsletter-section {
+        padding: 20px 15px;
+      }
+      
+      .contact-item {
+        padding: 10px 15px;
+      }
+    }
+
+    @media (max-width: 320px) {
+      .property-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .countdown {
+        grid-template-columns: 1fr;
+        max-width: 200px;
+      }
+    }
+
+    /* Landscape Mode */
+    @media (max-height: 500px) and (orientation: landscape) {
+      body {
+        min-height: auto;
+        padding: 10px;
+      }
+      
+      .container {
+        padding: 10px;
+      }
+      
+      .main-content {
+        padding: 20px;
+      }
+      
+      .logo-section {
+        margin-bottom: 15px;
+      }
+    }
+
+    /* Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
+    .delay-4 { animation-delay: 0.8s; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Logo Section -->
+    <div class="logo-section fade-in">
+      <div class="logo">NyumbaFasta</div>
+      <div class="tagline">Transforming Housing in Tanzania</div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content fade-in delay-1">
+      <div class="highlight">
+        Coming Soon — One Platform For All Your Housing Needs
+      </div>
+      
+      <div class="description">
+        From commercial spaces to residential homes, we're creating Tanzania's most comprehensive 
+        housing platform that connects people with perfect living spaces.
+      </div>
+
+      <!-- Property Types -->
+      <div class="property-types fade-in delay-2">
+        <div class="property-title">Find Your Perfect Space</div>
+        <div class="property-grid">
+          <div class="property-item">
+            <div class="property-icon">
+              <i class="fas fa-building"></i>
+            </div>
+            <div class="property-name">Apartments</div>
+          </div>
+          <div class="property-item">
+            <div class="property-icon">
+              <i class="fas fa-bed"></i>
+            </div>
+            <div class="property-name">Hostels</div>
+          </div>
+          <div class="property-item">
+            <div class="property-icon">
+              <i class="fas fa-mountain"></i>
+            </div>
+            <div class="property-name">Lodges</div>
+          </div>
+          <div class="property-item">
+            <div class="property-icon">
+              <i class="fas fa-hotel"></i>
+            </div>
+            <div class="property-name">Hotels</div>
+          </div>
+          <div class="property-item">
+            <div class="property-icon">
+              <i class="fas fa-home"></i>
+            </div>
+            <div class="property-name">Air BnB</div>
+          </div>
+          <div class="property-item">
+            <div class="property-icon">
+              <i class="fas fa-warehouse"></i>
+            </div>
+            <div class="property-name">Commercial</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features Grid -->
+      <div class="features-grid fade-in delay-2">
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fas fa-search-location"></i>
+          </div>
+          <div class="feature-title">Smart Search</div>
+          <div class="feature-desc">Find properties with advanced filters and location-based recommendations</div>
+        </div>
+        
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <div class="feature-title">Verified Listings</div>
+          <div class="feature-desc">All properties are verified for authenticity and quality assurance</div>
+        </div>
+        
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <div class="feature-title">Direct Contact</div>
+          <div class="feature-desc">Connect directly with property owners and managers</div>
+        </div>
+        
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fas fa-map-marked-alt"></i>
+          </div>
+          <div class="feature-title">Location Services</div>
+          <div class="feature-desc">Detailed maps and neighborhood information for every listing</div>
+        </div>
+      </div>
+
+      <!-- Countdown Section -->
+      <div class="countdown-section fade-in delay-3">
+        <div class="countdown-title">We're Launching In</div>
+        <div class="countdown">
+          <div class="countdown-item">
+            <span class="countdown-number" id="days">00</span>
+            <span class="countdown-label">Days</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="hours">00</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="minutes">00</span>
+            <span class="countdown-label">Minutes</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="seconds">00</span>
+            <span class="countdown-label">Seconds</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Newsletter Section -->
+      <div class="newsletter-section fade-in delay-4">
+        <div class="newsletter-title">Get Early Access</div>
+        <form class="newsletter-form">
+          <input type="email" class="newsletter-input" placeholder="Enter your email address" required />
+          <button type="submit" class="newsletter-btn">
+            <i class="fas fa-bell"></i>
+            Notify Me
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section fade-in delay-4">
+      <div class="contact-item">
+        <i class="fas fa-envelope contact-icon"></i>
+        <span class="contact-text">mokapera2015@gmail.com</span>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-phone contact-icon"></i>
+        <span class="contact-text">+255 715 750 755</span>
+      </div>
+    </div>
+
+    <!-- Social Links -->
+    <div class="social-links fade-in delay-4">
+      <a href="#" class="social-link">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="#" class="social-link">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="#" class="social-link">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="#" class="social-link">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="fade-in delay-4">
+      © 2025 NyumbaFasta. All rights reserved. | Transforming Tanzania's Housing Landscape
+    </footer>
+  </div>
+
+  <script>
+    // Countdown Timer
+    const targetDate = new Date("2025-12-31T00:00:00").getTime();
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const gap = targetDate - now;
+
+      const second = 1000;
+      const minute = second * 60;
+      const hour = minute * 60;
+      const day = hour * 24;
+
+      const days = Math.floor(gap / day);
+      const hours = Math.floor((gap % day) / hour);
+      const minutes = Math.floor((gap % hour) / minute);
+      const seconds = Math.floor((gap % minute) / second);
+
+      daysEl.innerText = days.toString().padStart(2, '0');
+      hoursEl.innerText = hours.toString().padStart(2, '0');
+      minutesEl.innerText = minutes.toString().padStart(2, '0');
+      secondsEl.innerText = seconds.toString().padStart(2, '0');
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // Form submission
+    document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = this.querySelector('.newsletter-input').value;
+      alert(`Thank you! We'll notify you at ${email} when we launch.`);
+      this.querySelector('.newsletter-input').value = '';
+    });
+
+    // Add fade-in animation to elements on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe all fade-in elements
+    document.querySelectorAll('.fade-in').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
+juu ya itinerary timeline weka picha na fanya styling nzuri sana kwa picha hiyo

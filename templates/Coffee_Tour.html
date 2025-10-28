@@ -1,5 +1,7 @@
 <!-- core/templates/core/coffee_tour_itinerary.html -->
 {% extends "base.html" %}
+{% load static %}
+
 {% block title %}Coffee Farm Experience - Tengeru Village - Nalala House{% endblock %}
 
 {% block content %}
@@ -64,10 +66,15 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="itinerary-image-placeholder text-center p-5">
-                        <i class="fas fa-mountain fa-8x mb-4"></i>
-                        <h4 class="text-white mb-2">Tengeru Village</h4>
-                        <p class="text-white">Lush foothills of Mount Meru</p>
+                    <!-- Coffee Process Image Section -->
+                    <div class="coffee-process-image">
+                        <img src="https://www.gowitossafarisandholidays.com/wp-content/uploads/2023/06/image_processing20220209-4-p7s2j8.jpg" 
+                             alt="Coffee Farm Process in Tengeru Village" 
+                             class="coffee-process-img">
+                        <div class="image-caption">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Tengeru Village Coffee Farm</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -455,25 +462,25 @@
     </div>
 
     <!-- CTA Section -->
-<div class="itinerary-cta-section">
-    <div class="container text-center">
-        <h2>Ready for Your Coffee Adventure?</h2>
-        <p>Book your authentic Tengeru Village coffee farm experience</p>
-        <div class="cta-buttons">
-            <a href="https://wa.me/255757179698?text=Hello!%20I%20would%20like%20to%20book%20the%20Tengeru%20Village%20coffee%20farm%20tour" 
-               class="cta-btn primary" 
-               target="_blank" 
-               rel="noopener noreferrer">
-                <i class="fab fa-whatsapp"></i>
-                Book This Tour
-            </a>
-            <button class="cta-btn secondary">
-                <i class="fas fa-print"></i>
-                Print Itinerary
-            </button>
+    <div class="itinerary-cta-section">
+        <div class="container text-center">
+            <h2>Ready for Your Coffee Adventure?</h2>
+            <p>Book your authentic Tengeru Village coffee farm experience</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/255757179698?text=Hello!%20I%20would%20like%20to%20book%20the%20Tengeru%20Village%20coffee%20farm%20tour" 
+                   class="cta-btn primary" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp"></i>
+                    Book This Tour
+                </a>
+                <button class="cta-btn secondary">
+                    <i class="fas fa-print"></i>
+                    Print Itinerary
+                </button>
+            </div>
         </div>
     </div>
-</div>
 </div>
 
 <!-- CSS Styles -->
@@ -490,7 +497,7 @@
 /* Hero Section */
 .itinerary-hero-section {
     background: linear-gradient(135deg, rgba(139, 69, 19, 0.9), rgba(101, 67, 33, 0.9)),
-                url('https://www.lightsonafrica.com/wp-content/uploads/2024/07/Coffee-Plantation-tour-in-Arusha.jpg');
+                url('https://www.focuseastafricatours.com/wp-content/uploads/coffee-plantation-1024x602.jpg');
     background-size: cover;
     background-position: center;
     color: white;
@@ -562,6 +569,17 @@
 .itinerary-intro-section {
     background: #F5F5DC;
     padding: 80px 0;
+    position: relative;
+}
+
+.itinerary-intro-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #8B4513, #D4AF37, #8B4513);
 }
 
 .section-title {
@@ -590,6 +608,15 @@
     font-size: 1.1rem;
     color: #8B4513;
     font-weight: 500;
+    padding: 10px 15px;
+    background: rgba(139, 69, 19, 0.1);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.itinerary-features .feature-item:hover {
+    background: rgba(139, 69, 19, 0.15);
+    transform: translateX(5px);
 }
 
 .itinerary-features .feature-item i {
@@ -597,20 +624,66 @@
     font-size: 1.2rem;
 }
 
-.itinerary-image-placeholder {
-    background: rgba(139, 69, 19, 0.8);
+/* Coffee Process Image Section */
+.coffee-process-image {
+    position: relative;
     border-radius: 20px;
-    border: 2px solid #D4AF37;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    margin-left: 20px;
 }
 
-.itinerary-image-placeholder i {
-    color: #D4AF37;
+.coffee-process-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.coffee-process-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.coffee-process-image:hover .coffee-process-img {
+    transform: scale(1.05);
+}
+
+.image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    padding: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.image-caption i {
+    color: #FFD700;
 }
 
 /* Timeline Section */
 .itinerary-timeline-section {
     padding: 80px 0;
     background: #F5F5DC;
+    position: relative;
+}
+
+.itinerary-timeline-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #8B4513, #D4AF37, #8B4513);
 }
 
 .section-header {
@@ -653,21 +726,47 @@
     color: white;
     z-index: 2;
     position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border: 3px solid white;
+    animation: marker-glow 2s ease-in-out infinite alternate;
 }
 
-.marker-icon.pickup { background: linear-gradient(135deg, #667eea, #764ba2); }
-.marker-icon.village { background: linear-gradient(135deg, #A8FF78, #78FFD6); }
-.marker-icon.processing { background: linear-gradient(135deg, #FF9A9E, #FECFEF); }
-.marker-icon.brewing { background: linear-gradient(135deg, #FFAFBD, #FFC3A0); }
-.marker-icon.lunch { background: linear-gradient(135deg, #FFD700, #FFA500); }
-.marker-icon.return { background: linear-gradient(135deg, #8B4513, #A0522D); }
+.marker-icon.pickup { 
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.marker-icon.village { 
+    background: linear-gradient(135deg, #A8FF78, #78FFD6);
+}
+
+.marker-icon.processing { 
+    background: linear-gradient(135deg, #FF9A9E, #FECFEF);
+}
+
+.marker-icon.brewing { 
+    background: linear-gradient(135deg, #FFAFBD, #FFC3A0);
+}
+
+.marker-icon.lunch { 
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+}
+
+.marker-icon.return { 
+    background: linear-gradient(135deg, #8B4513, #A0522D);
+}
+
+@keyframes marker-glow {
+    from { box-shadow: 0 0 20px rgba(139, 69, 19, 0.5); }
+    to { box-shadow: 0 0 30px rgba(212, 175, 55, 0.8); }
+}
 
 .timeline-connector {
     width: 3px;
-    background: linear-gradient(to bottom, #8B4513, #D4AF37);
+    background: linear-gradient(to bottom, #8B4513, #D4AF37, #8B4513);
     flex: 1;
     margin-top: 15px;
     border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(139, 69, 19, 0.3);
 }
 
 .timeline-item:last-child .timeline-connector {
@@ -676,11 +775,31 @@
 
 .timeline-content {
     flex: 1;
-    background: rgba(139, 69, 19, 0.8);
+    background: rgba(139, 69, 19, 0.9);
     border-radius: 20px;
     padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     border: 2px solid #D4AF37;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #D4AF37, #FFD700, #D4AF37);
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: #FFD700;
 }
 
 .timeline-header {
@@ -692,20 +811,23 @@
 }
 
 .time-badge {
-    background: #D4AF37;
+    background: linear-gradient(135deg, #D4AF37, #FFD700);
     color: #8B4513;
-    padding: 8px 20px;
+    padding: 10px 25px;
     border-radius: 50px;
-    font-weight: 600;
-    font-size: 0.9rem;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    border: 2px solid white;
 }
 
 .timeline-title {
     font-size: 1.8rem;
-    font-weight: 600;
+    font-weight: 700;
     color: white;
     margin: 0;
     flex: 1;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* Activity Grid */
@@ -716,19 +838,23 @@
 }
 
 .activity-card {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
     padding: 25px;
     border-radius: 15px;
     display: flex;
     align-items: flex-start;
     gap: 15px;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
     border-left: 4px solid #D4AF37;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .activity-card:hover {
     transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.2);
+    border-left-color: #FFD700;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .activity-card.full-width {
@@ -738,27 +864,35 @@
 .activity-icon {
     width: 50px;
     height: 50px;
-    background: rgba(212, 175, 55, 0.2);
+    background: rgba(212, 175, 55, 0.3);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #D4AF37;
+    color: #FFD700;
     font-size: 1.2rem;
     flex-shrink: 0;
-    border: 2px solid #D4AF37;
+    border: 2px solid #FFD700;
+    transition: all 0.3s ease;
+}
+
+.activity-card:hover .activity-icon {
+    background: rgba(255, 215, 0, 0.4);
+    transform: scale(1.1);
 }
 
 .activity-details h4 {
     color: white;
     margin-bottom: 10px;
     font-weight: 600;
+    font-size: 1.1rem;
 }
 
 .activity-details p {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.95);
     margin: 0;
     line-height: 1.6;
+    font-size: 0.95rem;
 }
 
 /* Tour Info */
@@ -773,7 +907,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    color: #D4AF37;
+    color: #FFD700;
     font-weight: 500;
 }
 
@@ -786,16 +920,24 @@
 }
 
 .experience-tag {
-    background: rgba(212, 175, 55, 0.2);
-    color: #D4AF37;
-    padding: 6px 12px;
+    background: rgba(212, 175, 55, 0.25);
+    color: #FFD700;
+    padding: 8px 15px;
     border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid rgba(212, 175, 55, 0.4);
     display: flex;
     align-items: center;
     gap: 5px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.experience-tag:hover {
+    background: rgba(255, 215, 0, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
 }
 
 /* Process Steps */
@@ -814,20 +956,32 @@
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     border-left: 3px solid #D4AF37;
+    transition: all 0.3s ease;
+}
+
+.process-step:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(5px);
 }
 
 .step-icon {
     width: 40px;
     height: 40px;
-    background: rgba(212, 175, 55, 0.2);
+    background: rgba(212, 175, 55, 0.3);
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #D4AF37;
+    color: #FFD700;
     font-size: 1rem;
     flex-shrink: 0;
-    border: 2px solid #D4AF37;
+    border: 2px solid #FFD700;
+    transition: all 0.3s ease;
+}
+
+.process-step:hover .step-icon {
+    background: rgba(255, 215, 0, 0.4);
+    transform: scale(1.1);
 }
 
 .step-details h5 {
@@ -837,7 +991,7 @@
 }
 
 .step-details p {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.9);
     margin: 0;
     font-size: 0.9rem;
 }
@@ -857,10 +1011,16 @@
     padding: 15px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(5px);
 }
 
 .highlight-item i {
-    color: #D4AF37;
+    color: #FFD700;
     font-size: 1.5rem;
     width: 40px;
     text-align: center;
@@ -873,7 +1033,7 @@
 }
 
 .highlight-item p {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.9);
     margin: 0;
     font-size: 0.9rem;
 }
@@ -883,47 +1043,80 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    background: rgba(255, 215, 0, 0.2);
+    background: rgba(255, 215, 0, 0.25);
     padding: 12px 15px;
     border-radius: 8px;
     margin-top: 15px;
     color: #FFD700;
     font-weight: 500;
-    border: 1px solid rgba(255, 215, 0, 0.3);
+    border: 1px solid rgba(255, 215, 0, 0.4);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.optional-note:hover {
+    background: rgba(255, 215, 0, 0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
 }
 
 /* Inclusions Section */
 .inclusions-section {
     background: #F5F5DC;
+    position: relative;
+}
+
+.inclusions-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #8B4513, #D4AF37, #8B4513);
 }
 
 .inclusion-card {
     background: white;
     border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
     height: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
-.inclusion-card.included {
-    border-top: 4px solid #10B981;
+.inclusion-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #10B981, #34D399);
+}
+
+.inclusion-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .inclusion-header {
     display: flex;
     align-items: center;
     gap: 15px;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
 .inclusion-header i {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: #10B981;
 }
 
 .inclusion-title {
-    font-size: 1.8rem;
-    font-weight: 600;
+    font-size: 2rem;
+    font-weight: 700;
     color: #8B4513;
     margin: 0;
 }
@@ -931,36 +1124,54 @@
 .inclusion-list {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
 .inclusion-item {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 12px 0;
+    gap: 15px;
+    padding: 15px 0;
     border-bottom: 1px solid #E5E7EB;
+    transition: all 0.3s ease;
 }
 
 .inclusion-item:last-child {
     border-bottom: none;
 }
 
+.inclusion-item:hover {
+    transform: translateX(5px);
+}
+
 .inclusion-item i {
     color: #D4AF37;
-    font-size: 1.1rem;
-    width: 20px;
+    font-size: 1.3rem;
+    width: 25px;
+    text-align: center;
 }
 
 .inclusion-item span {
     color: #666;
     font-weight: 500;
+    font-size: 1.1rem;
 }
 
 /* Features Section */
 .itinerary-features-section {
     padding: 80px 0;
     background: rgba(139, 69, 19, 0.1);
+    position: relative;
+}
+
+.itinerary-features-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #8B4513, #D4AF37, #8B4513);
 }
 
 .features-grid {
@@ -976,12 +1187,25 @@
     padding: 40px 30px;
     background: white;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #8B4513, #D4AF37);
 }
 
 .feature-item:hover {
     transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .feature-icon-wrapper {
@@ -995,18 +1219,27 @@
     margin: 0 auto 25px;
     font-size: 2rem;
     color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+}
+
+.feature-item:hover .feature-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.4);
 }
 
 .feature-item h4 {
     color: #8B4513;
     margin-bottom: 15px;
     font-weight: 600;
+    font-size: 1.3rem;
 }
 
 .feature-item p {
     color: #666;
     line-height: 1.6;
     margin: 0;
+    font-size: 0.95rem;
 }
 
 /* CTA Section */
@@ -1015,6 +1248,17 @@
     padding: 80px 0;
     color: white;
     text-align: center;
+    position: relative;
+}
+
+.itinerary-cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #D4AF37, #FFD700, #D4AF37);
 }
 
 .itinerary-cta-section h2 {
@@ -1022,12 +1266,13 @@
     font-weight: 700;
     margin-bottom: 15px;
     color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .itinerary-cta-section p {
     font-size: 1.2rem;
     margin-bottom: 40px;
-    opacity: 0.9;
+    opacity: 0.95;
     color: white;
 }
 
@@ -1039,46 +1284,76 @@
 }
 
 .cta-btn {
-    padding: 15px 35px;
+    padding: 18px 40px;
     border-radius: 50px;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1.1rem;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.cta-btn:hover::before {
+    left: 100%;
 }
 
 .cta-btn.primary {
-    background: #D4AF37;
+    background: linear-gradient(135deg, #D4AF37, #FFD700);
     color: #8B4513;
+    border: 2px solid #FFD700;
 }
 
 .cta-btn.primary:hover {
-    background: #FFD700;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+    background: linear-gradient(135deg, #FFD700, #FFEC8B);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
 }
 
 .cta-btn.secondary {
     background: transparent;
     color: white;
     border: 2px solid white;
+    backdrop-filter: blur(10px);
 }
 
 .cta-btn.secondary:hover {
     background: white;
     color: #8B4513;
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(255, 255, 255, 0.3);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .itinerary-main-title {
         font-size: 2.5rem;
+    }
+    
+    .coffee-process-image {
+        margin-left: 0;
+        margin-top: 30px;
+    }
+    
+    .coffee-process-img {
+        height: 300px;
     }
     
     .itinerary-stats {
@@ -1165,6 +1440,17 @@
     opacity: 1;
     transform: translateY(0);
 }
+
+.coffee-process-image {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.6s ease;
+}
+
+.coffee-process-image.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
 </style>
 
 <script>
@@ -1173,6 +1459,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const timelineItems = document.querySelectorAll('.timeline-item');
     const featureItems = document.querySelectorAll('.feature-item');
     const inclusionCards = document.querySelectorAll('.inclusion-card');
+    const coffeeImage = document.querySelector('.coffee-process-image');
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -1184,6 +1471,11 @@ document.addEventListener('DOMContentLoaded', function() {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     });
+    
+    // Observe coffee image
+    if (coffeeImage) {
+        observer.observe(coffeeImage);
+    }
     
     timelineItems.forEach((item, index) => {
         item.style.transitionDelay = `${index * 0.2}s`;
@@ -1219,7 +1511,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add hover effects
+    // Enhanced hover effects
     document.querySelectorAll('.activity-card, .feature-item, .inclusion-card').forEach(item => {
         item.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-5px)';

@@ -1,5 +1,7 @@
 <!-- core/templates/core/chemka_itinerary.html -->
 {% extends "base.html" %}
+{% load static %}
+
 {% block title %}Chemka Hot Springs Day Trip - Nalala House{% endblock %}
 
 {% block content %}
@@ -59,21 +61,30 @@
                                 <i class="fas fa-swimmer"></i>
                                 <span>Perfect Swimming Temperature</span>
                             </div>
+                            <div class="feature-item">
+                                <i class="fas fa-camera"></i>
+                                <span>Photography Paradise</span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="itinerary-image-placeholder text-center p-5">
-                        <i class="fas fa-water fa-8x mb-4"></i>
-                        <h4 class="text-white mb-2">Natural Spring Waters</h4>
-                        <p class="text-white">Crystal clear and refreshing</p>
+                    <!-- Chemka Hot Springs Image Section -->
+                    <div class="hotsprings-process-image">
+                        <img src="https://worldadventuretours.com/wp-content/uploads/2023/05/chemka-hot-springs-product.jpg" 
+                             alt="Chemka Hot Springs - Crystal clear turquoise water surrounded by lush greenery" 
+                             class="hotsprings-process-img">
+                        <div class="image-caption">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Chemka Hot Springs Natural Oasis</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Itinerary Timeline -->
+    <!-- Detailed Itinerary -->
     <div class="itinerary-timeline-section">
         <div class="container">
             <div class="section-header text-center mb-5">
@@ -93,40 +104,28 @@
                     <div class="timeline-content">
                         <div class="timeline-header">
                             <span class="time-badge">8:00 AM</span>
-                            <h3 class="timeline-title">Morning Departure</h3>
+                            <h3 class="timeline-title">Morning Departure from Arusha</h3>
                         </div>
                         <div class="timeline-body">
-                            <div class="activity-grid">
-                                <div class="activity-card">
-                                    <div class="activity-icon">
-                                        <i class="fas fa-hotel"></i>
-                                    </div>
-                                    <div class="activity-details">
-                                        <h4>Hotel Pick-up</h4>
-                                        <p>Pick-up from your hotel in Arusha around 8:00 AM</p>
-                                    </div>
+                            <div class="activity-card full-width">
+                                <div class="activity-icon">
+                                    <i class="fas fa-hotel"></i>
                                 </div>
-                                
-                                <div class="activity-card full-width">
-                                    <div class="activity-icon">
-                                        <i class="fas fa-road"></i>
-                                    </div>
-                                    <div class="activity-details">
-                                        <h4>Scenic Drive</h4>
-                                        <p>Drive through local villages, banana plantations, and open landscapes with views of Mount Kilimanjaro (on a clear day)</p>
-                                        <div class="drive-info">
-                                            <div class="drive-item">
-                                                <i class="fas fa-clock"></i>
-                                                <span>Drive Time: 2–2.5 hours</span>
-                                            </div>
-                                            <div class="drive-item">
-                                                <i class="fas fa-mountain"></i>
-                                                <span>Views of Mount Kilimanjaro</span>
-                                            </div>
-                                            <div class="drive-item">
-                                                <i class="fas fa-village"></i>
-                                                <span>Local Villages & Plantations</span>
-                                            </div>
+                                <div class="activity-details">
+                                    <h4>Hotel Pick-up & Scenic Drive</h4>
+                                    <p>Pick-up from your hotel in Arusha around 8:00 AM and begin your journey to the hidden oasis. Enjoy the scenic drive through local villages and beautiful Tanzanian countryside.</p>
+                                    <div class="tour-info">
+                                        <div class="info-item">
+                                            <i class="fas fa-clock"></i>
+                                            <span>2-2.5 hours drive from Arusha</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <i class="fas fa-mountain"></i>
+                                            <span>Views of Mount Kilimanjaro (on clear days)</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <i class="fas fa-village"></i>
+                                            <span>Pass through local villages</span>
                                         </div>
                                     </div>
                                 </div>
@@ -135,10 +134,10 @@
                     </div>
                 </div>
 
-                <!-- Late Morning Section -->
+                <!-- Arrival Section -->
                 <div class="timeline-item">
                     <div class="timeline-marker">
-                        <div class="marker-icon swimming">
+                        <div class="marker-icon arrival">
                             <i class="fas fa-swimmer"></i>
                         </div>
                         <div class="timeline-connector"></div>
@@ -154,25 +153,25 @@
                                     <i class="fas fa-water"></i>
                                 </div>
                                 <div class="activity-details">
-                                    <h4>Swimming & Relaxation</h4>
-                                    <p>Arrive at Kikuletwa Hot Springs and enjoy your day swimming in the clear, warm water. Relax under the shade of the fig trees or swing on the rope over the lagoon for fun jumps into the water.</p>
-                                    <div class="spring-activities">
-                                        <div class="activity-tag">
+                                    <h4>Swimming & Relaxation Time</h4>
+                                    <p>Arrive at the stunning Chemka Hot Springs and immerse yourself in the crystal-clear turquoise waters. Relax under the shade of fig trees and enjoy the natural beauty of this hidden oasis.</p>
+                                    <div class="experience-tags">
+                                        <span class="experience-tag">
                                             <i class="fas fa-swimmer"></i>
                                             Swimming in Crystal Water
-                                        </div>
-                                        <div class="activity-tag">
+                                        </span>
+                                        <span class="experience-tag">
                                             <i class="fas fa-tree"></i>
                                             Shade under Fig Trees
-                                        </div>
-                                        <div class="activity-tag">
+                                        </span>
+                                        <span class="experience-tag">
                                             <i class="fas fa-rope"></i>
                                             Rope Swinging & Jumping
-                                        </div>
-                                        <div class="activity-tag">
+                                        </span>
+                                        <span class="experience-tag">
                                             <i class="fas fa-camera"></i>
                                             Photography Opportunities
-                                        </div>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -180,7 +179,7 @@
                     </div>
                 </div>
 
-                <!-- Afternoon Section -->
+                <!-- Lunch Section -->
                 <div class="timeline-item">
                     <div class="timeline-marker">
                         <div class="marker-icon lunch">
@@ -201,7 +200,7 @@
                                     </div>
                                     <div class="activity-details">
                                         <h4>Picnic Lunch</h4>
-                                        <p>Enjoy a picnic lunch or local BBQ (Nyama Choma) served near the springs</p>
+                                        <p>Enjoy a delicious picnic lunch served near the springs, surrounded by nature.</p>
                                     </div>
                                 </div>
                                 
@@ -210,8 +209,68 @@
                                         <i class="fas fa-clock"></i>
                                     </div>
                                     <div class="activity-details">
-                                        <h4>Free Time</h4>
-                                        <p>Free time for swimming, taking photos, or short walks around the area</p>
+                                        <h4>Free Time Activities</h4>
+                                        <p>More time for swimming, exploring the area, or simply relaxing in this paradise.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="optional-note">
+                                <i class="fas fa-info-circle"></i>
+                                <span>Local BBQ (Nyama Choma) available upon request at extra cost</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Afternoon Section -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-icon afternoon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="timeline-connector"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <span class="time-badge">2:00 PM</span>
+                            <h3 class="timeline-title">Afternoon Relaxation & Exploration</h3>
+                        </div>
+                        <div class="timeline-body">
+                            <div class="activity-card full-width">
+                                <div class="activity-icon">
+                                    <i class="fas fa-hiking"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <h4>Nature Exploration</h4>
+                                    <p>Take a short walk around the area to discover more of the natural beauty, spot local bird species, and learn about the ecosystem of this unique hot spring.</p>
+                                    <div class="process-steps">
+                                        <div class="process-step">
+                                            <div class="step-icon">
+                                                <i class="fas fa-binoculars"></i>
+                                            </div>
+                                            <div class="step-details">
+                                                <h5>Bird Watching</h5>
+                                                <p>Spot various bird species in their natural habitat</p>
+                                            </div>
+                                        </div>
+                                        <div class="process-step">
+                                            <div class="step-icon">
+                                                <i class="fas fa-camera"></i>
+                                            </div>
+                                            <div class="step-details">
+                                                <h5>Photography Session</h5>
+                                                <p>Capture stunning photos of the turquoise waters</p>
+                                            </div>
+                                        </div>
+                                        <div class="process-step">
+                                            <div class="step-icon">
+                                                <i class="fas fa-tree"></i>
+                                            </div>
+                                            <div class="step-details">
+                                                <h5>Nature Walk</h5>
+                                                <p>Explore the surrounding lush vegetation</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -219,27 +278,86 @@
                     </div>
                 </div>
 
-                <!-- Late Afternoon Section -->
+                <!-- Return Section -->
                 <div class="timeline-item">
                     <div class="timeline-marker">
                         <div class="marker-icon return">
-                            <i class="fas fa-moon"></i>
+                            <i class="fas fa-home"></i>
                         </div>
                     </div>
                     <div class="timeline-content">
                         <div class="timeline-header">
                             <span class="time-badge">3:30 PM</span>
-                            <h3 class="timeline-title">Return Journey</h3>
+                            <h3 class="timeline-title">Return Journey to Arusha</h3>
                         </div>
                         <div class="timeline-body">
+                            <div class="activity-grid">
+                                <div class="activity-card">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-sunset"></i>
+                                    </div>
+                                    <div class="activity-details">
+                                        <h4>Departure</h4>
+                                        <p>Begin your journey back to Arusha with unforgettable memories.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="activity-card">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-car-side"></i>
+                                    </div>
+                                    <div class="activity-details">
+                                        <h4>Comfortable Return</h4>
+                                        <p>Relax during the scenic drive back to your accommodation.</p>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="return-info">
                                 <div class="return-icon">
-                                    <i class="fas fa-car-side"></i>
+                                    <i class="fas fa-clock"></i>
                                 </div>
                                 <div class="return-details">
-                                    <h4>Back to Arusha</h4>
-                                    <p>Depart Chemka around 3:30–4:00 PM and drive back to Arusha, arriving by early evening with unforgettable memories of your day at the oasis.</p>
+                                    <h4>Estimated Arrival</h4>
+                                    <p>Arrive back in Arusha by early evening (around 6:00 PM) after a refreshing day at the oasis.</p>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inclusions Section -->
+    <div class="inclusions-section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="inclusion-card included">
+                        <div class="inclusion-header">
+                            <i class="fas fa-check-circle"></i>
+                            <h3 class="inclusion-title">Tour Inclusions</h3>
+                        </div>
+                        <div class="inclusion-list">
+                            <div class="inclusion-item">
+                                <i class="fas fa-user"></i>
+                                <span>Professional English-speaking guide</span>
+                            </div>
+                            <div class="inclusion-item">
+                                <i class="fas fa-car"></i>
+                                <span>Round-trip transportation from Arusha</span>
+                            </div>
+                            <div class="inclusion-item">
+                                <i class="fas fa-ticket-alt"></i>
+                                <span>All entrance fees to Chemka Hot Springs</span>
+                            </div>
+                            <div class="inclusion-item">
+                                <i class="fas fa-utensils"></i>
+                                <span>Picnic lunch and bottled water</span>
+                            </div>
+                            <div class="inclusion-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>All government taxes and fees</span>
                             </div>
                         </div>
                     </div>
@@ -253,7 +371,7 @@
         <div class="container">
             <div class="section-header text-center mb-5">
                 <h2 class="section-title">Preparation Guide</h2>
-                <p class="section-subtitle">What to bring for your perfect day</p>
+                <p class="section-subtitle">What to bring for your perfect day at the oasis</p>
             </div>
             
             <div class="features-grid">
@@ -270,7 +388,7 @@
                         <i class="fas fa-sun"></i>
                     </div>
                     <h4>Sun Protection</h4>
-                    <p>Sunscreen, hat, and sunglasses</p>
+                    <p>Sunscreen, hat, and sunglasses for sun protection</p>
                 </div>
                 
                 <div class="feature-item">
@@ -278,7 +396,7 @@
                         <i class="fas fa-camera"></i>
                     </div>
                     <h4>Camera</h4>
-                    <p>Capture the beautiful turquoise waters</p>
+                    <p>Capture the beautiful turquoise waters and scenery</p>
                 </div>
                 
                 <div class="feature-item">
@@ -286,7 +404,7 @@
                         <i class="fas fa-towel"></i>
                     </div>
                     <h4>Towel</h4>
-                    <p>Dry off after swimming</p>
+                    <p>Dry off after swimming in the springs</p>
                 </div>
                 
                 <div class="feature-item">
@@ -294,14 +412,14 @@
                         <i class="fas fa-shoe-prints"></i>
                     </div>
                     <h4>Comfortable Shoes</h4>
-                    <p>For walking around the area</p>
+                    <p>For walking around the area comfortably</p>
                 </div>
                 
                 <div class="feature-item">
                     <div class="feature-icon-wrapper">
                         <i class="fas fa-water-bottle"></i>
                     </div>
-                    <h4>Water Bottle</h4>
+                    <h4>Extra Water</h4>
                     <p>Stay hydrated throughout the day</p>
                 </div>
             </div>
@@ -309,25 +427,25 @@
     </div>
 
     <!-- CTA Section -->
-<div class="itinerary-cta-section">
-    <div class="container text-center">
-        <h2>Ready to Discover the Oasis?</h2>
-        <p>Book your unforgettable day at Chemka Hot Springs</p>
-        <div class="cta-buttons">
-            <a href="https://wa.me/255757179698?text=Hello!%20I%20would%20like%20to%20book%20the%20Chemka%20Hot%20Springs%20day%20trip" 
-               class="cta-btn primary" 
-               target="_blank" 
-               rel="noopener noreferrer">
-                <i class="fab fa-whatsapp"></i>
-                Book This Excursion
-            </a>
-            <button class="cta-btn secondary">
-                <i class="fas fa-print"></i>
-                Print Itinerary
-            </button>
+    <div class="itinerary-cta-section">
+        <div class="container text-center">
+            <h2>Ready to Discover the Oasis?</h2>
+            <p>Book your unforgettable day at Chemka Hot Springs</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/255757179698?text=Hello!%20I%20would%20like%20to%20book%20the%20Chemka%20Hot%20Springs%20day%20trip" 
+                   class="cta-btn primary" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp"></i>
+                    Book This Excursion
+                </a>
+                <button class="cta-btn secondary">
+                    <i class="fas fa-print"></i>
+                    Print Itinerary
+                </button>
+            </div>
         </div>
     </div>
-</div>
 </div>
 
 <!-- CSS Styles -->
@@ -344,7 +462,7 @@
 /* Hero Section */
 .itinerary-hero-section {
     background: linear-gradient(135deg, rgba(139, 69, 19, 0.9), rgba(101, 67, 33, 0.9)),
-                url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+                url('{% static 'img/hotspring.jpg' %}');
     background-size: cover;
     background-position: center;
     color: white;
@@ -416,6 +534,17 @@
 .itinerary-intro-section {
     background: #F5F5DC;
     padding: 80px 0;
+    position: relative;
+}
+
+.itinerary-intro-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #8B4513, #D4AF37, #8B4513);
 }
 
 .section-title {
@@ -444,6 +573,15 @@
     font-size: 1.1rem;
     color: #8B4513;
     font-weight: 500;
+    padding: 10px 15px;
+    background: rgba(139, 69, 19, 0.1);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.itinerary-features .feature-item:hover {
+    background: rgba(139, 69, 19, 0.15);
+    transform: translateX(5px);
 }
 
 .itinerary-features .feature-item i {
@@ -451,20 +589,66 @@
     font-size: 1.2rem;
 }
 
-.itinerary-image-placeholder {
-    background: rgba(139, 69, 19, 0.8);
+/* Hot Springs Process Image Section */
+.hotsprings-process-image {
+    position: relative;
     border-radius: 20px;
-    border: 2px solid #D4AF37;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    margin-left: 20px;
 }
 
-.itinerary-image-placeholder i {
-    color: #D4AF37;
+.hotsprings-process-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.hotsprings-process-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.hotsprings-process-image:hover .hotsprings-process-img {
+    transform: scale(1.05);
+}
+
+.image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    padding: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.image-caption i {
+    color: #FFD700;
 }
 
 /* Timeline Section */
 .itinerary-timeline-section {
     padding: 80px 0;
     background: #F5F5DC;
+    position: relative;
+}
+
+.itinerary-timeline-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #8B4513, #D4AF37, #8B4513);
 }
 
 .section-header {
@@ -507,19 +691,43 @@
     color: white;
     z-index: 2;
     position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border: 3px solid white;
+    animation: marker-glow 2s ease-in-out infinite alternate;
 }
 
-.marker-icon.morning { background: linear-gradient(135deg, #FF9A9E, #FECFEF); }
-.marker-icon.swimming { background: linear-gradient(135deg, #87CEEB, #00BFFF); }
-.marker-icon.lunch { background: linear-gradient(135deg, #FFAFBD, #FFC3A0); }
-.marker-icon.return { background: linear-gradient(135deg, #667eea, #764ba2); }
+.marker-icon.morning { 
+    background: linear-gradient(135deg, #FF9A9E, #FECFEF);
+}
+
+.marker-icon.arrival { 
+    background: linear-gradient(135deg, #87CEEB, #00BFFF);
+}
+
+.marker-icon.lunch { 
+    background: linear-gradient(135deg, #FFAFBD, #FFC3A0);
+}
+
+.marker-icon.afternoon { 
+    background: linear-gradient(135deg, #A8FF78, #78FFD6);
+}
+
+.marker-icon.return { 
+    background: linear-gradient(135deg, #8B4513, #A0522D);
+}
+
+@keyframes marker-glow {
+    from { box-shadow: 0 0 20px rgba(139, 69, 19, 0.5); }
+    to { box-shadow: 0 0 30px rgba(212, 175, 55, 0.8); }
+}
 
 .timeline-connector {
     width: 3px;
-    background: linear-gradient(to bottom, #8B4513, #D4AF37);
+    background: linear-gradient(to bottom, #8B4513, #D4AF37, #8B4513);
     flex: 1;
     margin-top: 15px;
     border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(139, 69, 19, 0.3);
 }
 
 .timeline-item:last-child .timeline-connector {
@@ -528,11 +736,31 @@
 
 .timeline-content {
     flex: 1;
-    background: rgba(139, 69, 19, 0.8);
+    background: rgba(139, 69, 19, 0.9);
     border-radius: 20px;
     padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     border: 2px solid #D4AF37;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #D4AF37, #FFD700, #D4AF37);
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: #FFD700;
 }
 
 .timeline-header {
@@ -544,20 +772,23 @@
 }
 
 .time-badge {
-    background: #D4AF37;
+    background: linear-gradient(135deg, #D4AF37, #FFD700);
     color: #8B4513;
-    padding: 8px 20px;
+    padding: 10px 25px;
     border-radius: 50px;
-    font-weight: 600;
-    font-size: 0.9rem;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    border: 2px solid white;
 }
 
 .timeline-title {
     font-size: 1.8rem;
-    font-weight: 600;
+    font-weight: 700;
     color: white;
     margin: 0;
     flex: 1;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* Activity Grid */
@@ -568,19 +799,23 @@
 }
 
 .activity-card {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
     padding: 25px;
     border-radius: 15px;
     display: flex;
     align-items: flex-start;
     gap: 15px;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
     border-left: 4px solid #D4AF37;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .activity-card:hover {
     transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.2);
+    border-left-color: #FFD700;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .activity-card.full-width {
@@ -590,64 +825,158 @@
 .activity-icon {
     width: 50px;
     height: 50px;
-    background: rgba(212, 175, 55, 0.2);
+    background: rgba(212, 175, 55, 0.3);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #D4AF37;
+    color: #FFD700;
     font-size: 1.2rem;
     flex-shrink: 0;
-    border: 2px solid #D4AF37;
+    border: 2px solid #FFD700;
+    transition: all 0.3s ease;
+}
+
+.activity-card:hover .activity-icon {
+    background: rgba(255, 215, 0, 0.4);
+    transform: scale(1.1);
 }
 
 .activity-details h4 {
     color: white;
     margin-bottom: 10px;
     font-weight: 600;
+    font-size: 1.1rem;
 }
 
 .activity-details p {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.95);
     margin: 0;
     line-height: 1.6;
+    font-size: 0.95rem;
 }
 
-/* Drive Info */
-.drive-info {
+/* Tour Info */
+.tour-info {
     margin-top: 15px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
 }
 
-.drive-item {
+.info-item {
     display: flex;
     align-items: center;
     gap: 10px;
-    color: #D4AF37;
+    color: #FFD700;
     font-weight: 500;
 }
 
-/* Spring Activities */
-.spring-activities {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+/* Experience Tags */
+.experience-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
     margin-top: 15px;
 }
 
-.activity-tag {
-    background: rgba(212, 175, 55, 0.2);
-    color: #D4AF37;
-    padding: 10px 15px;
-    border-radius: 10px;
-    font-size: 0.9rem;
-    font-weight: 500;
+.experience-tag {
+    background: rgba(212, 175, 55, 0.25);
+    color: #FFD700;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid rgba(212, 175, 55, 0.4);
     display: flex;
     align-items: center;
-    gap: 8px;
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    gap: 5px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.experience-tag:hover {
+    background: rgba(255, 215, 0, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+/* Process Steps */
+.process-steps {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.process-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    border-left: 3px solid #D4AF37;
+    transition: all 0.3s ease;
+}
+
+.process-step:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(5px);
+}
+
+.step-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(212, 175, 55, 0.3);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFD700;
+    font-size: 1rem;
+    flex-shrink: 0;
+    border: 2px solid #FFD700;
+    transition: all 0.3s ease;
+}
+
+.process-step:hover .step-icon {
+    background: rgba(255, 215, 0, 0.4);
+    transform: scale(1.1);
+}
+
+.step-details h5 {
+    color: white;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.step-details p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Optional Note */
+.optional-note {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 215, 0, 0.25);
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    color: #FFD700;
+    font-weight: 500;
+    border: 1px solid rgba(255, 215, 0, 0.4);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.optional-note:hover {
+    background: rgba(255, 215, 0, 0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
 }
 
 /* Return Info */
@@ -658,6 +987,7 @@
     background: rgba(255, 255, 255, 0.1);
     padding: 25px;
     border-radius: 15px;
+    margin-top: 20px;
     border-left: 4px solid #667eea;
 }
 
@@ -687,10 +1017,118 @@
     line-height: 1.6;
 }
 
+/* Inclusions Section */
+.inclusions-section {
+    background: #F5F5DC;
+    position: relative;
+}
+
+.inclusions-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #8B4513, #D4AF37, #8B4513);
+}
+
+.inclusion-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.inclusion-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #10B981, #34D399);
+}
+
+.inclusion-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.inclusion-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.inclusion-header i {
+    font-size: 2.5rem;
+    color: #10B981;
+}
+
+.inclusion-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #8B4513;
+    margin: 0;
+}
+
+.inclusion-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.inclusion-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #E5E7EB;
+    transition: all 0.3s ease;
+}
+
+.inclusion-item:last-child {
+    border-bottom: none;
+}
+
+.inclusion-item:hover {
+    transform: translateX(5px);
+}
+
+.inclusion-item i {
+    color: #D4AF37;
+    font-size: 1.3rem;
+    width: 25px;
+    text-align: center;
+}
+
+.inclusion-item span {
+    color: #666;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
 /* Features Section */
 .itinerary-features-section {
     padding: 80px 0;
     background: rgba(139, 69, 19, 0.1);
+    position: relative;
+}
+
+.itinerary-features-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #8B4513, #D4AF37, #8B4513);
 }
 
 .features-grid {
@@ -706,12 +1144,25 @@
     padding: 40px 30px;
     background: white;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #8B4513, #D4AF37);
 }
 
 .feature-item:hover {
     transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .feature-icon-wrapper {
@@ -725,18 +1176,27 @@
     margin: 0 auto 25px;
     font-size: 2rem;
     color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+}
+
+.feature-item:hover .feature-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.4);
 }
 
 .feature-item h4 {
     color: #8B4513;
     margin-bottom: 15px;
     font-weight: 600;
+    font-size: 1.3rem;
 }
 
 .feature-item p {
     color: #666;
     line-height: 1.6;
     margin: 0;
+    font-size: 0.95rem;
 }
 
 /* CTA Section */
@@ -745,6 +1205,17 @@
     padding: 80px 0;
     color: white;
     text-align: center;
+    position: relative;
+}
+
+.itinerary-cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #D4AF37, #FFD700, #D4AF37);
 }
 
 .itinerary-cta-section h2 {
@@ -752,12 +1223,13 @@
     font-weight: 700;
     margin-bottom: 15px;
     color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .itinerary-cta-section p {
     font-size: 1.2rem;
     margin-bottom: 40px;
-    opacity: 0.9;
+    opacity: 0.95;
     color: white;
 }
 
@@ -769,46 +1241,76 @@
 }
 
 .cta-btn {
-    padding: 15px 35px;
+    padding: 18px 40px;
     border-radius: 50px;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1.1rem;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.cta-btn:hover::before {
+    left: 100%;
 }
 
 .cta-btn.primary {
-    background: #D4AF37;
+    background: linear-gradient(135deg, #D4AF37, #FFD700);
     color: #8B4513;
+    border: 2px solid #FFD700;
 }
 
 .cta-btn.primary:hover {
-    background: #FFD700;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+    background: linear-gradient(135deg, #FFD700, #FFEC8B);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
 }
 
 .cta-btn.secondary {
     background: transparent;
     color: white;
     border: 2px solid white;
+    backdrop-filter: blur(10px);
 }
 
 .cta-btn.secondary:hover {
     background: white;
     color: #8B4513;
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(255, 255, 255, 0.3);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .itinerary-main-title {
         font-size: 2.5rem;
+    }
+    
+    .hotsprings-process-image {
+        margin-left: 0;
+        margin-top: 30px;
+    }
+    
+    .hotsprings-process-img {
+        height: 300px;
     }
     
     .itinerary-stats {
@@ -837,18 +1339,14 @@
         grid-template-columns: 1fr;
     }
     
-    .spring-activities {
-        grid-template-columns: 1fr;
+    .process-step {
+        flex-direction: column;
+        text-align: center;
     }
     
     .return-info {
         flex-direction: column;
         text-align: center;
-    }
-    
-    .timeline-header {
-        flex-direction: column;
-        align-items: flex-start;
     }
     
     .cta-buttons {
@@ -863,6 +1361,14 @@
     
     .features-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .experience-tags {
+        grid-template-columns: 1fr;
+    }
+    
+    .experience-tag {
+        justify-content: center;
     }
 }
 
@@ -888,6 +1394,28 @@
     opacity: 1;
     transform: translateY(0);
 }
+
+.inclusion-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.inclusion-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hotsprings-process-image {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.6s ease;
+}
+
+.hotsprings-process-image.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
 </style>
 
 <script>
@@ -895,6 +1423,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Animation on scroll
     const timelineItems = document.querySelectorAll('.timeline-item');
     const featureItems = document.querySelectorAll('.feature-item');
+    const inclusionCards = document.querySelectorAll('.inclusion-card');
+    const hotspringsImage = document.querySelector('.hotsprings-process-image');
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -907,6 +1437,11 @@ document.addEventListener('DOMContentLoaded', function() {
         rootMargin: '0px 0px -50px 0px'
     });
     
+    // Observe hot springs image
+    if (hotspringsImage) {
+        observer.observe(hotspringsImage);
+    }
+    
     timelineItems.forEach((item, index) => {
         item.style.transitionDelay = `${index * 0.2}s`;
         observer.observe(item);
@@ -915,6 +1450,11 @@ document.addEventListener('DOMContentLoaded', function() {
     featureItems.forEach((item, index) => {
         item.style.transitionDelay = `${index * 0.1}s`;
         observer.observe(item);
+    });
+    
+    inclusionCards.forEach((card, index) => {
+        card.style.transitionDelay = `${index * 0.1}s`;
+        observer.observe(card);
     });
     
     // Print functionality
@@ -936,8 +1476,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add hover effects
-    document.querySelectorAll('.activity-card, .feature-item').forEach(item => {
+    // Enhanced hover effects
+    document.querySelectorAll('.activity-card, .feature-item, .inclusion-card').forEach(item => {
         item.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-5px)';
         });
@@ -945,6 +1485,16 @@ document.addEventListener('DOMContentLoaded', function() {
         item.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0)';
         });
+    });
+    
+    // Add loading animation for images
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        img.addEventListener('load', function() {
+            this.style.opacity = '1';
+        });
+        img.style.opacity = '0';
+        img.style.transition = 'opacity 0.5s ease';
     });
 });
 </script>
