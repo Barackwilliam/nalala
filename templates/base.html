@@ -233,9 +233,15 @@
                 </li>
                 
                 <li class="nav-item">
+                    <a class="nav-link modern-link" href="{% url 'room_list' %}">
+                        <i class="fas fa-binoculars link-icon"></i>
+                        <span class="link-text">Rooms</span>
+                    </a>
+
+                </li><li class="nav-item">
                     <a class="nav-link modern-link" href="{% url 'abaut' %}">
                         <i class="fas fa-binoculars link-icon"></i>
-                        <span class="link-text">About</span>
+                        <span class="link-text">About Us</span>
                     </a>
                 </li>
 
@@ -314,7 +320,15 @@
                 <li class="nav-item">
                     <a class="nav-link modern-link" href="{% url 'book_room' %}">
                         <i class="fas fa-bed link-icon"></i>
-                        <span class="link-text">Rooms</span>
+                        <span class="link-text">Reserve</span>
+                    </a>
+                </li>
+
+                 
+                <li class="nav-item">
+                    <a class="nav-link modern-link" href="{% url 'contact' %}">
+                        <i class="fas fa-binoculars link-icon"></i>
+                        <span class="link-text">Contact Us</span>
                     </a>
                 </li>
 
@@ -808,6 +822,10 @@
             <i class="fas fa-home me-3"></i>Home
         </a>
         
+        <a class="sidebar-link d-flex align-items-center" href="{% url 'room_list' %}">
+            <i class="fas fa-home me-3"></i>Rooms
+        </a>
+        
         <!-- Mobile Safari Dropdown -->
         <div class="mobile-dropdown">
             <button class="sidebar-dropdown-toggle d-flex align-items-center justify-content-between w-100" onclick="toggleMobileSafari()">
@@ -866,14 +884,16 @@
             </div>
         </div>
         
+
+         <a class="sidebar-link d-flex align-items-center" href="{% url 'book_room' %}">
+            <i class="fas fa-bed me-3"></i>Reserve
+        </a>
+
         <a class="sidebar-link d-flex align-items-center" href="{% url 'abaut' %}">
             <i class="fas fa-binoculars me-3"></i>About Us
         </a>
 
-         <a class="sidebar-link d-flex align-items-center" href="{% url 'book_room' %}">
-            <i class="fas fa-bed me-3"></i>Rooms
-        </a>
-
+        
         <div class="sidebar-divider my-3"></div>
         
         {% if user.is_authenticated %}
@@ -888,7 +908,7 @@
         </a>
         {% else %}
         <a class="sidebar-link d-flex align-items-center" href="{% url 'admin:index' %}">
-            <i class="fas fa-lock me-3"></i>Admin Login
+            <i class="fas fa-lock me-3"></i>Login
         </a>
         {% endif %}
     </nav>

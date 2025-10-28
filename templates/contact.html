@@ -1,0 +1,520 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Contact Us - Nalala House Safari{% endblock %}
+
+{% block content %}
+<div class="contact-page">
+    <!-- Hero Section -->
+    <div class="contact-hero-section">
+        <div class="container">
+            <div class="contact-header-content text-center">
+                <h1 class="contact-main-title">Contact Us</h1>
+                <p class="contact-subtitle">Get in touch with our safari experts</p>
+                <div class="contact-header-divider"></div>
+                <p class="contact-intro-text">
+                    Ready to start your Tanzanian adventure? We're here to help you plan the perfect safari experience.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Form & Info Section -->
+    <div class="contact-main-section py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Contact Form -->
+                <div class="col-lg-8 mb-5 mb-lg-0">
+                    <div class="contact-form-card">
+                        <h2 class="form-title">Send us a Message</h2>
+                        <p class="form-subtitle">Fill out the form below and we'll get back to you within 24 hours</p>
+                        
+                        <!-- Messages Alerts -->
+                        {% if messages %}
+                        <div class="messages-container">
+                            {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+
+                        <form method="post" class="contact-form">
+                            {% csrf_token %}
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-4">
+                                        <label for="{{ form.name.id_for_label }}" class="form-label">
+                                            Full Name *
+                                        </label>
+                                        {{ form.name }}
+                                        {% if form.name.errors %}
+                                        <div class="text-danger small mt-1">
+                                            {{ form.name.errors }}
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-4">
+                                        <label for="{{ form.email.id_for_label }}" class="form-label">
+                                            Email Address *
+                                        </label>
+                                        {{ form.email }}
+                                        {% if form.email.errors %}
+                                        <div class="text-danger small mt-1">
+                                            {{ form.email.errors }}
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-4">
+                                        <label for="{{ form.phone.id_for_label }}" class="form-label">
+                                            Phone Number
+                                        </label>
+                                        {{ form.phone }}
+                                        {% if form.phone.errors %}
+                                        <div class="text-danger small mt-1">
+                                            {{ form.phone.errors }}
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-4">
+                                        <label for="{{ form.subject.id_for_label }}" class="form-label">
+                                            Subject *
+                                        </label>
+                                        {{ form.subject }}
+                                        {% if form.subject.errors %}
+                                        <div class="text-danger small mt-1">
+                                            {{ form.subject.errors }}
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group mb-4">
+                                <label for="{{ form.message.id_for_label }}" class="form-label">
+                                    Your Message *
+                                </label>
+                                {{ form.message }}
+                                {% if form.message.errors %}
+                                <div class="text-danger small mt-1">
+                                    {{ form.message.errors }}
+                                </div>
+                                {% endif %}
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-lg w-100">
+                                <i class="fas fa-paper-plane me-2"></i>
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="col-lg-4">
+                    <div class="contact-info-card">
+                        <h3 class="info-title">Get in Touch</h3>
+                        
+                        <div class="contact-info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Address</h4>
+                                <p>Arusha, Tanzania<br>PO Box 1234</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Phone</h4>
+                                <p>+255 757 179 698</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Email</h4>
+                                <p>info@nalalahouse.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Working Hours</h4>
+                                <p>Monday - Sunday: 7:00 AM - 9:00 PM</p>
+                            </div>
+                        </div>
+
+                        <div class="social-links mt-4">
+                            <h4 class="mb-3">Follow Us</h4>
+                            <div class="d-flex gap-3">
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://wa.me/255757179698" class="social-link whatsapp">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map Section -->
+    <div class="map-section">
+        <div class="container-fluid">
+            <div class="map-placeholder text-center py-5">
+                <i class="fas fa-map fa-3x mb-3 text-muted"></i>
+                <h3>Location Map</h3>
+                <p class="text-muted">Arusha, Tanzania - The safari capital of East Africa</p>
+                <!-- You can embed Google Maps here -->
+                <div class="mt-4">
+                    <a href="https://maps.google.com/?q=Arusha,Tanzania" 
+                       target="_blank" 
+                       class="btn btn-outline-primary">
+                        <i class="fas fa-directions me-2"></i>
+                        Open in Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Contact Page Styles */
+.contact-page {
+    background: #F5F5DC;
+    min-height: 100vh;
+}
+
+/* Hero Section */
+.contact-hero-section {
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.9), rgba(101, 67, 33, 0.9)),
+                url('https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0 80px;
+    text-align: center;
+}
+
+.contact-main-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.contact-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    color: white;
+}
+
+.contact-header-divider {
+    width: 100px;
+    height: 3px;
+    background: #D4AF37;
+    margin: 30px auto;
+}
+
+.contact-intro-text {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.9;
+    color: white;
+}
+
+/* Contact Form Card */
+.contact-form-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+    border: 2px solid #D4AF37;
+    height: 100%;
+}
+
+.form-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #8B4513;
+    margin-bottom: 10px;
+}
+
+.form-subtitle {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+/* Form Styles */
+.form-group label {
+    font-weight: 600;
+    color: #8B4513;
+    margin-bottom: 8px;
+}
+
+.form-control {
+    border: 2px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 12px 15px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #D4AF37;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.form-control::placeholder {
+    color: #9CA3AF;
+}
+
+/* Contact Info Card */
+.contact-info-card {
+    background: linear-gradient(135deg, #8B4513, #A0522D);
+    color: white;
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+    height: 100%;
+}
+
+.info-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: white;
+    text-align: center;
+}
+
+.contact-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-info-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.info-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #D4AF37;
+    border: 2px solid #D4AF37;
+    flex-shrink: 0;
+}
+
+.info-content h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.info-content p {
+    margin: 0;
+    opacity: 0.9;
+    color: white;
+}
+
+/* Social Links */
+.social-links h4 {
+    color: white;
+    font-weight: 600;
+}
+
+.social-link {
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.social-link:hover {
+    background: #D4AF37;
+    color: #8B4513;
+    transform: translateY(-3px);
+}
+
+.social-link.whatsapp:hover {
+    background: #25D366;
+    color: white;
+}
+
+/* Map Section */
+.map-section {
+    background: white;
+    border-top: 3px solid #D4AF37;
+}
+
+.map-placeholder {
+    background: #F8F9FA;
+}
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(135deg, #8B4513, #D4AF37);
+    border: none;
+    border-radius: 12px;
+    padding: 15px 30px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(139, 69, 19, 0.3);
+}
+
+/* Alert Messages */
+.alert {
+    border-radius: 12px;
+    border: none;
+    padding: 15px 20px;
+    margin-bottom: 25px;
+}
+
+.alert-success {
+    background: #D1FAE5;
+    color: #065F46;
+    border-left: 4px solid #10B981;
+}
+
+.alert-error {
+    background: #FEE2E2;
+    color: #991B1B;
+    border-left: 4px solid #EF4444;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-main-title {
+        font-size: 2.5rem;
+    }
+    
+    .contact-form-card,
+    .contact-info-card {
+        padding: 30px 20px;
+    }
+    
+    .contact-info-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .info-icon {
+        margin: 0 auto 10px;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Add animation to form elements
+    const formElements = document.querySelectorAll('.form-group');
+    formElements.forEach((element, index) => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = `all 0.6s ease ${index * 0.1}s`;
+        
+        setTimeout(() => {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+        }, 100);
+    });
+    
+    // Form validation enhancement
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            const requiredFields = this.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.classList.add('is-invalid');
+                } else {
+                    field.classList.remove('is-invalid');
+                }
+            });
+            
+            if (!isValid) {
+                e.preventDefault();
+                // Scroll to first error
+                const firstError = this.querySelector('.is-invalid');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    firstError.focus();
+                }
+            }
+        });
+    }
+    
+    // Auto-dismiss alerts after 5 seconds
+    const alerts = document.querySelectorAll('.alert');
+    alerts.forEach(alert => {
+        setTimeout(() => {
+            const bsAlert = new bootstrap.Alert(alert);
+            bsAlert.close();
+        }, 5000);
+    });
+});
+</script>
+{% endblock %}

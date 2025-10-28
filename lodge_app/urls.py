@@ -6,7 +6,9 @@ from . import views
 urlpatterns = [
     path('', home, name='home'),
     path('book/', book_room, name='book_room'),
+    path('contact/', views.contact_view, name='contact'),
     path('dashboard/', dashboard, name='dashboard'),
+    path('rooms/', views.room_list_view, name='room_list'),
     path('check_out/<int:guest_id>/', check_out, name='check_out'),
     path('update_lodge/', update_lodge, name='update_lodge'),
     path('Arusha_National_Park', views.Arusha_National_Park, name='Arusha_National_Park'),  # Add this line

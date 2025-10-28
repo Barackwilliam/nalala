@@ -7,6 +7,11 @@ from django.utils.translation import gettext_lazy as _
 from django.db.models import Sum  # Add this import
 from .models import Lodge, Room, Guest, Payment
 from .forms import GuestForm, PaymentForm, LodgeForm
+from django.contrib import messages
+from django.core.mail import send_mail
+from django.conf import settings
+from .forms import ContactForm
+from .models import ContactMessage
 
 def home(request):
     lodge = Lodge.objects.first()
@@ -126,3 +131,61 @@ def policy(request):
     return render(request,"policy.html")
 def abaut(request):
     return render(request,"abaut.html")
+
+
+
+
+
+
+def contact_view(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            # Save the message to database
+            contact_message = form.save()
+            
+            # Send email notification (optional)
+            try:
+                send_mail(
+                    f'New Contact Message: {contact_message.subject}',
+                    f'''
+                    New message from {contact_message.name} ({contact_message.email})
+                    Phone: {contact_message.phone or 'Not provided'}
+                    
+                    Message:
+                    {contact_message.message}
+                    ''',
+                    settings.DEFAULT_FROM_EMAIL,
+                    [settings.CONTACT_EMAIL],  # Add this to your settings
+                    fail_silently=True,
+                )
+            except:
+                pass  # Email sending is optional
+            
+            # Success message
+            messages.success(request, 'Thank you for your message! We will get back to you soon.')
+            return redirect('contact')
+    else:
+        form = ContactForm()
+    
+    return render(request, 'contact.html', {'form': form})
+
+
+
+
+def room_list_view(request):
+    """View kuonyesha rooms zote tu"""
+    rooms = Room.objects.select_related('lodge').all()
+    lodges = Lodge.objects.all()
+    
+    # Filter by lodge kama ipo katika request
+    lodge_id = request.GET.get('lodge')
+    if lodge_id:
+        rooms = rooms.filter(lodge_id=lodge_id)
+    
+    context = {
+        'rooms': rooms,
+        'lodges': lodges,
+        'selected_lodge': lodge_id
+    }
+    return render(request, 'room_list.html', context)
