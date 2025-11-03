@@ -14,6 +14,7 @@ urlpatterns = [
     path('Arusha_National_Park', views.Arusha_National_Park, name='Arusha_National_Park'),  # Add this line
     path('Kikuletwa_Hotsprings', views.Kikuletwa_Hotsprings, name='Kikuletwa_Hotsprings'),  # Add this line
     path('Tarangire_National', views.Tarangire_National, name='Tarangire_National'),  # Add this line
+    path('six_day_safari_view/', views.six_day_safari_view, name='six_day_safari_view'),    
     path('Lake_Manyara_National', views.Lake_Manyara_National, name='Lake_Manyara_National'),  # Add this line
     path('condition', views.condition, name='condition'),  # Add this line
     path('policy', views.policy, name='policy'),  # Add this line

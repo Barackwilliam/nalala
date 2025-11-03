@@ -124,6 +124,10 @@ def Coffee_Tour(request):
 def Ngorongoro_Crater(request):
     return render(request,"Ngorongoro_Crater.html")
 
+def six_day_safari_view(request):
+    """View for 6-day safari itinerary"""
+    return render(request, '6_day_safari.html')
+
 def condition(request):
     return render(request,"condition.html")
 
