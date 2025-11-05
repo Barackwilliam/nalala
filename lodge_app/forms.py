@@ -67,7 +67,7 @@ class LodgeForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['logo'].widget.attrs.update({
             'role': 'uploadcare-uploader',
-            'data-public-key': '76122001cca4add87f02',
+            'data-public-key': '7d9194fea899e270b144',
         })
 
 
@@ -87,7 +87,7 @@ class RoomForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['image'].widget.attrs.update({
             'role': 'uploadcare-uploader',
-            'data-public-key': '76122001cca4add87f02',
+            'data-public-key': '7d9194fea899e270b144',
         })
 
 

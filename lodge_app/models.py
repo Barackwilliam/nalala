@@ -6,7 +6,7 @@ class Lodge(models.Model):
     name = models.CharField(max_length=255, default='Nalala House')
     location = models.CharField(max_length=255, default='Dar es Salaam, Tanzania')
     phone = models.CharField(max_length=20, default='0757179698')
-    email = models.EmailField(default='aaron.ismail05@gmail.com')
+    email = models.EmailField(default='info@nalalahouse.com')
     logo = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):

@@ -155,8 +155,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 UPLOADCARE = {
-    'pub_key': '76122001cca4add87f02',
-    'secret': 'f00801b9b65172d50de5',
+    'pub_key': '7d9194fea899e270b144',
+    'secret': 'de4026f08e9550c3efd5',
 }
 
 
