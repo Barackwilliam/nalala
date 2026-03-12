@@ -41,15 +41,22 @@ INSTALLED_APPS = [
     'lodge_app'
 ]
 
+# If using uploader:
+CKEDITOR_UPLOAD_PATH = 'uploads/' 
+JAMIITEK_API_KEY = "5LXYMaxc4QqO7-gk0LBWWhbOQeORgGYKhGJoem6GHGaw1sglD4x0hRHag7PGY2Zd"
+JAMIITEK_API_URL = "https://jamiitek.com/api/site-status/"
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # This one here
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'jamiitek_middleware.JamiiTekStatusMiddleware',  # This one here
+
 ]
 
 ROOT_URLCONF = 'lg.urls'
